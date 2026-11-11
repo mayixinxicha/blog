@@ -35,3 +35,8 @@ footer:
   owner:
     enable: true
     since: 2026
+
+# 自定义注入脚本（优化导航栏中间页面名显示）
+inject:
+  bottom:
+    - <script src="/js/custom.js"></script>
