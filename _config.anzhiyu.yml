@@ -1,0 +1,37 @@
+# 站点级 Anzhiyu 主题配置（覆盖主题默认值）
+# 文档：https://anzhiyu.cn/
+
+# 站点头像（先用主题默认占位图，之后可换成自己的照片地址）
+avatar: https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg
+
+# 顶部导航菜单
+menu:
+  文章: /archives/ || anzhiyu-icon-box-archive
+  分类: /categories/ || anzhiyu-icon-shapes
+  标签: /tags/ || anzhiyu-icon-tags
+
+# 主页打字机 Slogan
+subtitle:
+  enable: true
+  effect: true
+  startDelay: 300
+  typeSpeed: 150
+  backSpeed: 50
+  loop: true
+  source: false
+  sub:
+    - 信息差：新工具、新玩法、新视界
+
+# 首页顶部标题区
+home_top:
+  enable: true
+  timemode: date
+  title: 谢小二｜新视界
+  subTitle: 从0-1把信息变成能力
+  siteText: xiexiaoer.net
+
+# 页脚
+footer:
+  owner:
+    enable: true
+    since: 2026
