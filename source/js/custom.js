@@ -71,6 +71,36 @@ a.categoryButton.xe-has-sub:after{position:static;order:1;margin:6px 0 3px;}
 
 /* 页脚：隐藏主题作者外链（配置空数组会被 Hexo 数组合并还原，故用 CSS 隐藏） */
 a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
+
+/* ============ 移动端（≤1200px）：主题旧版硬隐藏问候卡，对齐演示站新版行为 ============ */
+@media screen and (max-width:1200px){
+  #random-banner{display:flex!important;height:260px!important;}
+  #home_top .swiper_container_card{flex-wrap:wrap!important;overflow:hidden!important;}
+  #home_top div#bannerGroup{width:100%!important;flex:none!important;}
+  #home_top .topGroup{width:100%!important;flex:none!important;flex-wrap:wrap!important;}
+  .categoryGroup{flex-direction:row!important;height:auto!important;}
+  .categoryGroup .categoryItem:nth-child(3){display:block!important;}
+  .categoryItem{min-width:0!important;height:auto!important;min-height:64px;}
+}
+
+/* ============ 加小二 QQ 翻转卡（纯 CSS 绘制，替换主题作者的公众号图） ============ */
+#aside-content .card-widget#card-wechat{background:linear-gradient(135deg,#3a7bd5 0%,#5a8ff0 60%,#6f79f2 100%)!important;}
+[data-theme="dark"] #aside-content .card-widget#card-wechat{background:linear-gradient(135deg,#2a4a8f 0%,#3a5cc0 60%,#4a4fc0 100%)!important;}
+#card-wechat .face{background:none!important;}
+.xe-wx-front,.xe-wx-back{display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;color:#fff;text-align:center;}
+.xe-wx-brand{display:flex;align-items:center;gap:8px;}
+.xe-wx-title{font-size:22px;font-weight:700;letter-spacing:2px;}
+.xe-wx-badge{background:#fff;color:#3a7bd5;font-size:11px;font-weight:700;border-radius:6px;padding:2px 7px;}
+.xe-wx-tip{font-size:13px;opacity:.92;margin-top:9px;}
+.xe-wx-sub{font-size:14px;font-weight:600;}
+.xe-wx-qr{width:76px;height:76px;border-radius:8px;margin:5px 0;background:#fff;object-fit:cover;}
+.xe-wx-tip2{font-size:11px;opacity:.92;}
+
+/* ============ 分享按钮（替换打赏作者位置） ============ */
+.xe-share-btn{display:inline-flex;align-items:center;gap:8px;background:#425aeb;color:#fff!important;border-radius:20px;
+  padding:8px 22px;font-size:14px;font-weight:600;cursor:pointer;transition:.3s;box-shadow:0 3px 10px rgba(66,90,235,.3);}
+.xe-share-btn:hover{background:#3450d8!important;color:#fff!important;transform:translateY(-2px);}
+.xe-share-btn svg{width:16px;height:16px;fill:currentColor;}
 `;
   var style = document.createElement("style");
   style.id = "xe-style";
@@ -148,7 +178,7 @@ function xeInitTodayCard() {
   if (title && !card.querySelector(".xe-shop-sub")) {
     var sub = document.createElement("div");
     sub.className = "xe-shop-sub";
-    sub.textContent = "GPT、Claude 等热门现成账号，这里都有";
+    sub.textContent = "GPT、Claude 等热门现成账号拍下秒发";
     title.parentNode.insertBefore(sub, title.nextSibling);
   }
   // 按钮：改文字 + 移除"展开文章宫格"拦截，让点击跟随整卡链接跳转
@@ -168,6 +198,57 @@ function xeInitSayhi() {
   if (el && el.textContent !== "欢迎光临") el.textContent = "欢迎光临";
 }
 
+/* ---------------- 加小二 QQ 翻转卡（纯 CSS 卡面 + 压缩二维码） ---------------- */
+function xeInitWechatCard() {
+  var wrap = document.querySelector("#card-wechat #flip-content");
+  if (!wrap) return;
+  var face = wrap.querySelector(".face:not(.back)");
+  var back = wrap.querySelector(".back.face");
+  if (face && !face.querySelector(".xe-wx-front")) {
+    face.innerHTML =
+      '<div class="xe-wx-front">' +
+      '<div class="xe-wx-brand"><span class="xe-wx-title">加小二</span><span class="xe-wx-badge">QQ</span></div>' +
+      '<div class="xe-wx-tip">有事，找小二 ▶</div>' +
+      "</div>";
+  }
+  if (back && !back.querySelector(".xe-wx-back")) {
+    back.innerHTML =
+      '<div class="xe-wx-back">' +
+      '<div class="xe-wx-sub">扫码加好友</div>' +
+      '<img class="xe-wx-qr" src="/img/qq-qr.jpg" alt="QQ二维码">' +
+      '<div class="xe-wx-tip2">QQ扫一扫，直接加 ▶</div>' +
+      "</div>";
+  }
+}
+
+/* ---------------- 分享按钮（替换打赏作者，reward 关闭后原位置注入） ---------------- */
+function xeInitShareButton() {
+  var slot = document.querySelector("#post-tools .post-tools-left .rewardLeftButton");
+  if (!slot || slot.querySelector(".xe-share-btn")) return;
+  var b = document.createElement("a");
+  b.className = "xe-share-btn";
+  b.innerHTML =
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>分享';
+  b.onclick = function () {
+    if (navigator.share) {
+      navigator.share({ title: document.title, url: location.href }).catch(function () {});
+    } else {
+      var i = document.createElement("input");
+      i.value = location.href;
+      document.body.appendChild(i);
+      i.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(i);
+      if (window.anzhiyu && anzhiyu.snackbarShow) {
+        anzhiyu.snackbarShow("链接已复制，快去分享吧");
+      } else {
+        alert("链接已复制，快去分享吧");
+      }
+    }
+  };
+  slot.appendChild(b);
+}
+
 /* ---------------- 统一初始化 ---------------- */
 function xeInitAll() {
   xeInjectStyle();
@@ -177,6 +258,8 @@ function xeInitAll() {
   xeInitIconWall();
   xeInitTodayCard();
   xeInitSayhi();
+  xeInitWechatCard();
+  xeInitShareButton();
 }
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(xeInitAll, 30);

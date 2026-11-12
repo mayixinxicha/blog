@@ -96,6 +96,10 @@ social:
   AI小店: https://shop.xiaomimiai.com || anzhiyu-icon-qrcode
   工具箱: /toolbox/ || anzhiyu-icon-gear
 
+# 打赏：业务站关闭（原位置由 custom.js 注入「分享」按钮；同时隐藏打赏弹窗和控制台打赏区）
+reward:
+  enable: false
+
 # 页脚
 footer:
   owner:
