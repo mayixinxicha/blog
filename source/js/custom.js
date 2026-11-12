@@ -98,8 +98,8 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   #home_top .topGroup{display:block!important;height:auto!important;width:100%!important;flex:none!important;}
   #home_top .topGroup .recent-post-item{display:none!important;}
   /* 小店卡：主题 ≤1200px 已把它 display:none + 绝对定位600px宽，这里全部覆盖为流内全宽卡（约2:1） */
-  #home_top .topGroup .todayCard{position:relative!important;display:flex!important;width:100%!important;height:170px!important;margin:0!important;}
-  #todayCard .xe-shop-word{font-size:56px!important;}
+  #home_top .topGroup .todayCard{position:relative!important;display:flex!important;width:100%!important;height:190px!important;margin:0!important;}
+  #todayCard .xe-shop-word{font-size:56px!important;transform:translateY(-72%)!important;}
   #todayCard .todayCard-info{left:16px!important;bottom:16px!important;max-width:calc(100% - 110px)!important;}
   #todayCard .todayCard-info .todayCard-tips{font-size:11px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   #todayCard .todayCard-info .todayCard-title{font-size:16px!important;line-height:1.3!important;margin-top:2px!important;}
