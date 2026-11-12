@@ -29,9 +29,8 @@ a.categoryButton.xe-has-sub:after{position:static;order:1;margin:6px 0 3px;}
 /* 导航站点名：颜色加深 + 加粗，与菜单项协调 */
 #blog_name #site-name .title{color:var(--anzhiyu-fontcolor);font-weight:600;}
 
-/* 问候卡：白底（主题原生），仅调图标条起始高度（居中穿过卡片）和网址字号 */
+/* 问候卡：白底（主题原生），图标带回归主题原生间距（7rem），网址字号加大 */
 #random-banner.xe-wall .banners-title-small{font-size:15px;}
-#random-banner.xe-wall .tags-group-wrapper{margin-top:2rem!important;}
 
 /* 导航右侧图标组：间距收紧（主题默认 1rem） */
 #nav-right > div{margin-left:0.5rem;}
@@ -44,6 +43,8 @@ a.categoryButton.xe-has-sub:after{position:static;order:1;margin:6px 0 3px;}
 
 /* 右侧大卡：原主题浅色系（薄荷绿→白→粉渐变 + 中央彩虹手写 Shop） */
 #todayCard{background:linear-gradient(120deg,#e8f6f2 0%,#f7fafc 45%,#fdeef3 100%)!important;}
+/* 删除主题为照片背景设计的黑色内阴影压暗层（否则浅色渐变会被整体罩暗） */
+#todayCard::after{display:none!important;}
 #todayCard .todayCard-cover{display:none!important;}
 #todayCard .xe-shop-word{position:absolute;top:50%;left:0;width:100%;transform:translateY(-58%);text-align:center;z-index:1;
   font-family:"Segoe Script","Brush Script MT","Comic Sans MS",cursive;font-size:86px;font-weight:700;line-height:1;pointer-events:none;
@@ -53,6 +54,12 @@ a.categoryButton.xe-has-sub:after{position:static;order:1;margin:6px 0 3px;}
 #todayCard .todayCard-info .todayCard-title{color:#2e9bab!important;font-size:22px;line-height:1.35;margin-top:4px;}
 #todayCard .xe-shop-sub{color:#5a6a75!important;font-size:13px;margin-top:8px;line-height:1.4;}
 .topGroup .banner-button{background:#fff!important;color:#333!important;box-shadow:0 3px 10px rgba(46,155,171,.25)!important;}
+
+/* 作者卡：隐藏 social 渲染出的两个社交圆钮（social 配置必须保留，名称区依赖它渲染），
+   图标隐藏后名称块独占整行 */
+.author-info__bottom-group .card-info-social-icons{display:none!important;}
+/* 名称大字与副题小字拉开呼吸间距 */
+.author-info__bottom-group .author-info__desc{margin-top:5px;}
 
 /* 页脚：隐藏主题作者外链（配置空数组会被 Hexo 数组合并还原，故用 CSS 隐藏） */
 a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
