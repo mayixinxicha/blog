@@ -6,9 +6,12 @@ avatar: https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg
 
 # 顶部导航菜单
 menu:
-  文章: /archives/ || anzhiyu-icon-box-archive
-  分类: /categories/ || anzhiyu-icon-shapes
-  标签: /tags/ || anzhiyu-icon-tags
+  虚拟卡: /card/ || anzhiyu-icon-qrcode
+  eSIM: /esim/ || anzhiyu-icon-radio
+  海外ID: /overseas-id/ || anzhiyu-icon-language
+  AI订阅: /ai-subscription/ || anzhiyu-icon-bolt
+  工具箱: /toolbox/ || anzhiyu-icon-gear
+  免费清单: /free-list/ || anzhiyu-icon-list-ul
 
 # 主页打字机 Slogan
 subtitle:
@@ -20,15 +23,31 @@ subtitle:
   loop: true
   source: false
   sub:
-    - 信息差、新工具、新玩法
+    - 卡、号、AI订阅，一站式配齐
 
-# 首页顶部标题区
+# 首页顶部标题区（问候卡 + 三彩色卡片）
 home_top:
   enable: true
   timemode: date
-  title: 谢小二｜新视界
-  subTitle: 从0-1把信息变成能力
+  title: 卡、号、AI订阅
+  subTitle: 一站式配齐
   siteText: xiexiaoer.net
+  category:
+    - name: 开卡
+      path: /card/
+      shadow: var(--anzhiyu-shadow-blue)
+      class: blue
+      icon: anzhiyu-icon-qrcode
+    - name: 办号
+      path: /esim/
+      shadow: var(--anzhiyu-shadow-red)
+      class: red
+      icon: anzhiyu-icon-radio
+    - name: 订AI
+      path: /ai-subscription/
+      shadow: var(--anzhiyu-shadow-green)
+      class: green
+      icon: anzhiyu-icon-bolt
 
 # 页脚
 footer:
@@ -36,7 +55,7 @@ footer:
     enable: true
     since: 2026
 
-# 自定义注入脚本（优化导航栏中间页面名显示）
+# 自定义注入脚本（导航页面名优化 + 菜单徽章 + 三卡片小字 + 图标墙动效）
 inject:
   bottom:
     - <script src="/js/custom.js"></script>
