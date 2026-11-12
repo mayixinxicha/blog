@@ -45,6 +45,9 @@ a.categoryButton.xe-has-sub:after{position:static;order:1;margin:6px 0 3px;}
 #todayCard .todayCard-cover{display:none!important;}
 #todayCard .todayCard-info .todayCard-title{font-size:24px;line-height:1.3;margin-top:4px;}
 #todayCard .xe-shop-sub{font-size:13px;opacity:.85;margin-top:8px;line-height:1.4;}
+
+/* 页脚：隐藏主题作者外链（配置空数组会被 Hexo 数组合并还原，故用 CSS 隐藏） */
+a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
 `;
   var style = document.createElement("style");
   style.id = "xe-style";
