@@ -13,26 +13,22 @@ var XE_CONFIG = {
 function xeInjectStyle() {
   if (document.getElementById("xe-style")) return;
   var css = `
-/* 免费角标：定位到「清单」右上角（上标样式，贴近文字） */
+/* 免费角标：贴住「清单」右上角（角标底边与文字相连） */
 span.xe-free-parent{display:inline-block;position:relative;}
-.menu-badge{position:absolute;left:calc(100% + 3px);top:-9px;padding:0 5px;font-size:10px;line-height:15px;
+.menu-badge{position:absolute;left:calc(100% + 2px);top:-4px;padding:0 5px;font-size:10px;line-height:15px;
   border-radius:7px;background:#425aeb;color:#fff;font-weight:600;white-space:nowrap;}
 
-/* 三彩色卡片小字：压缩布局、字号 11px 并上移，卡片高度不变 */
+/* 三彩色卡片小字：字号 12px，与标题保持舒适间距，卡片高度不变 */
 a.categoryButton.xe-has-sub{line-height:3.05em;}
 a.categoryButton.xe-has-sub .categoryButtonText{font-size:1.05rem;}
-.category-sub{display:block;font-size:11px;line-height:1.25;opacity:.78;
-  margin:-3px 0 0 21px;position:relative;z-index:1;transform:translateY(-2px);}
+.category-sub{display:block;font-size:12px;line-height:1.3;opacity:.8;
+  margin:3px 0 0 21px;position:relative;z-index:1;}
 
-/* 问候卡：深色渐变底 + 白色标题（原生标签云在其上流动） */
+/* 问候卡：深色渐变底 + 白色标题（标签云用主题原生几何，保证无缝循环） */
 #random-banner.xe-wall{background:linear-gradient(135deg,#0b1220 0%,#1e3a8a 55%,#4c1d95 100%)!important;}
-#random-banner.xe-wall .banners-title{position:relative;z-index:2;padding:1.5rem 2rem;}
+#random-banner.xe-wall .banners-title{position:relative;z-index:2;}
 #random-banner.xe-wall .banners-title-big,
 #random-banner.xe-wall .banners-title-small{color:#fff!important;text-shadow:0 2px 12px rgba(0,0,0,.35);}
-#random-banner.xe-wall #skills-tags-group-all{position:absolute;top:1rem;right:-3rem;z-index:1;opacity:.95;}
-#random-banner.xe-wall .tags-group-wrapper{margin-top:2.5rem!important;}
-#random-banner.xe-wall .tags-group-icon{width:92px;height:92px;border-radius:22px;font-size:48px;}
-#random-banner.xe-wall .tags-group-icon img{width:46px;}
 `;
   var style = document.createElement("style");
   style.id = "xe-style";
