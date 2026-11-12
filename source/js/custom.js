@@ -103,8 +103,8 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   #todayCard .todayCard-info{left:16px!important;right:16px!important;bottom:16px!important;max-width:none!important;}
   #todayCard .todayCard-info .todayCard-title{font-size:17px!important;line-height:1.3!important;margin-top:2px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   #todayCard .xe-shop-sub{font-size:11px!important;margin-top:4px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  /* 按钮右中位偏下（bottom 48px），收小一号拉开与标题右端的横向净空 */
-  #todayCard .banner-button-group{right:16px!important;bottom:48px!important;}
+  /* 按钮与第一行大字同带对齐（bottom 30px，中心 y≈154），小字在其下方左延伸，阶梯式收尾 */
+  #todayCard .banner-button-group{right:16px!important;bottom:30px!important;}
   #todayCard .banner-button{width:auto!important;height:32px!important;padding:0 10px!important;font-size:12px!important;}
   .categoryGroup{display:none!important;}
   /* 图标带：主题按桌面 340px 高卡设计(-30°斜带+7rem落点)，手机 230px 卡装不下第二行，
