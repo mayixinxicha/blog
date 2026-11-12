@@ -5,9 +5,9 @@
 avatar:
   img: /img/avatar.jpg
 
-# 加载动画头像（开屏第一眼）
+# 开屏加载动画已关闭（2026-11-13）：站点轻量秒开，全屏遮罩反成纯等待，拖慢 LCP
 preloader:
-  enable: true
+  enable: false
   avatar: /img/avatar.jpg
 
 # 网站图标（标签页 favicon，极简橙色笑脸）
