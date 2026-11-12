@@ -1,0 +1,58 @@
+# 首页问候卡技能标签云数据（主题 tags-group-all 原生组件）
+# 格式：图标列表会被主题自动渲染两遍以实现无缝循环滚动
+# 注意：保持偶数个图标，主题按两两配对（高低错落）排列
+- creativity_list:
+    - name: Visa
+      icon: /iconwall/visa-white.svg
+      color: "#1A1F71"
+    - name: Mastercard
+      icon: /iconwall/mastercard-white.svg
+      color: "#EB001B"
+    - name: American Express
+      icon: /iconwall/americanexpress-white.svg
+      color: "#006FCF"
+    - name: JCB
+      icon: /iconwall/jcb-white.svg
+      color: "#0E4C96"
+    - name: PayPal
+      icon: /iconwall/paypal-white.svg
+      color: "#003087"
+    - name: Discover
+      icon: /iconwall/discover-white.svg
+      color: "#FF6000"
+    - name: Apple Pay
+      icon: /iconwall/applepay-white.svg
+      color: "#1D1D1F"
+    - name: Google Pay
+      icon: /iconwall/googlepay-white.svg
+      color: "#4285F4"
+    - name: Wise
+      icon: /iconwall/wise-white.svg
+      color: "#163300"
+    - name: Revolut
+      icon: /iconwall/revolut-white.svg
+      color: "#191C1F"
+    - name: Apple
+      icon: /iconwall/apple-white.svg
+      color: "#333336"
+    - name: Google
+      icon: /iconwall/google-white.svg
+      color: "#346BF1"
+    - name: Telegram
+      icon: /iconwall/telegram-white.svg
+      color: "#26A5E4"
+    - name: Claude
+      icon: /iconwall/anthropic-white.svg
+      color: "#D97757"
+    - name: DeepSeek
+      icon: /iconwall/deepseek-white.svg
+      color: "#4D6BFE"
+    - name: Gemini
+      icon: /iconwall/googlegemini-white.svg
+      color: "#7C4DFF"
+    - name: Perplexity
+      icon: /iconwall/perplexity-white.svg
+      color: "#20B8CD"
+    - name: OpenRouter
+      icon: /iconwall/openrouter-white.svg
+      color: "#5A67D8"
