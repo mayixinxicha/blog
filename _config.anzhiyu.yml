@@ -1,8 +1,26 @@
 # 站点级 Anzhiyu 主题配置（覆盖主题默认值）
 # 文档：https://anzhiyu.cn/
 
-# 站点头像（先用主题默认占位图，之后可换成自己的照片地址）
-avatar: https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg
+# 站点头像（店小二形象，用于加载页/侧边栏/评论区）
+avatar:
+  img: /img/avatar.jpg
+
+# 加载动画头像（开屏第一眼）
+preloader:
+  enable: true
+  avatar: /img/avatar.jpg
+
+# 网站图标（标签页 favicon，极简橙色笑脸）
+favicon: /img/favicon.png
+
+# 标签卖萌（离开/回来变标题）：业务站关闭
+diytitle:
+  enable: false
+
+# 本地搜索（右上角放大镜）
+local_search:
+  enable: true
+  preload: true
 
 # 关闭首页问候卡的"小人剪影"canvas 动画（与标签云互斥；开启它就不会显示标题和图标流动）
 peoplecanvas:
@@ -56,12 +74,21 @@ home_top:
       shadow: var(--anzhiyu-shadow-green)
       class: green
       icon: anzhiyu-icon-bolt
+  # 右侧大卡：换成自家小店推广（原为主题作者的广告位）
+  banner:
+    tips: 谢小二AI小店 · 自动发货 · 客服 10:00-24:00
+    title: AI账号和会员，进店直接挑
+    image: /img/favicon.png
+    link: https://shop.xiaomimiai.com/
 
 # 页脚
 footer:
   owner:
     enable: true
     since: 2026
+  # 清空底部"主题"外链（去掉原作者引流）
+  footerBar:
+    linkList: []
 
 # 自定义注入脚本（导航页面名优化 + 菜单徽章 + 三卡片小字 + 图标墙动效）
 inject:
