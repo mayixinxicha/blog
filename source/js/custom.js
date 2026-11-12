@@ -33,6 +33,7 @@ a.categoryButton.xe-has-sub:after{position:static;order:1;margin:6px 0 3px;}
 #random-banner.xe-wall .banners-title{position:relative;z-index:2;}
 #random-banner.xe-wall .banners-title-small{font-size:15px;}
 #random-banner.xe-wall .tags-group-wrapper{margin-top:2rem!important;}
+#random-banner #skills-tags-group-all{margin-left:-3rem;}
 `;
   var style = document.createElement("style");
   style.id = "xe-style";
