@@ -103,10 +103,14 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   #todayCard .todayCard-info{left:16px!important;right:16px!important;bottom:16px!important;max-width:none!important;}
   #todayCard .todayCard-info .todayCard-title{font-size:17px!important;line-height:1.3!important;margin-top:2px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   #todayCard .xe-shop-sub{font-size:11px!important;margin-top:4px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  /* 按钮上移至右中位（bottom 60px），底部整行宽度让给两行文字，避免小字伸进按钮地盘 */
-  #todayCard .banner-button-group{right:16px!important;bottom:60px!important;}
-  #todayCard .banner-button{width:auto!important;height:34px!important;padding:0 14px!important;font-size:13px!important;}
+  /* 按钮右中位偏下（bottom 48px），收小一号拉开与标题右端的横向净空 */
+  #todayCard .banner-button-group{right:16px!important;bottom:48px!important;}
+  #todayCard .banner-button{width:auto!important;height:32px!important;padding:0 10px!important;font-size:12px!important;}
   .categoryGroup{display:none!important;}
+  /* 图标带：主题按桌面 340px 高卡设计(-30°斜带+7rem落点)，手机 230px 卡装不下第二行，
+     整条等比缩 0.75 + 落点上移，让两行斜排都回到卡内（数值可按真机微调） */
+  #random-banner #skills-tags-group-all{transform:rotate(-30deg) scale(.75)!important;}
+  #random-banner #skills-tags-group-all .tags-group-wrapper{margin-top:4rem!important;}
   /* 问候卡文字块：主题锚点按桌面设计(top 46px/left 48px)，手机小卡上偏中显得飘，贴向左上并对齐整页 20px 内边距 */
   #random-banner .banners-title{top:26px!important;left:20px!important;}
   #random-banner .banners-title-big{font-size:26px!important;}
