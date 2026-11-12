@@ -77,9 +77,24 @@ home_top:
   # 右侧大卡：换成自家小店推广（原为主题作者的广告位）
   banner:
     tips: 谢小二AI小店 · 自动发货 · 客服 10:00-24:00
-    title: AI账号和会员，进店直接挑
+    title: AI账号 · 会员，进店直接挑
     image: /img/favicon.png
     link: https://shop.xiaomimiai.com/
+
+# 侧边栏作者卡（补齐原主题的文字区：欢迎光临胶囊由 custom.js 固定）
+author_status:
+  enable: true
+
+aside:
+  card_author:
+    enable: true
+    description: '<div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255,255,255,0.8);">这有关于<b style="color:#fff">开卡、办号、订AI</b>相关的工具和方法，还有现成的各类<b style="color:#fff">AI账号和会员</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255,255,255,0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div>'
+    name_link: /
+
+# 社交链接（作者卡底部名称区的渲染开关，必须配置才会显示名称+副标题）
+social:
+  AI小店: https://shop.xiaomimiai.com || anzhiyu-icon-qrcode
+  工具箱: /toolbox/ || anzhiyu-icon-gear
 
 # 页脚
 footer:

@@ -32,19 +32,27 @@ a.categoryButton.xe-has-sub:after{position:static;order:1;margin:6px 0 3px;}
 /* 问候卡：白底（主题原生），仅调图标条起始高度（居中穿过卡片）和网址字号 */
 #random-banner.xe-wall .banners-title-small{font-size:15px;}
 #random-banner.xe-wall .tags-group-wrapper{margin-top:2rem!important;}
-#random-banner #skills-tags-group-all{margin-left:-3rem;}
 
-/* 右侧大卡：深色底 + 彩色光斑（纯 CSS 绘制，0 图片体积），隐藏原生封面图 */
-#todayCard{background:radial-gradient(circle at 76% 28%,rgba(52,211,153,.75) 0,rgba(52,211,153,.75) 34px,transparent 62px),
-  radial-gradient(circle at 60% 56%,rgba(167,139,250,.7) 0,rgba(167,139,250,.7) 26px,transparent 52px),
-  radial-gradient(circle at 86% 66%,rgba(251,146,60,.75) 0,rgba(251,146,60,.75) 24px,transparent 48px),
-  radial-gradient(circle at 70% 12%,rgba(96,165,250,.55) 0,rgba(96,165,250,.55) 30px,transparent 58px),
-  radial-gradient(circle at 48% 22%,rgba(244,114,182,.5) 0,rgba(244,114,182,.5) 18px,transparent 38px),
-  radial-gradient(circle at 90% 84%,rgba(45,212,191,.35) 0,rgba(45,212,191,.35) 20px,transparent 44px),
-  linear-gradient(135deg,#0b1220 0%,#16294d 60%,#1e2a4a 100%)!important;}
+/* 导航右侧图标组：间距收紧（主题默认 1rem） */
+#nav-right > div{margin-left:0.5rem;}
+
+/* 首页顶部两列等分（右列原为固定 600px，窄窗口下 flex 收缩失衡导致左右不均） */
+#home_top .swiper_container_card{gap:1rem;}
+#home_top div#bannerGroup{width:50%!important;flex:1 1 0!important;min-width:0;}
+#home_top .topGroup{width:50%!important;flex:1 1 0!important;min-width:0;}
+#home_top .topGroup .todayCard{width:100%!important;}
+
+/* 右侧大卡：原主题浅色系（薄荷绿→白→粉渐变 + 中央彩虹手写 Shop） */
+#todayCard{background:linear-gradient(120deg,#e8f6f2 0%,#f7fafc 45%,#fdeef3 100%)!important;}
 #todayCard .todayCard-cover{display:none!important;}
-#todayCard .todayCard-info .todayCard-title{font-size:24px;line-height:1.3;margin-top:4px;}
-#todayCard .xe-shop-sub{font-size:13px;opacity:.85;margin-top:8px;line-height:1.4;}
+#todayCard .xe-shop-word{position:absolute;top:50%;left:0;width:100%;transform:translateY(-58%);text-align:center;z-index:1;
+  font-family:"Segoe Script","Brush Script MT","Comic Sans MS",cursive;font-size:86px;font-weight:700;line-height:1;pointer-events:none;
+  background:linear-gradient(90deg,#ff5e7a 0%,#ff9d42 22%,#ffd53d 40%,#4fc97e 58%,#3fa9f5 76%,#9b6bf2 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;}
+#todayCard .todayCard-info .todayCard-tips{color:#5a6a75!important;opacity:1;}
+#todayCard .todayCard-info .todayCard-title{color:#2e9bab!important;font-size:22px;line-height:1.35;margin-top:4px;}
+#todayCard .xe-shop-sub{color:#5a6a75!important;font-size:13px;margin-top:8px;line-height:1.4;}
+.topGroup .banner-button{background:#fff!important;color:#333!important;box-shadow:0 3px 10px rgba(46,155,171,.25)!important;}
 
 /* 页脚：隐藏主题作者外链（配置空数组会被 Hexo 数组合并还原，故用 CSS 隐藏） */
 a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
@@ -109,10 +117,17 @@ function xeInitIconWall() {
   if (card && !card.classList.contains("xe-wall")) card.classList.add("xe-wall");
 }
 
-/* ---------------- 右侧大卡：小店信息 + 按钮跳转 ---------------- */
+/* ---------------- 右侧大卡：小店信息 + 彩虹 Shop 大字 + 按钮跳转 ---------------- */
 function xeInitTodayCard() {
   var card = document.getElementById("todayCard");
   if (!card) return;
+  // 中央彩虹手写大字（呼应原主题 hello 的版式语言）
+  if (!card.querySelector(".xe-shop-word")) {
+    var word = document.createElement("div");
+    word.className = "xe-shop-word";
+    word.textContent = "Shop";
+    card.insertBefore(word, card.firstChild);
+  }
   // 第三行小字：主题模板只有两行文字位，这里补一行
   var title = card.querySelector(".todayCard-title");
   if (title && !card.querySelector(".xe-shop-sub")) {
@@ -132,6 +147,12 @@ function xeInitTodayCard() {
   }
 }
 
+/* ---------------- 作者卡：固定「欢迎光临」胶囊 ---------------- */
+function xeInitSayhi() {
+  var el = document.getElementById("author-info__sayhi");
+  if (el && el.textContent !== "欢迎光临") el.textContent = "欢迎光临";
+}
+
 /* ---------------- 统一初始化 ---------------- */
 function xeInitAll() {
   xeInjectStyle();
@@ -140,6 +161,7 @@ function xeInitAll() {
   xeInitCategorySub();
   xeInitIconWall();
   xeInitTodayCard();
+  xeInitSayhi();
 }
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(xeInitAll, 30);
