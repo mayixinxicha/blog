@@ -89,12 +89,24 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   a.categoryButton.xe-has-sub .categoryButtonText{font-size:.9rem!important;}
   .category-sub{font-size:10px!important;}
 }
-/* 第二档 ≤768px（手机竖屏）：三彩卡与大卡整组不显示，问候卡独占顶部 */
+/* 第二档 ≤768px（手机竖屏）：三彩卡隐藏、推荐小卡隐藏，问候卡独占首屏，小店卡全宽放出当第二屏 */
 @media screen and (max-width:768px){
   #random-banner{display:flex!important;height:230px!important;}
   #home_top .swiper_container_card{flex-wrap:wrap!important;overflow:hidden!important;}
   #home_top div#bannerGroup{width:100%!important;flex:none!important;}
-  #home_top .topGroup{display:none!important;}
+  /* 只藏推荐小卡（绿色残影根源），不再整组隐藏 .topGroup——小店卡是手机端唯一进店入口 */
+  #home_top .topGroup{display:block!important;height:auto!important;width:100%!important;flex:none!important;}
+  #home_top .topGroup .recent-post-item{display:none!important;}
+  /* 小店卡：主题 ≤1200px 已把它 display:none + 绝对定位600px宽，这里全部覆盖为流内全宽卡（约2:1） */
+  #home_top .topGroup .todayCard{position:relative!important;display:flex!important;width:100%!important;height:170px!important;margin:0!important;}
+  #todayCard .xe-shop-word{font-size:56px!important;}
+  #todayCard .todayCard-info{left:16px!important;bottom:16px!important;max-width:calc(100% - 110px)!important;}
+  #todayCard .todayCard-info .todayCard-tips{font-size:11px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  #todayCard .todayCard-info .todayCard-title{font-size:16px!important;line-height:1.3!important;margin-top:2px!important;}
+  #todayCard .xe-shop-sub{font-size:11px!important;margin-top:4px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  /* 按钮右下角收紧，文字块 max-width 让位避免横向碰撞 */
+  #todayCard .banner-button-group{right:16px!important;bottom:16px!important;}
+  #todayCard .banner-button{width:auto!important;height:34px!important;padding:0 14px!important;font-size:13px!important;}
   .categoryGroup{display:none!important;}
   #random-banner .banners-title-big{font-size:26px!important;}
   #random-banner .banners-title-small{font-size:12px!important;}
