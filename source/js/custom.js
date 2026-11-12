@@ -72,15 +72,34 @@ a.categoryButton.xe-has-sub:after{position:static;order:1;margin:6px 0 3px;}
 /* 页脚：隐藏主题作者外链（配置空数组会被 Hexo 数组合并还原，故用 CSS 隐藏） */
 a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
 
-/* ============ 移动端（≤1200px）：主题旧版硬隐藏问候卡，对齐演示站新版行为 ============ */
-@media screen and (max-width:1200px){
-  #random-banner{display:flex!important;height:260px!important;}
+/* ============ 移动端分两档：主题旧版 ≤1200px 硬隐藏问候卡，这里对齐演示站新版行为 ============ */
+/* 第一档 769~1200px（窄窗口/平板）：保持两列并排 = 桌面端等比缩小版，高度与字号统一收一档 */
+@media screen and (min-width:769px) and (max-width:1200px){
+  #home_top .swiper_container_card{flex-wrap:nowrap!important;}
+  #home_top div#bannerGroup{width:50%!important;flex:1 1 0!important;}
+  #home_top .topGroup{width:50%!important;flex:1 1 0!important;}
+  #random-banner{display:flex!important;height:280px!important;}
+  #random-banner .banners-title-big{font-size:30px!important;}
+  #random-banner .banners-title-small{font-size:13px!important;}
+  #todayCard .xe-shop-word{font-size:64px!important;}
+  #todayCard .todayCard-info .todayCard-title{font-size:18px!important;}
+  #todayCard .xe-shop-sub{font-size:12px!important;}
+  .topGroup .banner-button{padding:6px 14px!important;font-size:12px!important;}
+  .categoryItem{height:56px!important;}
+  a.categoryButton.xe-has-sub .categoryButtonText{font-size:.9rem!important;}
+  .category-sub{font-size:10px!important;}
+}
+/* 第二档 ≤768px（手机竖屏）：两列宽度不够并排，改为上下堆叠并紧凑化 */
+@media screen and (max-width:768px){
+  #random-banner{display:flex!important;height:230px!important;}
   #home_top .swiper_container_card{flex-wrap:wrap!important;overflow:hidden!important;}
   #home_top div#bannerGroup{width:100%!important;flex:none!important;}
   #home_top .topGroup{width:100%!important;flex:none!important;flex-wrap:wrap!important;}
   .categoryGroup{flex-direction:row!important;height:auto!important;}
   .categoryGroup .categoryItem:nth-child(3){display:block!important;}
   .categoryItem{min-width:0!important;height:auto!important;min-height:64px;}
+  #random-banner .banners-title-big{font-size:26px!important;}
+  #random-banner .banners-title-small{font-size:12px!important;}
 }
 
 /* ============ 加小二 QQ 翻转卡（纯 CSS 绘制，排版对齐原主题公众号卡） ============ */
@@ -89,18 +108,18 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
 #card-wechat .face{background:none!important;}
 .xe-wx-front{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;height:100%;padding-left:20px;color:#fff;position:relative;overflow:hidden;}
 .xe-wx-brand{display:flex;align-items:center;gap:10px;}
-.xe-wx-title{font-size:26px;font-weight:700;letter-spacing:1px;}
-.xe-wx-badge{background:#fff;color:#3a7bd5;font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px;}
-.xe-wx-tip{font-size:13px;opacity:.92;margin-top:8px;}
+.xe-wx-title{font-size:30px;font-weight:700;letter-spacing:1px;}
+.xe-wx-badge{background:#fff;color:#3a7bd5;font-size:13px;font-weight:700;border-radius:6px;padding:3px 9px;}
+.xe-wx-tip{font-size:13px;opacity:.92;margin-top:12px;}
 .xe-wx-mark{position:absolute;right:2px;top:50%;transform:translateY(-50%);font-size:64px;font-weight:800;font-style:italic;
   color:rgba(255,255,255,.16);letter-spacing:2px;pointer-events:none;line-height:1;}
 .xe-wx-back{display:flex;flex-direction:row;align-items:center;justify-content:space-between;height:100%;padding:0 14px 0 20px;color:#fff;}
 .xe-wx-left{display:flex;flex-direction:column;justify-content:center;}
-.xe-wx-sub{font-size:20px;font-weight:700;letter-spacing:1px;}
-.xe-wx-tip2{font-size:11px;opacity:.92;margin-top:6px;}
-.xe-wx-qr{width:92px;height:92px;border-radius:8px;background:#fff;object-fit:cover;flex:none;}
+.xe-wx-sub{font-size:22px;font-weight:700;letter-spacing:1px;}
+.xe-wx-tip2{font-size:12px;opacity:.92;margin-top:10px;}
+.xe-wx-qr{width:96px;height:96px;border-radius:8px;background:#fff;object-fit:cover;flex:none;}
 
-/* ============ 分享按钮（替换打赏作者位置） ============ */
+/* ============ AI小店按钮（替换打赏作者位置） ============ */
 .xe-share-btn{display:inline-flex;align-items:center;gap:8px;background:#425aeb;color:#fff!important;border-radius:20px;
   padding:8px 22px;font-size:14px;font-weight:600;cursor:pointer;transition:.3s;box-shadow:0 3px 10px rgba(66,90,235,.3);}
 .xe-share-btn:hover{background:#3450d8!important;color:#fff!important;transform:translateY(-2px);}
@@ -225,31 +244,16 @@ function xeInitWechatCard() {
   }
 }
 
-/* ---------------- 分享按钮（替换打赏作者，reward 关闭后原位置注入） ---------------- */
+/* ---------------- AI小店按钮（替换打赏作者位置；原分享逻辑弃用：系统分享API桌面端常静默失败且与主题自带分享图标重复） ---------------- */
 function xeInitShareButton() {
   var slot = document.querySelector("#post-tools .post-tools-left .rewardLeftButton");
   if (!slot || slot.querySelector(".xe-share-btn")) return;
   var b = document.createElement("a");
   b.className = "xe-share-btn";
-  b.innerHTML =
-    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>分享';
-  b.onclick = function () {
-    if (navigator.share) {
-      navigator.share({ title: document.title, url: location.href }).catch(function () {});
-    } else {
-      var i = document.createElement("input");
-      i.value = location.href;
-      document.body.appendChild(i);
-      i.select();
-      try { document.execCommand("copy"); } catch (e) {}
-      document.body.removeChild(i);
-      if (window.anzhiyu && anzhiyu.snackbarShow) {
-        anzhiyu.snackbarShow("链接已复制，快去分享吧");
-      } else {
-        alert("链接已复制，快去分享吧");
-      }
-    }
-  };
+  b.href = "https://shop.xiaomimiai.com/";
+  b.target = "_blank";
+  b.rel = "noopener";
+  b.textContent = "AI小店 ↗";
   slot.appendChild(b);
 }
 
