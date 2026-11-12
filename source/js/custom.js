@@ -57,7 +57,7 @@ a.categoryButton.xe-has-sub:after{position:static;order:1;margin:6px 0 3px;}
 @keyframes xe-rainbow{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
 @keyframes xe-float{0%,100%{margin-top:0;}50%{margin-top:-7px;}}
 #todayCard .todayCard-info .todayCard-tips{color:#5a6a75!important;opacity:1;font-size:13px;}
-#todayCard .todayCard-info .todayCard-title{color:#2e9bab!important;font-size:22px;line-height:1.35;margin-top:4px;}
+#todayCard .todayCard-info .todayCard-title{color:#2e9bab!important;font-size:24px;line-height:1.35;margin-top:4px;}
 #todayCard .xe-shop-sub{color:#5a6a75!important;font-size:13px;margin-top:8px;line-height:1.4;}
 .topGroup .banner-button{background:#fff!important;color:#333!important;box-shadow:0 3px 10px rgba(46,155,171,.25)!important;}
 /* 恢复原主题的悬停变色（上一轮的 !important 把主题 hover 规则压死了，这里同级覆盖回来） */
@@ -100,12 +100,11 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   /* 小店卡：主题 ≤1200px 已把它 display:none + 绝对定位600px宽，这里全部覆盖为流内全宽卡（约2:1） */
   #home_top .topGroup .todayCard{position:relative!important;display:flex!important;width:100%!important;height:200px!important;margin:0!important;}
   #todayCard .xe-shop-word{font-size:50px!important;transform:translateY(-72%)!important;}
-  #todayCard .todayCard-info{left:16px!important;bottom:16px!important;max-width:calc(100% - 110px)!important;}
-  #todayCard .todayCard-info .todayCard-tips{font-size:11px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  #todayCard .todayCard-info .todayCard-title{font-size:16px!important;line-height:1.3!important;margin-top:2px!important;}
+  #todayCard .todayCard-info{left:16px!important;right:16px!important;bottom:16px!important;max-width:none!important;}
+  #todayCard .todayCard-info .todayCard-title{font-size:17px!important;line-height:1.3!important;margin-top:2px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   #todayCard .xe-shop-sub{font-size:11px!important;margin-top:4px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  /* 按钮右下角收紧，文字块 max-width 让位避免横向碰撞 */
-  #todayCard .banner-button-group{right:16px!important;bottom:16px!important;}
+  /* 按钮上移至右中位（bottom 60px），底部整行宽度让给两行文字，避免小字伸进按钮地盘 */
+  #todayCard .banner-button-group{right:16px!important;bottom:60px!important;}
   #todayCard .banner-button{width:auto!important;height:34px!important;padding:0 14px!important;font-size:13px!important;}
   .categoryGroup{display:none!important;}
   /* 问候卡文字块：主题锚点按桌面设计(top 46px/left 48px)，手机小卡上偏中显得飘，贴向左上并对齐整页 20px 内边距 */
@@ -212,12 +211,15 @@ function xeInitTodayCard() {
     word.textContent = "Shop";
     card.insertBefore(word, card.firstChild);
   }
-  // 第三行小字：主题模板只有两行文字位，这里补一行
+  // 两行结构：模板的品牌行(tips)移除，信息合并进下方小字行
+  var tips = card.querySelector(".todayCard-tips");
+  if (tips) tips.remove();
+  // 第二行小字：交付方式 + 商品
   var title = card.querySelector(".todayCard-title");
   if (title && !card.querySelector(".xe-shop-sub")) {
     var sub = document.createElement("div");
     sub.className = "xe-shop-sub";
-    sub.textContent = "GPT、Claude 等热门现成账号拍下秒发";
+    sub.textContent = "自动发货 · GPT、Claude 等热门现成账号拍下秒发";
     title.parentNode.insertBefore(sub, title.nextSibling);
   }
   // 按钮：改文字 + 移除"展开文章宫格"拦截，让点击跟随整卡链接跳转

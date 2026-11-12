@@ -75,8 +75,9 @@ home_top:
       class: green
       icon: anzhiyu-icon-bolt
   # 右侧大卡：换成自家小店推广（原为主题作者的广告位）
+  # tips 置空：两行结构（标题+小字），品牌行信息已合并进小字，模板行由 custom.js 移除
   banner:
-    tips: AI小店 · 自动发货 · 客服 10:00-24:00
+    tips: ""
     title: AI账号 · 会员，进店直接挑
     image: /img/favicon.png
     link: https://shop.xiaomimiai.com/
