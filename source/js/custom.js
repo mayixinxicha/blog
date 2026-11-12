@@ -89,17 +89,21 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   a.categoryButton.xe-has-sub .categoryButtonText{font-size:.9rem!important;}
   .category-sub{font-size:10px!important;}
 }
-/* 第二档 ≤768px（手机竖屏）：两列宽度不够并排，改为上下堆叠并紧凑化 */
+/* 第二档 ≤768px（手机竖屏）：三彩卡与大卡整组不显示，问候卡独占顶部 */
 @media screen and (max-width:768px){
   #random-banner{display:flex!important;height:230px!important;}
   #home_top .swiper_container_card{flex-wrap:wrap!important;overflow:hidden!important;}
   #home_top div#bannerGroup{width:100%!important;flex:none!important;}
-  #home_top .topGroup{width:100%!important;flex:none!important;flex-wrap:wrap!important;}
-  .categoryGroup{flex-direction:row!important;height:auto!important;}
-  .categoryGroup .categoryItem:nth-child(3){display:block!important;}
-  .categoryItem{min-width:0!important;height:auto!important;min-height:64px;}
+  #home_top .topGroup{display:none!important;}
+  .categoryGroup{display:none!important;}
   #random-banner .banners-title-big{font-size:26px!important;}
   #random-banner .banners-title-small{font-size:12px!important;}
+  /* QQ翻转卡手机端：字号收一档 + 不折行 + 二维码缩小（与文字的 gap:10px 保底留白全局生效） */
+  .xe-wx-sub{font-size:18px!important;}
+  .xe-wx-tip2{font-size:11px!important;margin-top:8px!important;}
+  .xe-wx-sub,.xe-wx-tip2{white-space:nowrap;}
+  .xe-wx-qr{width:82px!important;height:82px!important;}
+  .xe-wx-back{padding:0 12px 0 16px!important;}
 }
 
 /* ============ 加小二 QQ 翻转卡（纯 CSS 绘制，排版对齐原主题公众号卡） ============ */
@@ -108,12 +112,12 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
 #card-wechat .face{background:none!important;}
 .xe-wx-front{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;height:100%;padding-left:20px;color:#fff;position:relative;overflow:hidden;}
 .xe-wx-brand{display:flex;align-items:center;gap:10px;}
-.xe-wx-title{font-size:30px;font-weight:700;letter-spacing:1px;}
+.xe-wx-title{font-size:30px;font-weight:700;letter-spacing:1px;line-height:1.2;}
 .xe-wx-badge{background:#fff;color:#3a7bd5;font-size:13px;font-weight:700;border-radius:6px;padding:3px 9px;}
-.xe-wx-tip{font-size:13px;opacity:.92;margin-top:12px;}
+.xe-wx-tip{font-size:13px;opacity:.92;margin-top:8px;line-height:1.3;}
 .xe-wx-mark{position:absolute;right:2px;top:50%;transform:translateY(-50%);font-size:64px;font-weight:800;font-style:italic;
   color:rgba(255,255,255,.16);letter-spacing:2px;pointer-events:none;line-height:1;}
-.xe-wx-back{display:flex;flex-direction:row;align-items:center;justify-content:space-between;height:100%;padding:0 14px 0 20px;color:#fff;}
+.xe-wx-back{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:10px;height:100%;padding:0 14px 0 20px;color:#fff;}
 .xe-wx-left{display:flex;flex-direction:column;justify-content:center;}
 .xe-wx-sub{font-size:22px;font-weight:700;letter-spacing:1px;}
 .xe-wx-tip2{font-size:12px;opacity:.92;margin-top:10px;}
