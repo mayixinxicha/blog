@@ -83,18 +83,22 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   .categoryItem{min-width:0!important;height:auto!important;min-height:64px;}
 }
 
-/* ============ 加小二 QQ 翻转卡（纯 CSS 绘制，替换主题作者的公众号图） ============ */
+/* ============ 加小二 QQ 翻转卡（纯 CSS 绘制，排版对齐原主题公众号卡） ============ */
 #aside-content .card-widget#card-wechat{background:linear-gradient(135deg,#3a7bd5 0%,#5a8ff0 60%,#6f79f2 100%)!important;}
 [data-theme="dark"] #aside-content .card-widget#card-wechat{background:linear-gradient(135deg,#2a4a8f 0%,#3a5cc0 60%,#4a4fc0 100%)!important;}
 #card-wechat .face{background:none!important;}
-.xe-wx-front,.xe-wx-back{display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;color:#fff;text-align:center;}
-.xe-wx-brand{display:flex;align-items:center;gap:8px;}
-.xe-wx-title{font-size:22px;font-weight:700;letter-spacing:2px;}
-.xe-wx-badge{background:#fff;color:#3a7bd5;font-size:11px;font-weight:700;border-radius:6px;padding:2px 7px;}
-.xe-wx-tip{font-size:13px;opacity:.92;margin-top:9px;}
-.xe-wx-sub{font-size:14px;font-weight:600;}
-.xe-wx-qr{width:76px;height:76px;border-radius:8px;margin:5px 0;background:#fff;object-fit:cover;}
-.xe-wx-tip2{font-size:11px;opacity:.92;}
+.xe-wx-front{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;height:100%;padding-left:20px;color:#fff;position:relative;overflow:hidden;}
+.xe-wx-brand{display:flex;align-items:center;gap:10px;}
+.xe-wx-title{font-size:26px;font-weight:700;letter-spacing:1px;}
+.xe-wx-badge{background:#fff;color:#3a7bd5;font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px;}
+.xe-wx-tip{font-size:13px;opacity:.92;margin-top:8px;}
+.xe-wx-mark{position:absolute;right:2px;top:50%;transform:translateY(-50%);font-size:64px;font-weight:800;font-style:italic;
+  color:rgba(255,255,255,.16);letter-spacing:2px;pointer-events:none;line-height:1;}
+.xe-wx-back{display:flex;flex-direction:row;align-items:center;justify-content:space-between;height:100%;padding:0 14px 0 20px;color:#fff;}
+.xe-wx-left{display:flex;flex-direction:column;justify-content:center;}
+.xe-wx-sub{font-size:20px;font-weight:700;letter-spacing:1px;}
+.xe-wx-tip2{font-size:11px;opacity:.92;margin-top:6px;}
+.xe-wx-qr{width:92px;height:92px;border-radius:8px;background:#fff;object-fit:cover;flex:none;}
 
 /* ============ 分享按钮（替换打赏作者位置） ============ */
 .xe-share-btn{display:inline-flex;align-items:center;gap:8px;background:#425aeb;color:#fff!important;border-radius:20px;
@@ -209,14 +213,14 @@ function xeInitWechatCard() {
       '<div class="xe-wx-front">' +
       '<div class="xe-wx-brand"><span class="xe-wx-title">加小二</span><span class="xe-wx-badge">QQ</span></div>' +
       '<div class="xe-wx-tip">有事，找小二 ▶</div>' +
+      '<span class="xe-wx-mark">QQ</span>' +
       "</div>";
   }
   if (back && !back.querySelector(".xe-wx-back")) {
     back.innerHTML =
       '<div class="xe-wx-back">' +
-      '<div class="xe-wx-sub">扫码加好友</div>' +
+      '<div class="xe-wx-left"><div class="xe-wx-sub">扫码加好友</div><div class="xe-wx-tip2">QQ扫一扫，直接加 ▶</div></div>' +
       '<img class="xe-wx-qr" src="/img/qq-qr.jpg" alt="QQ二维码">' +
-      '<div class="xe-wx-tip2">QQ扫一扫，直接加 ▶</div>' +
       "</div>";
   }
 }
