@@ -37,30 +37,37 @@ a.categoryButton.xe-has-sub:after{position:static;order:1;margin:6px 0 3px;}
 
 /* 首页顶部两列等分（右列原为固定 600px，窄窗口下 flex 收缩失衡导致左右不均）；
    间隙收紧为 0.75rem 并去掉左列自带的 margin-right:10px（原 26px+ 太宽，原主题观感约 10-15px） */
-#home_top .swiper_container_card{gap:0.75rem!important;justify-content:flex-start!important;}
+#home_top .swiper_container_card{gap:0.5rem!important;justify-content:flex-start!important;}
 #home_top div#bannerGroup{width:50%!important;flex:1 1 0!important;min-width:0;margin-right:0!important;}
 #home_top .topGroup{width:50%!important;flex:1 1 0!important;min-width:0;}
 #home_top .topGroup .todayCard{width:100%!important;}
 
 /* 右侧大卡：原主题浅色系（薄荷绿→白→粉渐变 + 中央彩虹手写 Shop） */
-#todayCard{background:linear-gradient(120deg,#e8f6f2 0%,#f7fafc 45%,#fdeef3 100%)!important;}
+#todayCard{background:linear-gradient(120deg,#d5f2e3 0%,#f4fbf7 45%,#fbe0ec 100%)!important;}
 /* 删除主题为照片背景设计的黑色内阴影压暗层（否则浅色渐变会被整体罩暗） */
 #todayCard::after{display:none!important;}
 #todayCard .todayCard-cover{display:none!important;}
 #todayCard .xe-shop-word{position:absolute;top:50%;left:0;width:100%;transform:translateY(-58%);text-align:center;z-index:1;
   font-family:"Segoe Script","Brush Script MT","Comic Sans MS",cursive;font-size:86px;font-weight:700;line-height:1;pointer-events:none;
   background:linear-gradient(90deg,#ff5e7a 0%,#ff9d42 22%,#ffd53d 40%,#4fc97e 58%,#3fa9f5 76%,#9b6bf2 100%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;}
+  background-size:200% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:xe-rainbow 8s linear infinite,xe-float 3.2s ease-in-out infinite;}
+#todayCard:hover .xe-shop-word{animation-duration:3s,3.2s;}
+@keyframes xe-rainbow{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
+@keyframes xe-float{0%,100%{margin-top:0;}50%{margin-top:-7px;}}
 #todayCard .todayCard-info .todayCard-tips{color:#5a6a75!important;opacity:1;}
 #todayCard .todayCard-info .todayCard-title{color:#2e9bab!important;font-size:22px;line-height:1.35;margin-top:4px;}
 #todayCard .xe-shop-sub{color:#5a6a75!important;font-size:13px;margin-top:8px;line-height:1.4;}
 .topGroup .banner-button{background:#fff!important;color:#333!important;box-shadow:0 3px 10px rgba(46,155,171,.25)!important;}
+/* 恢复原主题的悬停变色（上一轮的 !important 把主题 hover 规则压死了，这里同级覆盖回来） */
+.topGroup .banner-button:hover{background:var(--anzhiyu-theme)!important;color:#fff!important;}
 
 /* 作者卡：隐藏 social 渲染出的两个社交圆钮（social 配置必须保留，名称区依赖它渲染），
    图标隐藏后名称块独占整行 */
 .author-info__bottom-group .card-info-social-icons{display:none!important;}
 /* 名称大字与副题小字拉开呼吸间距 */
-.author-info__bottom-group .author-info__desc{margin-top:5px;}
+.author-info__bottom-group .author-info__desc{margin-top:9px;}
 
 /* 页脚：隐藏主题作者外链（配置空数组会被 Hexo 数组合并还原，故用 CSS 隐藏） */
 a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
@@ -141,7 +148,7 @@ function xeInitTodayCard() {
   if (title && !card.querySelector(".xe-shop-sub")) {
     var sub = document.createElement("div");
     sub.className = "xe-shop-sub";
-    sub.textContent = "ChatGPT、Claude 等热门AI账号，这里都有";
+    sub.textContent = "GPT、Claude 等热门现成账号，这里都有";
     title.parentNode.insertBefore(sub, title.nextSibling);
   }
   // 按钮：改文字 + 移除"展开文章宫格"拦截，让点击跟随整卡链接跳转
