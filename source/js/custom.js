@@ -56,7 +56,7 @@ a.categoryButton.xe-has-sub:after{position:static;order:1;margin:6px 0 3px;}
 #todayCard:hover .xe-shop-word{animation-duration:3s,3.2s;}
 @keyframes xe-rainbow{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
 @keyframes xe-float{0%,100%{margin-top:0;}50%{margin-top:-7px;}}
-#todayCard .todayCard-info .todayCard-tips{color:#5a6a75!important;opacity:1;}
+#todayCard .todayCard-info .todayCard-tips{color:#5a6a75!important;opacity:1;font-size:13px;}
 #todayCard .todayCard-info .todayCard-title{color:#2e9bab!important;font-size:22px;line-height:1.35;margin-top:4px;}
 #todayCard .xe-shop-sub{color:#5a6a75!important;font-size:13px;margin-top:8px;line-height:1.4;}
 .topGroup .banner-button{background:#fff!important;color:#333!important;box-shadow:0 3px 10px rgba(46,155,171,.25)!important;}
@@ -98,8 +98,8 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   #home_top .topGroup{display:block!important;height:auto!important;width:100%!important;flex:none!important;}
   #home_top .topGroup .recent-post-item{display:none!important;}
   /* 小店卡：主题 ≤1200px 已把它 display:none + 绝对定位600px宽，这里全部覆盖为流内全宽卡（约2:1） */
-  #home_top .topGroup .todayCard{position:relative!important;display:flex!important;width:100%!important;height:190px!important;margin:0!important;}
-  #todayCard .xe-shop-word{font-size:56px!important;transform:translateY(-72%)!important;}
+  #home_top .topGroup .todayCard{position:relative!important;display:flex!important;width:100%!important;height:200px!important;margin:0!important;}
+  #todayCard .xe-shop-word{font-size:50px!important;transform:translateY(-72%)!important;}
   #todayCard .todayCard-info{left:16px!important;bottom:16px!important;max-width:calc(100% - 110px)!important;}
   #todayCard .todayCard-info .todayCard-tips{font-size:11px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   #todayCard .todayCard-info .todayCard-title{font-size:16px!important;line-height:1.3!important;margin-top:2px!important;}
@@ -108,6 +108,8 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   #todayCard .banner-button-group{right:16px!important;bottom:16px!important;}
   #todayCard .banner-button{width:auto!important;height:34px!important;padding:0 14px!important;font-size:13px!important;}
   .categoryGroup{display:none!important;}
+  /* 问候卡文字块：主题锚点按桌面设计(top 46px/left 48px)，手机小卡上偏中显得飘，贴向左上并对齐整页 20px 内边距 */
+  #random-banner .banners-title{top:26px!important;left:20px!important;}
   #random-banner .banners-title-big{font-size:26px!important;}
   #random-banner .banners-title-small{font-size:12px!important;}
   /* 手机端 QQ 卡收紧：字号收一档（二维码 80px 与桌面统一，无需再覆盖） */
