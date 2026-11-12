@@ -8,6 +8,10 @@ avatar: https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg
 peoplecanvas:
   enable: false
 
+# 站点名字体：与正文统一（原主题栈在 Windows 上落到正黑体导致和菜单不一致；保留苹方给 Mac 访客）
+blog_title_font:
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif
+
 # 顶部导航菜单
 menu:
   虚拟卡: /card/ || anzhiyu-icon-qrcode

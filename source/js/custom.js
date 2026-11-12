@@ -13,22 +13,26 @@ var XE_CONFIG = {
 function xeInjectStyle() {
   if (document.getElementById("xe-style")) return;
   var css = `
-/* 免费角标：贴住「清单」右上角（角标底边与文字相连） */
+/* 免费角标：贴住「清单」右上角（只留一丝白） */
 span.xe-free-parent{display:inline-block;position:relative;}
-.menu-badge{position:absolute;left:calc(100% + 2px);top:-4px;padding:0 5px;font-size:10px;line-height:15px;
+.menu-badge{position:absolute;left:calc(100% + 1px);top:-3px;padding:0 5px;font-size:10px;line-height:15px;
   border-radius:7px;background:#425aeb;color:#fff;font-weight:600;white-space:nowrap;}
 
-/* 三彩色卡片小字：字号 12px，与标题保持舒适间距，卡片高度不变 */
-a.categoryButton.xe-has-sub{line-height:3.05em;}
-a.categoryButton.xe-has-sub .categoryButtonText{font-size:1.05rem;}
+/* 三彩色卡片：大字/横杠/小字纵向排列，整组在卡片内垂直居中，间距均匀 */
+a.categoryButton.xe-has-sub{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+  line-height:1.4;padding-left:21px;}
+a.categoryButton.xe-has-sub .categoryButtonText{padding-left:0;font-size:1.05rem;order:0;}
+a.categoryButton.xe-has-sub:after{position:static;order:1;margin:6px 0 3px;}
 .category-sub{display:block;font-size:12px;line-height:1.3;opacity:.8;
-  margin:3px 0 0 21px;position:relative;z-index:1;}
+  margin:0;position:relative;z-index:1;order:2;}
 
-/* 问候卡：深色渐变底 + 白色标题（标签云用主题原生几何，保证无缝循环） */
-#random-banner.xe-wall{background:linear-gradient(135deg,#0b1220 0%,#1e3a8a 55%,#4c1d95 100%)!important;}
+/* 导航站点名：颜色加深 + 加粗，与菜单项协调 */
+#blog_name #site-name .title{color:var(--anzhiyu-fontcolor);font-weight:600;}
+
+/* 问候卡：白底（主题原生），仅调图标条起始高度（居中穿过卡片）和网址字号 */
 #random-banner.xe-wall .banners-title{position:relative;z-index:2;}
-#random-banner.xe-wall .banners-title-big,
-#random-banner.xe-wall .banners-title-small{color:#fff!important;text-shadow:0 2px 12px rgba(0,0,0,.35);}
+#random-banner.xe-wall .banners-title-small{font-size:15px;}
+#random-banner.xe-wall .tags-group-wrapper{margin-top:2rem!important;}
 `;
   var style = document.createElement("style");
   style.id = "xe-style";
