@@ -35,9 +35,10 @@ a.categoryButton.xe-has-sub:after{position:static;order:1;margin:6px 0 3px;}
 /* 导航右侧图标组：间距收紧（主题默认 1rem） */
 #nav-right > div{margin-left:0.5rem;}
 
-/* 首页顶部两列等分（右列原为固定 600px，窄窗口下 flex 收缩失衡导致左右不均） */
-#home_top .swiper_container_card{gap:1rem;}
-#home_top div#bannerGroup{width:50%!important;flex:1 1 0!important;min-width:0;}
+/* 首页顶部两列等分（右列原为固定 600px，窄窗口下 flex 收缩失衡导致左右不均）；
+   间隙收紧为 0.75rem 并去掉左列自带的 margin-right:10px（原 26px+ 太宽，原主题观感约 10-15px） */
+#home_top .swiper_container_card{gap:0.75rem!important;justify-content:flex-start!important;}
+#home_top div#bannerGroup{width:50%!important;flex:1 1 0!important;min-width:0;margin-right:0!important;}
 #home_top .topGroup{width:50%!important;flex:1 1 0!important;min-width:0;}
 #home_top .topGroup .todayCard{width:100%!important;}
 
