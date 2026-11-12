@@ -98,13 +98,13 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   #home_top .topGroup{display:block!important;height:auto!important;width:100%!important;flex:none!important;}
   #home_top .topGroup .recent-post-item{display:none!important;}
   /* 小店卡：主题 ≤1200px 已把它 display:none + 绝对定位600px宽，这里全部覆盖为流内全宽卡（约2:1） */
-  #home_top .topGroup .todayCard{position:relative!important;display:flex!important;width:100%!important;height:200px!important;margin:0!important;}
-  #todayCard .xe-shop-word{font-size:50px!important;transform:translateY(-72%)!important;}
+  #home_top .topGroup .todayCard{position:relative!important;display:flex!important;width:100%!important;height:230px!important;margin:0!important;}
+  #todayCard .xe-shop-word{font-size:54px!important;transform:translateY(-65%)!important;}
   #todayCard .todayCard-info{left:16px!important;right:16px!important;bottom:16px!important;max-width:none!important;}
   #todayCard .todayCard-info .todayCard-title{font-size:17px!important;line-height:1.3!important;margin-top:2px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  #todayCard .xe-shop-sub{font-size:11px!important;margin-top:4px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  /* 按钮与第一行大字同带对齐（bottom 30px，中心 y≈154），小字在其下方左延伸，阶梯式收尾 */
-  #todayCard .banner-button-group{right:16px!important;bottom:30px!important;}
+  #todayCard .xe-shop-sub{font-size:11px!important;margin-top:8px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  /* 按钮与大字行同带对齐（bottom 28px 联动行距调整），小字在其下方左延伸，阶梯式收尾 */
+  #todayCard .banner-button-group{right:16px!important;bottom:28px!important;}
   #todayCard .banner-button{width:auto!important;height:32px!important;padding:0 10px!important;font-size:12px!important;}
   .categoryGroup{display:none!important;}
   /* 图标带：主题按桌面 340px 高卡设计(-30°斜带+7rem落点)，手机 230px 卡装不下第二行，
