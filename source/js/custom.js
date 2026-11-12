@@ -98,12 +98,10 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   .categoryGroup{display:none!important;}
   #random-banner .banners-title-big{font-size:26px!important;}
   #random-banner .banners-title-small{font-size:12px!important;}
-  /* QQ翻转卡手机端：字号收一档 + 不折行 + 二维码缩小（与文字的 gap:10px 保底留白全局生效） */
+  /* 手机端 QQ 卡收紧：字号收一档（二维码 80px 与桌面统一，无需再覆盖） */
   .xe-wx-sub{font-size:18px!important;}
   .xe-wx-tip2{font-size:11px!important;margin-top:8px!important;}
   .xe-wx-sub,.xe-wx-tip2{white-space:nowrap;}
-  .xe-wx-qr{width:82px!important;height:82px!important;}
-  .xe-wx-back{padding:0 12px 0 16px!important;}
 }
 
 /* ============ 加小二 QQ 翻转卡（纯 CSS 绘制，排版对齐原主题公众号卡） ============ */
@@ -117,11 +115,11 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
 .xe-wx-tip{font-size:13px;opacity:.92;margin-top:8px;line-height:1.3;}
 .xe-wx-mark{position:absolute;right:2px;top:50%;transform:translateY(-50%);font-size:64px;font-weight:800;font-style:italic;
   color:rgba(255,255,255,.16);letter-spacing:2px;pointer-events:none;line-height:1;}
-.xe-wx-back{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:10px;height:100%;padding:0 14px 0 20px;color:#fff;}
+.xe-wx-back{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:10px;height:100%;padding:0 10px 0 16px;color:#fff;}
 .xe-wx-left{display:flex;flex-direction:column;justify-content:center;}
-.xe-wx-sub{font-size:22px;font-weight:700;letter-spacing:1px;}
-.xe-wx-tip2{font-size:12px;opacity:.92;margin-top:10px;}
-.xe-wx-qr{width:96px;height:96px;border-radius:8px;background:#fff;object-fit:cover;flex:none;}
+.xe-wx-sub{font-size:20px;font-weight:700;letter-spacing:1px;white-space:nowrap;}
+.xe-wx-tip2{font-size:12px;opacity:.92;margin-top:10px;white-space:nowrap;}
+.xe-wx-qr{width:80px;height:80px;border-radius:8px;background:#fff;object-fit:cover;flex:none;}
 
 /* ============ AI小店按钮（替换打赏作者位置） ============ */
 .xe-share-btn{display:inline-flex;align-items:center;gap:8px;background:#425aeb;color:#fff!important;border-radius:20px;
@@ -231,6 +229,9 @@ function xeInitWechatCard() {
   if (!wrap) return;
   var face = wrap.querySelector(".face:not(.back)");
   var back = wrap.querySelector(".back.face");
+  // 清除模板内联的作者图床背景图（CSS 已用 background:none 兜底，这里从 DOM 彻底移除 URL 痕迹）
+  if (face) face.removeAttribute("style");
+  if (back) back.removeAttribute("style");
   if (face && !face.querySelector(".xe-wx-front")) {
     face.innerHTML =
       '<div class="xe-wx-front">' +

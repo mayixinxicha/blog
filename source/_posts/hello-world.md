@@ -1,5 +1,6 @@
 ---
 title: Hello World
+date: 2026-11-11 18:45:00
 tags:
   - 随笔
 cover: https://picsum.photos/id/180/800/400
