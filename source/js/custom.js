@@ -31,6 +31,8 @@ a.categoryButton.xe-has-sub:after{position:static;order:1;margin:6px 0 3px;}
 
 /* 正文文字色对齐原主题演示站观感：加深为 --anzhiyu-fontcolor，加粗与正文同色 */
 body{color:var(--anzhiyu-fontcolor);}
+/* 版本兼容锁：远端构建若装到新版主题（会给加粗染主题蓝），这里强制拉回正文色 */
+#article-container strong,#article-container b{color:var(--anzhiyu-fontcolor)!important;}
 
 /* 分类/标签/独立页面头部横幅（1.7.0 模板对非文章页不渲染 default_top_img，用 CSS 补深蓝横幅，
    白色页面标题直接压在图上，替换原来的空白区） */
