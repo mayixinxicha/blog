@@ -34,7 +34,7 @@ blog_title_font:
 menu:
   虚拟卡: /card/ || anzhiyu-icon-qrcode
   eSIM: /esim/ || anzhiyu-icon-radio
-  海外ID: /overseas-id/ || anzhiyu-icon-language
+  Apple ID: /apple-id/ || anzhiyu-icon-language
   AI订阅: /ai-subscription/ || anzhiyu-icon-bolt
   工具箱: /toolbox/ || anzhiyu-icon-gear
   清单: /free-list/ || anzhiyu-icon-list-ul

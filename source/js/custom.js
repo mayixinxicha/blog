@@ -180,7 +180,7 @@ function xeInitCategorySub() {
   if (!XE_CONFIG.categorySub) return;
   var map = {
     "开卡": "费率对比 + 开卡直达",
-    "办号": "eSIM卡 + 海外ID",
+    "办号": "eSIM卡 + Apple ID",
     "订AI": "ChatGPT / Claude 开通指南",
   };
   document.querySelectorAll(".categoryGroup .categoryItem").forEach(function (item) {
