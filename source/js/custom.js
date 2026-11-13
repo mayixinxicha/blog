@@ -26,6 +26,16 @@ a.categoryButton.xe-has-sub:after{position:static;order:1;margin:6px 0 3px;}
 .category-sub{display:block;font-size:12px;line-height:1.3;opacity:.8;
   margin:0;position:relative;z-index:1;order:2;}
 
+/* 图注：灰色小字居中（替代旧版 *斜体* 图注语法） */
+#article-container .fig-cap{color:#949dae;font-size:.85em;line-height:1.9;margin:-6px 0 20px;text-align:center;}
+
+/* 正文文字色对齐原主题演示站观感：加深为 --anzhiyu-fontcolor，加粗与正文同色 */
+body{color:var(--anzhiyu-fontcolor);}
+
+/* 分类/标签/独立页面头部横幅（1.7.0 模板对非文章页不渲染 default_top_img，用 CSS 补深蓝横幅，
+   白色页面标题直接压在图上，替换原来的空白区） */
+#page-header.not-home-page{background:url(/img/cat-banner.svg) center/cover no-repeat;}
+
 /* 导航站点名：颜色加深 + 加粗，与菜单项协调 */
 #blog_name #site-name .title{color:var(--anzhiyu-fontcolor);font-weight:600;}
 

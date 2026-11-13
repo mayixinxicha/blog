@@ -22,6 +22,25 @@ local_search:
   enable: true
   preload: true
 
+# 分类/标签页文章列表样式：index = 与首页相同的卡片流（默认横条列表）
+category_ui: index
+
+# 分类/标签/归档等无独立头图页面的默认横幅（深蓝渐变，白色页面标题压在其上）
+default_top_img: /img/cat-banner.svg
+
+# 文章版权信息：location 置空去掉主题作者默认的"长沙"属地角标
+post_copyright:
+  enable: true
+  decode: false
+  author_href: null
+  location: ''
+  license: CC BY-NC-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+  avatarSinks: false
+  copyright_author_img_back: null
+  copyright_author_img_front: null
+  copyright_author_link: /
+
 # 关闭首页问候卡的"小人剪影"canvas 动画（与标签云互斥；开启它就不会显示标题和图标流动）
 peoplecanvas:
   enable: false

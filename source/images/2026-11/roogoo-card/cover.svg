@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="1157px" height="668px" viewBox="0 -102.5 1157 668" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="xe-bg-grad">
+            <stop offset="0%" stop-color="#1e2f6e"></stop>
+            <stop offset="55%" stop-color="#2b3f9e"></stop>
+            <stop offset="100%" stop-color="#425aef"></stop>
+        </linearGradient>
+    </defs>
+    <rect x="0" y="-102.5" width="1157" height="668" fill="url(#xe-bg-grad)"></rect>
     <title>编组</title>
     <defs>
         <circle id="path-1" cx="57.5" cy="57.5" r="57.5"></circle>
