@@ -79,6 +79,7 @@ pagination_dir: page
 
 # Include / Exclude file(s)
 include:
+  - _headers   # Cloudflare 静态资源响应头规则（下划线开头文件默认被 Hexo 忽略，此处放行）
 exclude:
 ignore:
 

@@ -148,4 +148,4 @@ footer:
 # 自定义注入脚本（导航页面名优化 + 菜单徽章 + 三卡片小字 + 图标墙动效）
 inject:
   bottom:
-    - <script src="/js/custom.js?v=20261114"></script>
+    - <script src="/js/custom.js?v=20261114b"></script>

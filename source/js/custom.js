@@ -35,15 +35,23 @@ body{color:var(--anzhiyu-fontcolor);}
 #article-container strong,#article-container b{color:var(--anzhiyu-fontcolor)!important;}
 
 /* 分类/标签/独立页头部垫层归零：导航是 fixed 不占流空间（高60px），内容起点由 .layout
-   padding-top 精确控制——62px = 导航底边 60px + 2px，内容真正贴住导航下方 */
-#page-header.not-home-page{height:0!important;min-height:0!important;margin-bottom:0!important;}
+   padding-top 精确控制——62px = 导航底边 60px + 2px，内容真正贴住导航下方。
+   类名双代兼容：1.7.0 主题产出 not-home-page，新版产出 not-top-img（分类页实测两者都有）；
+   首页头部也是 not-top-img，用 body:not(:has(#home_top)) 排除，不伤首页占位带。
+   旧浏览器不支持 :has 时规则整体跳过 = 维持原状，失效即安全 */
+#page-header.not-home-page,
+body:not(:has(#home_top)) #page-header.not-top-img{height:0!important;min-height:0!important;margin-bottom:0!important;}
 #page-header.not-home-page #page-site-info{display:none!important;}
-body:has(#page-header.not-home-page) .layout{padding-top:62px!important;}
+body:has(#page-header.not-home-page) .layout,
+body:has(#page-header.not-top-img):not(:has(#home_top)) .layout{padding-top:62px!important;}
 
 /* 非文章页导航白底深字兜底（原生此状态无配色规则，部分浏览器下白字落浅底） */
-#page-header.not-home-page #nav{background:rgba(255,255,255,.85);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);}
-#page-header.not-home-page #nav .site-page,#page-header.not-home-page #nav #site-name .title{color:var(--anzhiyu-fontcolor)!important;}
-[data-theme="dark"] #page-header.not-home-page #nav{background:rgba(19,20,23,.85);}
+#page-header.not-home-page #nav,
+body:not(:has(#home_top)) #page-header.not-top-img #nav{background:rgba(255,255,255,.85);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);}
+#page-header.not-home-page #nav .site-page,#page-header.not-home-page #nav #site-name .title,
+body:not(:has(#home_top)) #page-header.not-top-img #nav .site-page,body:not(:has(#home_top)) #page-header.not-top-img #nav #site-name .title{color:var(--anzhiyu-fontcolor)!important;}
+[data-theme="dark"] #page-header.not-home-page #nav,
+[data-theme="dark"] body:not(:has(#home_top)) #page-header.not-top-img #nav{background:rgba(19,20,23,.85);}
 
 /* 导航站点名：浅色导航下加深 + 加粗；压在深色封面上的透明态强制白字（否则深灰站名隐入深蓝背景） */
 #blog_name #site-name .title{color:var(--anzhiyu-fontcolor);font-weight:600;}
