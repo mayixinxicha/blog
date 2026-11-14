@@ -148,10 +148,15 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
 }
 /* 第二档 ≤768px（手机竖屏）：三彩卡隐藏、推荐小卡隐藏，问候卡独占首屏，小店卡全宽放出当第二屏 */
 @media screen and (max-width:768px){
-  /* 文章页头部：高度/裁切全恢复主题原生，只加一层深色蒙版提升白字对比度
-     （scope 用 :not(dark)——不依赖 data-theme 属性值；深色模式主题自带 rgba(0,0,0,.3) 蒙版不叠加） */
-  html:not([data-theme="dark"]) #page-header.post-bg::before{content:"";position:absolute;left:0;top:0;width:100%;height:100%;
-    background:rgba(0,0,0,.28);z-index:1;pointer-events:none;}
+  /* 手机端文章头图：复刻主题 mainTone 分支的移动端形态（head.styl:162-199 主分支几何）——
+     原生非 mainTone 分支把封面拉满整个视口高（height:100vh + 图片 height:100%），
+     宽图被放大裁切成"巨型圆圈怼脸"、标题压花图看不清。改为：封面高 30rem、图片占 70%、
+     边缘用品牌色 inset 渐隐融入背景，标题落在干净渐隐区。桌面端在媒体查询外零影响。
+     （旧版 28% 蒙版已删：它与封面同为 z-index:1 但画序在前，实际被图片盖住从未显示过） */
+  #page-header.post-bg #post-top-cover{position:absolute;height:30rem;}
+  #page-header.post-bg #post-top-cover #post-top-bg{height:70%!important;}
+  #page-header.post-bg #post-top-cover::after{display:block!important;
+    box-shadow:0 0 205px 59px var(--anzhiyu-main) inset;}
   #page-header #post-info{z-index:2;}
   #random-banner{display:flex!important;height:230px!important;}
   #home_top .swiper_container_card{flex-wrap:wrap!important;overflow:hidden!important;}
