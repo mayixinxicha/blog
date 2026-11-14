@@ -35,7 +35,7 @@ body{color:var(--anzhiyu-fontcolor);}
 #article-container strong,#article-container b{color:var(--anzhiyu-fontcolor)!important;}
 
 /* 分类/标签/独立页头部垫层归零：导航是 fixed 不占流空间（高60px），内容起点由 .layout
-   padding-top 精确控制——62px = 导航底边 60px + 2px，内容真正贴住导航下方。
+   padding-top 精确控制——65px = 导航底边 60px + 5px，内容贴住导航下方。
    类名双代兼容：1.7.0 主题产出 not-home-page，新版产出 not-top-img（分类页实测两者都有）；
    首页头部也是 not-top-img，用 body:not(:has(#home_top)) 排除，不伤首页占位带。
    旧浏览器不支持 :has 时规则整体跳过 = 维持原状，失效即安全 */
@@ -43,13 +43,13 @@ body{color:var(--anzhiyu-fontcolor);}
 body:not(:has(#home_top)) #page-header.not-top-img{height:0!important;min-height:0!important;margin-bottom:0!important;}
 #page-header.not-home-page #page-site-info{display:none!important;}
 body:has(#page-header.not-home-page) .layout,
-body:has(#page-header.not-top-img):not(:has(#home_top)) .layout{padding-top:62px!important;}
+body:has(#page-header.not-top-img):not(:has(#home_top)) .layout{padding-top:65px!important;}
 
 /* 粘性页脚修正（"分类页导航下方大空隙"的真正根源）：主题给 #body-wrap 设了
    justify-content:space-between，当内容不足一屏（如只有 1 篇文章的分类页），
    剩余空间被平分到 header↔main 和 main↔footer 之间——main 被推向屏幕正中，
    导航下方凭空多出 ~170px。改用 flex:1 让 main 自己撑满剩余空间：
-   main 顶到 header 下方（配合上面的 62px = 距导航 2px），页脚依旧贴底 */
+   main 顶到 header 下方（配合上面的 65px = 距导航 5px），页脚依旧贴底 */
 main#blog-container{flex:1 0 auto!important;}
 
 /* 非文章页导航白底深字兜底（原生此状态无配色规则，部分浏览器下白字落浅底） */
