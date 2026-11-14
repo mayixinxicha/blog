@@ -1,5 +1,8 @@
 # Cloudflare Pages/Workers 静态资源响应头规则（构建时原样拷贝到产物根目录）
-# custom.js 是全站自定义样式的唯一载体，必须每次都向源站校验新鲜度，
-# 否则浏览器（尤其手机端）可能长期持有旧缓存，导致"改了没变化"
+# 本站是 pjax 无刷新换页站：切换页面不会重新加载 CSS/JS，旧标签页会长期持有旧资源，
+# 造成"新 HTML + 旧样式"的混合版本会话（类名对不上、规则扑空）。故全部禁缓存。
 /js/custom.js
+  Cache-Control: no-cache, must-revalidate
+
+/css/index.css
   Cache-Control: no-cache, must-revalidate

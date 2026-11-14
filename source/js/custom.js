@@ -45,6 +45,13 @@ body:not(:has(#home_top)) #page-header.not-top-img{height:0!important;min-height
 body:has(#page-header.not-home-page) .layout,
 body:has(#page-header.not-top-img):not(:has(#home_top)) .layout{padding-top:62px!important;}
 
+/* 粘性页脚修正（"分类页导航下方大空隙"的真正根源）：主题给 #body-wrap 设了
+   justify-content:space-between，当内容不足一屏（如只有 1 篇文章的分类页），
+   剩余空间被平分到 header↔main 和 main↔footer 之间——main 被推向屏幕正中，
+   导航下方凭空多出 ~170px。改用 flex:1 让 main 自己撑满剩余空间：
+   main 顶到 header 下方（配合上面的 62px = 距导航 2px），页脚依旧贴底 */
+main#blog-container{flex:1 0 auto!important;}
+
 /* 非文章页导航白底深字兜底（原生此状态无配色规则，部分浏览器下白字落浅底） */
 #page-header.not-home-page #nav,
 body:not(:has(#home_top)) #page-header.not-top-img #nav{background:rgba(255,255,255,.85);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);}
