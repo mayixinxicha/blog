@@ -82,6 +82,30 @@ body:not(:has(#home_top)) #page-header.not-top-img #nav .site-page,body:not(:has
 /* 文末发文时间行：灰色小字（替代旧版 *斜体* 语法） */
 #article-container .xe-timeline{color:#949dae;font-size:.85em;text-align:center;margin:28px 0 0;}
 
+/* ---------------- 正文排版优化（标题间距 / 数字等宽 / 结论卡 / 列表呼吸感） ---------------- */
+
+/* 标题间距铁律："离上文远、离下文近"——上边距约 2 倍于下边距，扫读时标题归属清晰 */
+#article-container h2,#article-container h3,#article-container h4{margin:2em 0 .8em;}
+
+/* 金额/数字防跳动：等宽数字对齐 + 深色强调，攻略文的 $12-15、0.01 这类数值扫读一眼可辨。
+   套用方式：写作时 <span class="xe-num">$12-15 U</span> */
+#article-container .xe-num{font-variant-numeric:tabular-nums;font-weight:600;}
+
+/* blockquote 结论卡：文中金句/关键判断用——浅底色块 + 左侧粗边（品牌蓝），
+   与普通引用区分，读者视线自动停留。浅深色双主题适配 */
+#article-container blockquote{position:relative;background:var(--anzhiyu-card-bg,#f7f9fe);
+  border:none;border-left:4px solid var(--anzhiyu-main,#425aeb);border-radius:8px;
+  padding:14px 18px;margin:1.5em 0;box-shadow:0 1px 4px rgba(0,0,0,.06);}
+#article-container blockquote p{margin:0 0 8px;color:var(--anzhiyu-fontcolor);}
+#article-container blockquote p:last-child{margin-bottom:0;}
+[data-theme="dark"] #article-container blockquote{background:rgba(255,255,255,.06);box-shadow:none;}
+
+/* 列表呼吸感：相邻列表项 6px 间距（步骤条目呼吸感），嵌套列表 4px 收紧一级。
+   主题有同权重 li 间距规则，需 !important 压住 */
+#article-container ul li + li,#article-container ol li + li{margin-top:6px!important;}
+#article-container ul ul,#article-container ol ol,#article-container ul ol,#article-container ol ul{margin-top:4px;}
+
+
 /* /card/ 聚合页实测徽章：绿色胶囊（呼应"测过才上榜"原则） */
 .xe-tested-badge{display:inline-block;background:var(--anzhiyu-green,#57bd6a);color:#fff;font-size:12px;
   font-weight:600;padding:3px 12px;border-radius:20px;margin:2px 0 12px;}
