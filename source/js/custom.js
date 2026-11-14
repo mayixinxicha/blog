@@ -34,11 +34,11 @@ body{color:var(--anzhiyu-fontcolor);}
 /* 版本兼容锁：远端构建若装到新版主题（会给加粗染主题蓝），这里强制拉回正文色 */
 #article-container strong,#article-container b{color:var(--anzhiyu-fontcolor)!important;}
 
-/* 分类/标签/独立页头部垫层归零：导航是 fixed 不占流空间，内容起点由 .layout padding-top
-   精确控制——70px = 首页头部 60px 垫层 + 10px 缝隙的像素级同款起点 */
+/* 分类/标签/独立页头部垫层归零：导航是 fixed 不占流空间（高60px），内容起点由 .layout
+   padding-top 精确控制——62px = 导航底边 60px + 2px，内容真正贴住导航下方 */
 #page-header.not-home-page{height:0!important;min-height:0!important;margin-bottom:0!important;}
 #page-header.not-home-page #page-site-info{display:none!important;}
-body:has(#page-header.not-home-page) .layout{padding-top:70px!important;}
+body:has(#page-header.not-home-page) .layout{padding-top:62px!important;}
 
 /* 非文章页导航白底深字兜底（原生此状态无配色规则，部分浏览器下白字落浅底） */
 #page-header.not-home-page #nav{background:rgba(255,255,255,.85);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);}
@@ -55,10 +55,6 @@ body:has(#page-header.not-home-page) .layout{padding-top:70px!important;}
 
 /* 文末发文时间行：灰色小字（替代旧版 *斜体* 语法） */
 #article-container .xe-timeline{color:#949dae;font-size:.85em;text-align:center;margin:28px 0 0;}
-
-/* 全站 footer 风险提示：黄字与 ©2026 同一水平线（footer-bar 是横向 flex，
-   flex:1 占据版权以外的全部宽度并居中成两行，版权位置不动） */
-.xe-risk{flex:1;color:#ffc93e;font-size:12.5px;line-height:1.9;text-align:center;padding:0 12px;min-width:0;}
 
 /* /card/ 聚合页实测徽章：绿色胶囊（呼应"测过才上榜"原则） */
 .xe-tested-badge{display:inline-block;background:var(--anzhiyu-green,#57bd6a);color:#fff;font-size:12px;
@@ -126,9 +122,9 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
 }
 /* 第二档 ≤768px（手机竖屏）：三彩卡隐藏、推荐小卡隐藏，问候卡独占首屏，小店卡全宽放出当第二屏 */
 @media screen and (max-width:768px){
-  /* 文章页头部：高度/裁切全恢复主题原生，只加一层浅色模式下的深色蒙版提升白字对比度
-     （深色模式主题自带 rgba(0,0,0,.3) 蒙版，不重复叠加） */
-  [data-theme="light"] #page-header.post-bg::before{content:"";position:absolute;left:0;top:0;width:100%;height:100%;
+  /* 文章页头部：高度/裁切全恢复主题原生，只加一层深色蒙版提升白字对比度
+     （scope 用 :not(dark)——不依赖 data-theme 属性值；深色模式主题自带 rgba(0,0,0,.3) 蒙版不叠加） */
+  html:not([data-theme="dark"]) #page-header.post-bg::before{content:"";position:absolute;left:0;top:0;width:100%;height:100%;
     background:rgba(0,0,0,.28);z-index:1;pointer-events:none;}
   #page-header #post-info{z-index:2;}
   #random-banner{display:flex!important;height:230px!important;}
@@ -322,18 +318,6 @@ function xeInitShareButton() {
   slot.appendChild(b);
 }
 
-/* ---------------- 全站 footer 风险提示（纯黄字，插在版权行上方融合进 footer-bar） ---------------- */
-function xeInitRisk() {
-  var bar = document.getElementById("footer-bar");
-  if (!bar || bar.querySelector(".xe-risk")) return;
-  var div = document.createElement("div");
-  div.className = "xe-risk";
-  div.textContent =
-    "风险提示：本站收录的虚拟卡 / U 卡大多由非持牌或监管较弱的机构发行，可能出现冻卡、扣款、停止服务甚至跑路的情况，资金安全没有保障。" +
-    "本站只是信息整理和站长实测分享，不为任何虚拟卡或平台背书，也不构成任何金融或投资建议。请自行判断风险，投资需谨慎。";
-  bar.insertBefore(div, bar.firstChild);
-}
-
 /* ---------------- 统一初始化 ---------------- */
 function xeInitAll() {
   xeInjectStyle();
@@ -345,7 +329,6 @@ function xeInitAll() {
   xeInitSayhi();
   xeInitWechatCard();
   xeInitShareButton();
-  xeInitRisk();
 }
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(xeInitAll, 30);
