@@ -57,6 +57,14 @@ peoplecanvas:
 blog_title_font:
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif
 
+# 关闭左下角音乐播放器（主题默认开启并注入 aplayer/meting 脚本，随机弹出且拖慢加载；
+# 浅合并会整对象覆盖，两个开关都要写全）
+aplayerInject:
+  enable: false
+  per_page: false
+nav_music:
+  enable: false
+
 # 顶部导航菜单
 menu:
   虚拟卡: /categories/虚拟卡/ || anzhiyu-icon-qrcode

@@ -34,12 +34,11 @@ body{color:var(--anzhiyu-fontcolor);}
 /* 版本兼容锁：远端构建若装到新版主题（会给加粗染主题蓝），这里强制拉回正文色 */
 #article-container strong,#article-container b{color:var(--anzhiyu-fontcolor)!important;}
 
-/* 分类/标签/独立页面头部复刻首页 not-top-img 状态：60px 导航带 + 10px 下边距（首页缝隙同款），
-   页面标题仍在 DOM 里保证 SEO，只是视觉收掉。原生 400px/280px 的空白带就此消失 */
-#page-header.not-home-page{height:60px!important;min-height:0!important;margin-bottom:10px!important;}
+/* 分类/标签/独立页头部垫层归零：导航是 fixed 不占流空间，内容起点由 .layout padding-top
+   精确控制——70px = 首页头部 60px 垫层 + 10px 缝隙的像素级同款起点 */
+#page-header.not-home-page{height:0!important;min-height:0!important;margin-bottom:0!important;}
 #page-header.not-home-page #page-site-info{display:none!important;}
-/* 内容顶距与首页对齐：首页 #home_top 顶边距为 0，分类/标签页 .layout 原生 padding-top 1.25rem 收掉 */
-body:has(#page-header.not-home-page) .layout{padding-top:0!important;}
+body:has(#page-header.not-home-page) .layout{padding-top:70px!important;}
 
 /* 非文章页导航白底深字兜底（原生此状态无配色规则，部分浏览器下白字落浅底） */
 #page-header.not-home-page #nav{background:rgba(255,255,255,.85);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);}
@@ -50,17 +49,16 @@ body:has(#page-header.not-home-page) .layout{padding-top:0!important;}
 #blog_name #site-name .title{color:var(--anzhiyu-fontcolor);font-weight:600;}
 #page-header.post-bg #nav:not(.nav-fixed) #blog_name #site-name .title{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.35);}
 
-/* 文章头部标签：换行后行间也有呼吸感。主题把该行定死 height:32px，标签多时内容溢出压住
-   大标题（错位根源）——解除固定高度让容器自然长高，换行行距用 row-gap 补 */
-#post-firstinfo .meta-firstline{height:auto!important;min-height:32px;flex-wrap:wrap;row-gap:8px;}
-#post-firstinfo .meta-firstline .article-meta__tags{margin-bottom:0!important;}
+/* 文章底部彩色标签（版权卡 tag_share）：主题容器 flex-wrap 却无 row-gap，
+   标签多换行后两行贴死——补 8px 行距（此前误修页头 meta-firstline，已全部还原） */
+#post .tag_share .post-meta__box__tag-list{row-gap:8px;}
 
 /* 文末发文时间行：灰色小字（替代旧版 *斜体* 语法） */
 #article-container .xe-timeline{color:#949dae;font-size:.85em;text-align:center;margin:28px 0 0;}
 
-/* 全站 footer 风险提示：纯黄字两行居中，融合进版权行上方（不做色块牌子） */
-.xe-risk{color:#ffc93e;font-size:12.5px;line-height:1.9;text-align:center;
-  max-width:760px;margin:0 auto;padding:12px 20px 0;}
+/* 全站 footer 风险提示：黄字与 ©2026 同一水平线（footer-bar 是横向 flex，
+   flex:1 占据版权以外的全部宽度并居中成两行，版权位置不动） */
+.xe-risk{flex:1;color:#ffc93e;font-size:12.5px;line-height:1.9;text-align:center;padding:0 12px;min-width:0;}
 
 /* /card/ 聚合页实测徽章：绿色胶囊（呼应"测过才上榜"原则） */
 .xe-tested-badge{display:inline-block;background:var(--anzhiyu-green,#57bd6a);color:#fff;font-size:12px;
@@ -128,10 +126,11 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
 }
 /* 第二档 ≤768px（手机竖屏）：三彩卡隐藏、推荐小卡隐藏，问候卡独占首屏，小店卡全宽放出当第二屏 */
 @media screen and (max-width:768px){
-  /* 文章页头部：主题手机端 min-height:450px 太高（封面图标怼到标题脸上），收为 340px 小横幅；
-     不能用固定 height（头部 overflow:hidden，meta 行变高会被裁掉） */
-  #page-header.post-bg{min-height:340px!important;}
-  #page-header.post-bg #post-top-cover #post-top-bg{object-position:center 30%;}
+  /* 文章页头部：高度/裁切全恢复主题原生，只加一层浅色模式下的深色蒙版提升白字对比度
+     （深色模式主题自带 rgba(0,0,0,.3) 蒙版，不重复叠加） */
+  [data-theme="light"] #page-header.post-bg::before{content:"";position:absolute;left:0;top:0;width:100%;height:100%;
+    background:rgba(0,0,0,.28);z-index:1;pointer-events:none;}
+  #page-header #post-info{z-index:2;}
   #random-banner{display:flex!important;height:230px!important;}
   #home_top .swiper_container_card{flex-wrap:wrap!important;overflow:hidden!important;}
   #home_top div#bannerGroup{width:100%!important;flex:none!important;}
