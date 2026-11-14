@@ -53,11 +53,14 @@ body:has(#page-header.not-top-img):not(:has(#home_top)) .layout{padding-top:65px
 main#blog-container{flex:1 0 auto!important;}
 
 /* 侧栏与文章卡片顶部对齐：主题在 min-width:1201px 给 .recent-post-item 加了
-   margin-top:1rem(16px)，左列首卡顶到 65+16=81px，而侧栏首卡仍是 65px——
-   右侧"欢迎光临"比左边高 16px。同断点给侧栏补同款 margin（排除首页：
-   首页无 recent-post-item 的 1rem margin，横幅与侧栏本就 65px 对齐） */
+   margin-top:1rem(16px)，左列首卡顶到 65+16=81px，而侧栏与其他左列容器仍是 65px。
+   同断点给侧栏 + 自定义页(#page) + 归档(#archive) + 标签页(#tag) 补同款 margin，
+   全站非首页左列/侧栏统一 81px 起点（排除首页：横幅与侧栏本就 65px 对齐） */
 @media screen and (min-width:1201px){
-  body:not(:has(#home_top)) #aside-content{margin-top:16px!important;}
+  body:not(:has(#home_top)) #aside-content,
+  body:not(:has(#home_top)) #page,
+  body:not(:has(#home_top)) #archive,
+  body:not(:has(#home_top)) #tag{margin-top:16px!important;}
 }
 
 /* 非文章页导航白底深字兜底（原生此状态无配色规则，部分浏览器下白字落浅底） */
