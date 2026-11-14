@@ -34,25 +34,33 @@ body{color:var(--anzhiyu-fontcolor);}
 /* 版本兼容锁：远端构建若装到新版主题（会给加粗染主题蓝），这里强制拉回正文色 */
 #article-container strong,#article-container b{color:var(--anzhiyu-fontcolor)!important;}
 
-/* 分类/标签/独立页面头部整体收零（照原主题 demo：无横幅区，内容从导航下直接开始；
-   页面标题仍在 DOM 里保证 SEO，只是视觉收掉） */
-#page-header.not-home-page{height:0!important;min-height:0!important;}
+/* 分类/标签/独立页面头部复刻首页 not-top-img 状态：60px 导航带 + 10px 下边距（首页缝隙同款），
+   页面标题仍在 DOM 里保证 SEO，只是视觉收掉。原生 400px/280px 的空白带就此消失 */
+#page-header.not-home-page{height:60px!important;min-height:0!important;margin-bottom:10px!important;}
 #page-header.not-home-page #page-site-info{display:none!important;}
+/* 内容顶距与首页对齐：首页 #home_top 顶边距为 0，分类/标签页 .layout 原生 padding-top 1.25rem 收掉 */
+body:has(#page-header.not-home-page) .layout{padding-top:0!important;}
+
+/* 非文章页导航白底深字兜底（原生此状态无配色规则，部分浏览器下白字落浅底） */
+#page-header.not-home-page #nav{background:rgba(255,255,255,.85);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);}
+#page-header.not-home-page #nav .site-page,#page-header.not-home-page #nav #site-name .title{color:var(--anzhiyu-fontcolor)!important;}
+[data-theme="dark"] #page-header.not-home-page #nav{background:rgba(19,20,23,.85);}
 
 /* 导航站点名：浅色导航下加深 + 加粗；压在深色封面上的透明态强制白字（否则深灰站名隐入深蓝背景） */
 #blog_name #site-name .title{color:var(--anzhiyu-fontcolor);font-weight:600;}
 #page-header.post-bg #nav:not(.nav-fixed) #blog_name #site-name .title{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.35);}
 
-/* 文章头部标签：换行后行间也有呼吸感（主题原生只有 margin-right，纵向必挤） */
-#post-firstinfo .meta-firstline{display:flex;flex-wrap:wrap;row-gap:8px;}
+/* 文章头部标签：换行后行间也有呼吸感。主题把该行定死 height:32px，标签多时内容溢出压住
+   大标题（错位根源）——解除固定高度让容器自然长高，换行行距用 row-gap 补 */
+#post-firstinfo .meta-firstline{height:auto!important;min-height:32px;flex-wrap:wrap;row-gap:8px;}
 #post-firstinfo .meta-firstline .article-meta__tags{margin-bottom:0!important;}
 
 /* 文末发文时间行：灰色小字（替代旧版 *斜体* 语法） */
 #article-container .xe-timeline{color:#949dae;font-size:.85em;text-align:center;margin:28px 0 0;}
 
-/* 全站 footer 风险提示条：深底黄字（主题黄变量，深浅模式都协调） */
-.xe-risk{background:rgba(15,18,26,.92);color:#ffc93e;font-size:12.5px;line-height:1.8;
-  text-align:center;padding:16px 24px;max-width:800px;margin:0 auto;border-radius:8px;}
+/* 全站 footer 风险提示：纯黄字两行居中，融合进版权行上方（不做色块牌子） */
+.xe-risk{color:#ffc93e;font-size:12.5px;line-height:1.9;text-align:center;
+  max-width:760px;margin:0 auto;padding:12px 20px 0;}
 
 /* /card/ 聚合页实测徽章：绿色胶囊（呼应"测过才上榜"原则） */
 .xe-tested-badge{display:inline-block;background:var(--anzhiyu-green,#57bd6a);color:#fff;font-size:12px;
@@ -120,8 +128,9 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
 }
 /* 第二档 ≤768px（手机竖屏）：三彩卡隐藏、推荐小卡隐藏，问候卡独占首屏，小店卡全宽放出当第二屏 */
 @media screen and (max-width:768px){
-  /* 文章页头部：主题手机端 min-height:450px 太高（封面图标怼到标题脸上），收为一屏内小横幅 */
-  #page-header.post-bg{min-height:0!important;height:300px!important;}
+  /* 文章页头部：主题手机端 min-height:450px 太高（封面图标怼到标题脸上），收为 340px 小横幅；
+     不能用固定 height（头部 overflow:hidden，meta 行变高会被裁掉） */
+  #page-header.post-bg{min-height:340px!important;}
   #page-header.post-bg #post-top-cover #post-top-bg{object-position:center 30%;}
   #random-banner{display:flex!important;height:230px!important;}
   #home_top .swiper_container_card{flex-wrap:wrap!important;overflow:hidden!important;}
@@ -314,18 +323,16 @@ function xeInitShareButton() {
   slot.appendChild(b);
 }
 
-/* ---------------- 全站 footer 风险提示条（深底黄字，插在版权栏上方） ---------------- */
+/* ---------------- 全站 footer 风险提示（纯黄字，插在版权行上方融合进 footer-bar） ---------------- */
 function xeInitRisk() {
-  var footer = document.getElementById("footer");
-  if (!footer || footer.querySelector(".xe-risk")) return;
   var bar = document.getElementById("footer-bar");
+  if (!bar || bar.querySelector(".xe-risk")) return;
   var div = document.createElement("div");
   div.className = "xe-risk";
   div.textContent =
     "风险提示：本站收录的虚拟卡 / U 卡大多由非持牌或监管较弱的机构发行，可能出现冻卡、扣款、停止服务甚至跑路的情况，资金安全没有保障。" +
     "本站只是信息整理和站长实测分享，不为任何虚拟卡或平台背书，也不构成任何金融或投资建议。请自行判断风险，投资需谨慎。";
-  if (bar) footer.insertBefore(div, bar);
-  else footer.appendChild(div);
+  bar.insertBefore(div, bar.firstChild);
 }
 
 /* ---------------- 统一初始化 ---------------- */
