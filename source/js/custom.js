@@ -34,12 +34,29 @@ body{color:var(--anzhiyu-fontcolor);}
 /* 版本兼容锁：远端构建若装到新版主题（会给加粗染主题蓝），这里强制拉回正文色 */
 #article-container strong,#article-container b{color:var(--anzhiyu-fontcolor)!important;}
 
-/* 分类/标签/独立页面头部横幅（1.7.0 模板对非文章页不渲染 default_top_img，用 CSS 补深蓝横幅，
-   白色页面标题直接压在图上，替换原来的空白区） */
-#page-header.not-home-page{background:url(/img/cat-banner.svg) center/cover no-repeat;}
+/* 分类/标签/独立页面头部整体收零（照原主题 demo：无横幅区，内容从导航下直接开始；
+   页面标题仍在 DOM 里保证 SEO，只是视觉收掉） */
+#page-header.not-home-page{height:0!important;min-height:0!important;}
+#page-header.not-home-page #page-site-info{display:none!important;}
 
-/* 导航站点名：颜色加深 + 加粗，与菜单项协调 */
+/* 导航站点名：浅色导航下加深 + 加粗；压在深色封面上的透明态强制白字（否则深灰站名隐入深蓝背景） */
 #blog_name #site-name .title{color:var(--anzhiyu-fontcolor);font-weight:600;}
+#page-header.post-bg #nav:not(.nav-fixed) #blog_name #site-name .title{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.35);}
+
+/* 文章头部标签：换行后行间也有呼吸感（主题原生只有 margin-right，纵向必挤） */
+#post-firstinfo .meta-firstline{display:flex;flex-wrap:wrap;row-gap:8px;}
+#post-firstinfo .meta-firstline .article-meta__tags{margin-bottom:0!important;}
+
+/* 文末发文时间行：灰色小字（替代旧版 *斜体* 语法） */
+#article-container .xe-timeline{color:#949dae;font-size:.85em;text-align:center;margin:28px 0 0;}
+
+/* 全站 footer 风险提示条：深底黄字（主题黄变量，深浅模式都协调） */
+.xe-risk{background:rgba(15,18,26,.92);color:#ffc93e;font-size:12.5px;line-height:1.8;
+  text-align:center;padding:16px 24px;max-width:800px;margin:0 auto;border-radius:8px;}
+
+/* /card/ 聚合页实测徽章：绿色胶囊（呼应"测过才上榜"原则） */
+.xe-tested-badge{display:inline-block;background:var(--anzhiyu-green,#57bd6a);color:#fff;font-size:12px;
+  font-weight:600;padding:3px 12px;border-radius:20px;margin:2px 0 12px;}
 
 /* 问候卡：白底（主题原生），图标带回归主题原生间距（7rem），网址字号加大 */
 #random-banner.xe-wall .banners-title-small{font-size:15px;}
@@ -103,6 +120,9 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
 }
 /* 第二档 ≤768px（手机竖屏）：三彩卡隐藏、推荐小卡隐藏，问候卡独占首屏，小店卡全宽放出当第二屏 */
 @media screen and (max-width:768px){
+  /* 文章页头部：主题手机端 min-height:450px 太高（封面图标怼到标题脸上），收为一屏内小横幅 */
+  #page-header.post-bg{min-height:0!important;height:300px!important;}
+  #page-header.post-bg #post-top-cover #post-top-bg{object-position:center 30%;}
   #random-banner{display:flex!important;height:230px!important;}
   #home_top .swiper_container_card{flex-wrap:wrap!important;overflow:hidden!important;}
   #home_top div#bannerGroup{width:100%!important;flex:none!important;}
@@ -294,6 +314,20 @@ function xeInitShareButton() {
   slot.appendChild(b);
 }
 
+/* ---------------- 全站 footer 风险提示条（深底黄字，插在版权栏上方） ---------------- */
+function xeInitRisk() {
+  var footer = document.getElementById("footer");
+  if (!footer || footer.querySelector(".xe-risk")) return;
+  var bar = document.getElementById("footer-bar");
+  var div = document.createElement("div");
+  div.className = "xe-risk";
+  div.textContent =
+    "风险提示：本站收录的虚拟卡 / U 卡大多由非持牌或监管较弱的机构发行，可能出现冻卡、扣款、停止服务甚至跑路的情况，资金安全没有保障。" +
+    "本站只是信息整理和站长实测分享，不为任何虚拟卡或平台背书，也不构成任何金融或投资建议。请自行判断风险，投资需谨慎。";
+  if (bar) footer.insertBefore(div, bar);
+  else footer.appendChild(div);
+}
+
 /* ---------------- 统一初始化 ---------------- */
 function xeInitAll() {
   xeInjectStyle();
@@ -305,6 +339,7 @@ function xeInitAll() {
   xeInitSayhi();
   xeInitWechatCard();
   xeInitShareButton();
+  xeInitRisk();
 }
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(xeInitAll, 30);

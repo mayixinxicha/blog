@@ -28,6 +28,14 @@ category_ui: index
 # 分类/标签/归档等无独立头图页面的默认横幅（深蓝渐变，白色页面标题压在其上）
 default_top_img: /img/cat-banner.svg
 
+# note 提示框：全站关闭图标（感叹号/蓝i），保留色块与左侧竖条
+# 注意主题 merge_config 为浅合并，note 四个字段必须写全，缺了会用 undefined
+note:
+  style: flat
+  icons: false
+  border_radius: 3
+  light_bg_offset: 0
+
 # 文章版权信息：location 置空去掉主题作者默认的"长沙"属地角标
 post_copyright:
   enable: true
