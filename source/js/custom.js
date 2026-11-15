@@ -91,20 +91,69 @@ body:not(:has(#home_top)) #page-header.not-top-img #nav .site-page,body:not(:has
    套用方式：写作时 <span class="xe-num">$12-15 U</span> */
 #article-container .xe-num{font-variant-numeric:tabular-nums;font-weight:600;}
 
-/* blockquote 结论卡：文中金句/关键判断用——浅底色块 + 左侧粗边（品牌蓝），
-   与普通引用区分，读者视线自动停留。浅深色双主题适配 */
-#article-container blockquote{position:relative;background:var(--anzhiyu-card-bg,#f7f9fe);
-  border:none;border-left:4px solid var(--anzhiyu-main,#425aeb);border-radius:8px;
-  padding:14px 18px;margin:1.5em 0;box-shadow:0 1px 4px rgba(0,0,0,.06);}
-#article-container blockquote p{margin:0 0 8px;color:var(--anzhiyu-fontcolor);}
-#article-container blockquote p:last-child{margin-bottom:0;}
-[data-theme="dark"] #article-container blockquote{background:rgba(255,255,255,.06);box-shadow:none;}
+/* note 提示块描边卡（方案五）：无左条、无阴影，近白底 + 1px 细描边 + 10px 圆角，
+   语义收进标题色——info 标题品牌蓝、warning 标题暖金；深色模式半透明描边。
+   容器用 :is(#article-container,#page)：自定义聚合页（/card/ /about 等）同享一套语言 */
+:is(#article-container,#page) .note{border-radius:10px!important;padding:12px 16px!important;
+  background:#FBFCFE!important;border:1px solid #E3E8F0!important;box-shadow:none!important;}
+:is(#article-container,#page) .note .note-hd{font-weight:700;color:#2c3fbe;}
+:is(#article-container,#page) .note.warning{border-color:#EDDFC8!important;}
+:is(#article-container,#page) .note.warning .note-hd{color:#B07A2A;}
+/* info 标题染蓝只走 .note-hd span（文章页 7 个「卡住了怎么办」已改为该结构）；
+   不再用 strong:only-child 判断——聚合页(/card/ 等)与文内无标题 note 的正文加粗
+   都会被误染蓝，现已全部回归正文字色 */
+[data-theme="dark"] :is(#article-container,#page) .note{background:rgba(255,255,255,.04)!important;
+  border-color:rgba(255,255,255,.12)!important;}
+[data-theme="dark"] :is(#article-container,#page) .note.warning{border-color:rgba(217,154,61,.35)!important;}
+[data-theme="dark"] :is(#article-container,#page) .note .note-hd{color:#9db1ff;}
+[data-theme="dark"] :is(#article-container,#page) .note.warning .note-hd{color:#d9b06a;}
+
+/* blockquote 结论卡同步改描边款：与 note 卡同一套语言（细描边、无阴影、无左条） */
+:is(#article-container,#page) blockquote{position:relative;background:#FBFCFE;
+  border:1px solid #E3E8F0;border-radius:10px;
+  padding:14px 18px;margin:1.5em 0;box-shadow:none;}
+:is(#article-container,#page) blockquote p{margin:0 0 8px;color:var(--anzhiyu-fontcolor);}
+:is(#article-container,#page) blockquote p:last-child{margin-bottom:0;}
+[data-theme="dark"] :is(#article-container,#page) blockquote{background:rgba(255,255,255,.04);
+  border-color:rgba(255,255,255,.12);box-shadow:none;}
 
 /* 列表呼吸感：相邻列表项 6px 间距（步骤条目呼吸感），嵌套列表 4px 收紧一级。
    主题有同权重 li 间距规则，需 !important 压住 */
 #article-container ul li + li,#article-container ol li + li{margin-top:6px!important;}
 #article-container ul ul,#article-container ol ol,#article-container ul ol,#article-container ol ul{margin-top:4px;}
 
+/* 行内 code 药丸降饱和：主题默认高饱和品牌蓝底，正文药丸一多就喧宾夺主。
+   改"浅蓝底+深蓝字"（抄原作者降对比的意图，不抄其灰蓝色值，保持品牌色系）。
+   :not(pre)>code 只命中行内药丸，不伤代码块。
+   字体/字号均 inherit：等宽字体字形高度只有中文的 2/3（Consolas 10px vs 中文 15px），
+   同字号看着像图注小字；改继承正文字体后中英文数字与正文完全同尺寸，
+   「代码感」由底色承担，数字等宽由全局 tabular-nums 兜底 */
+:is(#article-container,#page) :not(pre) > code{background:#EBF0FF!important;color:#2c3fbe!important;
+  padding:2px 6px!important;border-radius:2px!important;font-size:inherit!important;font-family:inherit!important;}
+[data-theme="dark"] :is(#article-container,#page) :not(pre) > code{background:rgba(66,90,239,.18)!important;color:#9db1ff!important;}
+
+/* 表格格内松紧：主题 td 行高 2.0 过松，长句格显得散——行高收 1.7、内边距收紧 */
+#article-container td,#article-container th{line-height:1.7;padding:.45rem .6rem;}
+
+/* 表格圆角：主题 border-collapse:collapse 下 border-radius 不生效（直角）。
+   换 separate + 外框 + overflow:hidden 裁角，格线改为右/下单边避免相邻加倍，
+   末行/末列去边收口。注意 --style-border-always 变量本身含完整 "1px solid 色" 值，
+   直接引用即可，不能再补 1px solid 前缀（会声明失效） */
+#article-container table{border-collapse:separate!important;border-spacing:0!important;
+  border-radius:10px!important;overflow:hidden;border:var(--style-border-always);}
+#article-container th,#article-container td{border-top:none;border-left:none;
+  border-right:var(--style-border-always);border-bottom:var(--style-border-always);}
+#article-container tr th:last-child,#article-container tr td:last-child{border-right:none;}
+#article-container tbody tr:last-child td{border-bottom:none;}
+
+/* note 提示块行高 1.8：正文 2.0 在小块内显稀疏 */
+#article-container .note{line-height:1.8;}
+
+/* 标题行高 1.4：中文长标题折行时不散架 */
+#article-container h2,#article-container h3,#article-container h4{line-height:1.4;}
+
+/* 正文数字全局等宽：金额/版本号纵向对齐（.xe-num 为手动强调用法，此为全量兜底） */
+#article-container{font-variant-numeric:tabular-nums;}
 
 /* /card/ 聚合页实测徽章：绿色胶囊（呼应"测过才上榜"原则） */
 .xe-tested-badge{display:inline-block;background:var(--anzhiyu-green,#57bd6a);color:#fff;font-size:12px;
