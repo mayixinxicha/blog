@@ -187,20 +187,15 @@ body:not(:has(#home_top)) #page-header.not-top-img #nav .site-page,body:not(:has
 @keyframes xe-rainbow{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
 @keyframes xe-float{0%,100%{margin-top:0;}50%{margin-top:-7px;}}
 #todayCard .todayCard-info .todayCard-tips{color:#5a6a75!important;opacity:1;font-size:13px;}
+/* 桌面端信息块（标题+小字）下移：主题基准 bottom 2rem 偏高，贴向卡底更稳（手机端有自己的 34px 覆盖） */
+.todayCard .todayCard-info{bottom:1.25rem!important;}
 #todayCard .todayCard-info .todayCard-title{color:#2e9bab!important;font-size:24px;line-height:1.35;margin-top:4px;}
-#todayCard .xe-shop-sub{color:#5a6a75!important;font-size:13px;margin-top:8px;line-height:1.4;}
+#todayCard .xe-shop-sub{color:#5a6a75!important;font-size:14px;margin-top:10px;line-height:1.45;}
 .topGroup .banner-button{background:#fff!important;color:#333!important;box-shadow:0 3px 10px rgba(46,155,171,.25)!important;}
 /* 恢复原主题的悬停变色（上一轮的 !important 把主题 hover 规则压死了，这里同级覆盖回来） */
 .topGroup .banner-button:hover{background:var(--anzhiyu-theme)!important;color:#fff!important;}
 .xe-btn-arrow{display:inline-block;transition:transform .3s;}
 .topGroup .banner-button:hover .xe-btn-arrow{transform:translateX(2px);}
-
-/* 口号条：仿安知鱼「即刻」胶囊形态（无标签无箭头），整条可点进卡库。基准隐藏，仅手机端显示 */
-a.xe-motto-bar{display:none;align-items:center;justify-content:center;height:44px;margin-bottom:12px;
-  border-radius:12px;background:var(--card-bg);border:1px solid var(--style-border);
-  font-size:13.5px;font-weight:600;color:var(--fontcolor);letter-spacing:.5px;
-  transition:border-color .3s,color .3s,transform .3s;}
-a.xe-motto-bar:hover{border-color:var(--anzhiyu-theme);color:var(--anzhiyu-theme);transform:translateY(-1px);}
 
 /* 作者卡：隐藏 social 渲染出的两个社交圆钮（social 配置必须保留，名称区依赖它渲染），
    图标隐藏后名称块独占整行 */
@@ -228,7 +223,7 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   a.categoryButton.xe-has-sub .categoryButtonText{font-size:.9rem!important;}
   .category-sub{font-size:10px!important;}
 }
-/* 第二档 ≤768px（手机竖屏）：问候卡隐藏、口令条顶上，小店卡升级首屏规格（对齐安知鱼演示站手机首屏卡比例） */
+/* 第二档 ≤768px（手机竖屏）：问候卡隐藏，小店卡升级首屏规格（对齐安知鱼演示站手机首屏卡比例） */
 @media screen and (max-width:768px){
   /* 手机端文章头图：复刻主题 mainTone 分支的移动端形态（head.styl:162-199 主分支几何）——
      原生非 mainTone 分支把封面拉满整个视口高（height:100vh + 图片 height:100%），
@@ -247,8 +242,6 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   /* 只藏推荐小卡（绿色残影根源），不再整组隐藏 .topGroup——小店卡是手机端唯一进店入口 */
   #home_top .topGroup{display:block!important;height:auto!important;width:100%!important;flex:none!important;}
   #home_top .topGroup .recent-post-item{display:none!important;}
-  /* 口号条：小店卡上方第一元素，整条可点跳卡库 */
-  a.xe-motto-bar{display:flex!important;}
   /* ===== 首屏居中纵向栈：Shop 大字 → 按钮 → 标题 → 小字 ===== */
   #home_top .topGroup .todayCard{position:relative!important;display:flex!important;width:100%!important;height:370px!important;margin:0!important;}
   /* Shop 大字：品牌视觉，居于上 31%（中段整簇收紧：字→按钮 ~50px，按钮→标题 ~33px） */
@@ -267,6 +260,9 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   .xe-wx-sub{font-size:18px!important;}
   .xe-wx-tip2{font-size:11px!important;margin-top:8px!important;}
   .xe-wx-sub,.xe-wx-tip2{white-space:nowrap;}
+  /* 聚合页 6 列对比表手机端放不下（322px 挤成一字一行）：转横向滚动块、单元格不折行，
+     标准响应式表格方案（display:block + overflow-x:auto），桌面端不受影响 */
+  #page table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;}
   /* 侧栏建站信息卡（文章总数/建站天数）手机端隐藏：内容量小易露怯、对读者无决策价值；
      同卡内的标签云（内链入口）和归档保留。桌面端不受影响 */
   #aside-content .card-widget .card-webinfo{display:none!important;}
@@ -392,18 +388,6 @@ function xeInitTodayCard() {
   }
 }
 
-/* ---------------- 口号条：仿即刻胶囊，插在小店卡上方，整条可点进卡库 ---------------- */
-function xeInitMottoBar() {
-  var group = document.querySelector("#home_top .topGroup");
-  var card = document.getElementById("todayCard");
-  if (!group || !card || group.querySelector(".xe-motto-bar")) return;
-  var bar = document.createElement("a");
-  bar.className = "xe-motto-bar";
-  bar.href = "/card/";
-  bar.textContent = "卡、号、AI订阅，一站式配齐";
-  group.insertBefore(bar, card);
-}
-
 /* ---------------- 作者卡：固定「欢迎光临」胶囊 ---------------- */
 function xeInitSayhi() {
   var el = document.getElementById("author-info__sayhi");
@@ -456,7 +440,6 @@ function xeInitAll() {
   xeInitBadge();
   xeInitCategorySub();
   xeInitIconWall();
-  xeInitMottoBar();
   xeInitTodayCard();
   xeInitSayhi();
   xeInitWechatCard();
