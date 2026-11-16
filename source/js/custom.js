@@ -260,6 +260,9 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   .xe-wx-sub{font-size:18px!important;}
   .xe-wx-tip2{font-size:11px!important;margin-top:8px!important;}
   .xe-wx-sub,.xe-wx-tip2{white-space:nowrap;}
+  /* 手机端去掉侧栏标签/归档/建站整块：6 个标签同指一篇无分流价值、归档「1 篇」暴露内容量；
+     CSS 隐藏保 DOM 内链给爬虫，桌面端侧栏原样；文章攒多后删此行即可恢复 */
+  #aside-content .sticky_layout{display:none!important;}
   /* 聚合页 6 列对比表手机端放不下（322px 挤成一字一行）：转横向滚动块、单元格不折行，
      标准响应式表格方案（display:block + overflow-x:auto），桌面端不受影响 */
   #page table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;}
