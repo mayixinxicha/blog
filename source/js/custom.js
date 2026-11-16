@@ -192,6 +192,15 @@ body:not(:has(#home_top)) #page-header.not-top-img #nav .site-page,body:not(:has
 .topGroup .banner-button{background:#fff!important;color:#333!important;box-shadow:0 3px 10px rgba(46,155,171,.25)!important;}
 /* 恢复原主题的悬停变色（上一轮的 !important 把主题 hover 规则压死了，这里同级覆盖回来） */
 .topGroup .banner-button:hover{background:var(--anzhiyu-theme)!important;color:#fff!important;}
+.xe-btn-arrow{display:inline-block;transition:transform .3s;}
+.topGroup .banner-button:hover .xe-btn-arrow{transform:translateX(2px);}
+
+/* 口号条：仿安知鱼「即刻」胶囊形态（无标签无箭头），整条可点进卡库。基准隐藏，仅手机端显示 */
+a.xe-motto-bar{display:none;align-items:center;justify-content:center;height:44px;margin-bottom:12px;
+  border-radius:12px;background:var(--card-bg);border:1px solid var(--style-border);
+  font-size:13.5px;font-weight:600;color:var(--fontcolor);letter-spacing:.5px;
+  transition:border-color .3s,color .3s,transform .3s;}
+a.xe-motto-bar:hover{border-color:var(--anzhiyu-theme);color:var(--anzhiyu-theme);transform:translateY(-1px);}
 
 /* 作者卡：隐藏 social 渲染出的两个社交圆钮（social 配置必须保留，名称区依赖它渲染），
    图标隐藏后名称块独占整行 */
@@ -219,7 +228,7 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   a.categoryButton.xe-has-sub .categoryButtonText{font-size:.9rem!important;}
   .category-sub{font-size:10px!important;}
 }
-/* 第二档 ≤768px（手机竖屏）：三彩卡隐藏、推荐小卡隐藏，问候卡独占首屏，小店卡全宽放出当第二屏 */
+/* 第二档 ≤768px（手机竖屏）：问候卡隐藏、口令条顶上，小店卡升级首屏规格（对齐安知鱼演示站手机首屏卡比例） */
 @media screen and (max-width:768px){
   /* 手机端文章头图：复刻主题 mainTone 分支的移动端形态（head.styl:162-199 主分支几何）——
      原生非 mainTone 分支把封面拉满整个视口高（height:100vh + 图片 height:100%），
@@ -231,34 +240,36 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   #page-header.post-bg #post-top-cover::after{display:block!important;
     box-shadow:0 0 205px 59px var(--anzhiyu-main) inset;}
   #page-header #post-info{z-index:2;}
-  #random-banner{display:flex!important;height:230px!important;}
+  /* 问候卡（支付图标拼图）手机端整体隐藏，首屏让位给口令条+小店卡；平板与桌面档不受影响 */
+  #random-banner{display:none!important;}
   #home_top .swiper_container_card{flex-wrap:wrap!important;overflow:hidden!important;}
   #home_top div#bannerGroup{width:100%!important;flex:none!important;}
   /* 只藏推荐小卡（绿色残影根源），不再整组隐藏 .topGroup——小店卡是手机端唯一进店入口 */
   #home_top .topGroup{display:block!important;height:auto!important;width:100%!important;flex:none!important;}
   #home_top .topGroup .recent-post-item{display:none!important;}
-  /* 小店卡：主题 ≤1200px 已把它 display:none + 绝对定位600px宽，这里全部覆盖为流内全宽卡（约2:1） */
-  #home_top .topGroup .todayCard{position:relative!important;display:flex!important;width:100%!important;height:230px!important;margin:0!important;}
-  #todayCard .xe-shop-word{font-size:54px!important;transform:translateY(-65%)!important;}
-  #todayCard .todayCard-info{left:16px!important;right:16px!important;bottom:16px!important;max-width:none!important;}
-  #todayCard .todayCard-info .todayCard-title{font-size:17px!important;line-height:1.3!important;margin-top:2px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  #todayCard .xe-shop-sub{font-size:11px!important;margin-top:8px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  /* 按钮与大字行同带对齐（bottom 28px 联动行距调整），小字在其下方左延伸，阶梯式收尾 */
-  #todayCard .banner-button-group{right:16px!important;bottom:28px!important;}
-  #todayCard .banner-button{width:auto!important;height:32px!important;padding:0 10px!important;font-size:12px!important;}
+  /* 口号条：小店卡上方第一元素，整条可点跳卡库 */
+  a.xe-motto-bar{display:flex!important;}
+  /* ===== 首屏居中纵向栈：Shop 大字 → 按钮 → 标题 → 小字 ===== */
+  #home_top .topGroup .todayCard{position:relative!important;display:flex!important;width:100%!important;height:370px!important;margin:0!important;}
+  /* Shop 大字：品牌视觉，居于上 31%（中段整簇收紧：字→按钮 ~50px，按钮→标题 ~33px） */
+  #todayCard .xe-shop-word{top:31%!important;transform:translateY(-50%)!important;font-size:90px!important;}
+  /* 按钮：Shop 字正下方居中 */
+  #todayCard .banner-button-group{left:50%!important;right:auto!important;bottom:122px!important;transform:translateX(-50%)!important;}
+  #todayCard .banner-button{width:auto!important;height:36px!important;padding:0 20px!important;font-size:13px!important;}
+  #todayCard .xe-btn-arrow{transform:rotate(45deg)!important;}
+  /* 文字块：整体居中呼应按钮，底部 34px */
+  #todayCard .todayCard-info{left:20px!important;right:20px!important;bottom:34px!important;text-align:center!important;max-width:none!important;}
+  #todayCard .todayCard-info .todayCard-title{font-size:22px!important;line-height:1.35!important;margin-top:0!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  /* 小字居中，宽度不够时折两行 */
+  #todayCard .xe-shop-sub{font-size:13px!important;margin-top:6px!important;line-height:1.5!important;padding-right:0!important;}
   .categoryGroup{display:none!important;}
-  /* 图标带：主题按桌面 340px 高卡设计(-30°斜带+7rem落点)，手机 230px 卡装不下第二行，
-     整条等比缩 0.75 + 落点上移，让两行斜排都回到卡内（数值可按真机微调） */
-  #random-banner #skills-tags-group-all{transform:rotate(-30deg) scale(.75)!important;}
-  #random-banner #skills-tags-group-all .tags-group-wrapper{margin-top:4rem!important;}
-  /* 问候卡文字块：主题锚点按桌面设计(top 46px/left 48px)，手机小卡上偏中显得飘，贴向左上并对齐整页 20px 内边距 */
-  #random-banner .banners-title{top:26px!important;left:20px!important;}
-  #random-banner .banners-title-big{font-size:26px!important;}
-  #random-banner .banners-title-small{font-size:12px!important;}
   /* 手机端 QQ 卡收紧：字号收一档（二维码 80px 与桌面统一，无需再覆盖） */
   .xe-wx-sub{font-size:18px!important;}
   .xe-wx-tip2{font-size:11px!important;margin-top:8px!important;}
   .xe-wx-sub,.xe-wx-tip2{white-space:nowrap;}
+  /* 侧栏建站信息卡（文章总数/建站天数）手机端隐藏：内容量小易露怯、对读者无决策价值；
+     同卡内的标签云（内链入口）和归档保留。桌面端不受影响 */
+  #aside-content .card-widget .card-webinfo{display:none!important;}
 }
 
 /* ============ 加小二 QQ 翻转卡（纯 CSS 绘制，排版对齐原主题公众号卡） ============ */
@@ -367,14 +378,30 @@ function xeInitTodayCard() {
     title.parentNode.insertBefore(sub, title.nextSibling);
   }
   // 按钮：改文字 + 移除"展开文章宫格"拦截，让点击跟随整卡链接跳转
+  // 箭头单独包 span：桌面保持 ↗，手机端 CSS 旋转 45° 变朝右 →
   var btn = card.querySelector(".banner-button");
   if (btn) {
     btn.removeAttribute("onclick");
     var txt = btn.querySelector(".banner-button-text");
-    if (txt) txt.textContent = "进店选购 ↗";
+    if (txt && !txt.querySelector(".xe-btn-arrow")) {
+      txt.textContent = "进店选购";
+      txt.insertAdjacentHTML("beforeend", '&nbsp;<span class="xe-btn-arrow">↗</span>');
+    }
     var icon = btn.querySelector("i");
     if (icon) icon.remove();
   }
+}
+
+/* ---------------- 口号条：仿即刻胶囊，插在小店卡上方，整条可点进卡库 ---------------- */
+function xeInitMottoBar() {
+  var group = document.querySelector("#home_top .topGroup");
+  var card = document.getElementById("todayCard");
+  if (!group || !card || group.querySelector(".xe-motto-bar")) return;
+  var bar = document.createElement("a");
+  bar.className = "xe-motto-bar";
+  bar.href = "/card/";
+  bar.textContent = "卡、号、AI订阅，一站式配齐";
+  group.insertBefore(bar, card);
 }
 
 /* ---------------- 作者卡：固定「欢迎光临」胶囊 ---------------- */
@@ -429,6 +456,7 @@ function xeInitAll() {
   xeInitBadge();
   xeInitCategorySub();
   xeInitIconWall();
+  xeInitMottoBar();
   xeInitTodayCard();
   xeInitSayhi();
   xeInitWechatCard();
