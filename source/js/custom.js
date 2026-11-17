@@ -13,6 +13,14 @@ var XE_CONFIG = {
 function xeInjectStyle() {
   if (document.getElementById("xe-style")) return;
   var css = `
+/* 「最新文章」标题条：桌面全局隐藏（手机端媒体查询内启用），DOM 由 JS 注入 */
+.xe-sec-title{display:none;}
+/* 桌面端封面：宽度保持完整展示（不裁左右），仅底部裁掉卡面圆角条（SVG rx=42，
+   裁到 y=633 圆角与白边消失、底缘变平直卡面），VISA 基线 588 完整保留 */
+@media screen and (min-width: 769px){
+  #recent-posts>.recent-post-item .post_cover{height:auto!important;aspect-ratio:1200/633!important;}
+  #recent-posts>.recent-post-item .post_cover img.post_bg{height:100%!important;object-position:top!important;}
+}
 /* 免费角标：贴住「清单」右上角（只留一丝白） */
 span.xe-free-parent{display:inline-block;position:relative;}
 .menu-badge{position:absolute;left:calc(100% + 1px);top:-3px;padding:0 5px;font-size:10px;line-height:15px;
@@ -197,6 +205,20 @@ body:not(:has(#home_top)) #page-header.not-top-img #nav .site-page,body:not(:has
 .xe-btn-arrow{display:inline-block;transition:transform .3s;}
 .topGroup .banner-button:hover .xe-btn-arrow{transform:translateX(2px);}
 
+/* 六宫格（开卡/订AI/eSIM/AppleID/卡库/工具箱）：手机端 Shop 卡下方的 3×2 彩色导航宫格
+   （对齐 zibll 参考版式）。基准隐藏，仅手机端显示；全部链接为站内真实页面 */
+.xe-grid6{display:none;width:100%;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px;}
+.xe-grid6 a{display:flex;flex-direction:row;align-items:center;gap:7px;height:52px;padding:0 9px;
+  border-radius:12px;color:#fff;text-decoration:none;transition:transform .3s;overflow:hidden;
+  box-shadow:0 3px 9px rgba(30,60,80,.16);position:relative;}
+.xe-grid6 a::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,0) 55%);pointer-events:none;}
+.xe-grid6 a:active{transform:scale(.96);}
+.xe-grid6 .xe-g6-ico{flex:none;width:22px;height:22px;border-radius:7px;background:rgba(255,255,255,.3);
+  display:flex;align-items:center;justify-content:center;font-size:12px;line-height:1;}
+.xe-grid6 .xe-g6-txt{display:flex;flex-direction:column;gap:1px;min-width:0;}
+.xe-grid6 .xe-g6-title{font-size:12.5px;font-weight:700;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.xe-grid6 .xe-g6-sub{font-size:9px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
 /* 作者卡：隐藏 social 渲染出的两个社交圆钮（social 配置必须保留，名称区依赖它渲染），
    图标隐藏后名称块独占整行 */
 .author-info__bottom-group .card-info-social-icons{display:none!important;}
@@ -242,27 +264,119 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   /* 只藏推荐小卡（绿色残影根源），不再整组隐藏 .topGroup——小店卡是手机端唯一进店入口 */
   #home_top .topGroup{display:block!important;height:auto!important;width:100%!important;flex:none!important;}
   #home_top .topGroup .recent-post-item{display:none!important;}
-  /* ===== 首屏居中纵向栈：Shop 大字 → 按钮 → 标题 → 小字 ===== */
-  #home_top .topGroup .todayCard{position:relative!important;display:flex!important;width:100%!important;height:370px!important;margin:0!important;}
-  /* Shop 大字：品牌视觉，居于上 31%（中段整簇收紧：字→按钮 ~50px，按钮→标题 ~33px） */
-  #todayCard .xe-shop-word{top:31%!important;transform:translateY(-50%)!important;font-size:90px!important;}
-  /* 按钮：Shop 字正下方居中 */
-  #todayCard .banner-button-group{left:50%!important;right:auto!important;bottom:122px!important;transform:translateX(-50%)!important;}
-  #todayCard .banner-button{width:auto!important;height:36px!important;padding:0 20px!important;font-size:13px!important;}
+  /* ===== 统一垂直节奏：导航→Shop 16px、Shop→宫格 12px、宫格→文章卡 12px ===== */
+  #home_top .topGroup{margin-top:3px!important;}
+  #home_top .swiper_container_card{gap:0!important;}
+  /* ===== 首屏纵向栈（原版式同比缩小）：Shop 字居中 → 按钮 → 标题 → 小字 ===== */
+  #home_top .topGroup .todayCard{position:relative!important;display:flex!important;width:100%!important;height:200px!important;margin:0!important;}
+  /* Shop 大字：居中招牌位（加大至 56px，下移至 34%） */
+  #todayCard .xe-shop-word{left:0!important;right:0!important;width:100%!important;top:34%!important;transform:translateY(-50%)!important;font-size:56px!important;text-align:center!important;}
+  /* 按钮：Shop 字正下方居中（缩小+下移，退为辅助入口） */
+  #todayCard .banner-button-group{left:0!important;right:0!important;top:auto!important;bottom:62px!important;transform:none!important;display:flex!important;justify-content:center!important;}
+  #todayCard .banner-button{width:auto!important;height:27px!important;padding:0 13px!important;font-size:11.5px!important;}
   #todayCard .xe-btn-arrow{transform:rotate(45deg)!important;}
-  /* 文字块：整体居中呼应按钮，底部 34px */
-  #todayCard .todayCard-info{left:20px!important;right:20px!important;bottom:34px!important;text-align:center!important;max-width:none!important;}
-  #todayCard .todayCard-info .todayCard-title{font-size:22px!important;line-height:1.35!important;margin-top:0!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  /* 小字居中，宽度不够时折两行 */
-  #todayCard .xe-shop-sub{font-size:13px!important;margin-top:6px!important;line-height:1.5!important;padding-right:0!important;}
+  /* 文字块：整体居中贴卡底 */
+  #todayCard .todayCard-info{left:16px!important;right:16px!important;top:auto!important;bottom:12px!important;transform:none!important;text-align:center!important;max-width:none!important;}
+  #todayCard .todayCard-info .todayCard-title{font-size:16px!important;line-height:1.3!important;margin-top:0!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  /* 小字居中，超宽省略 */
+  #todayCard .xe-shop-sub{font-size:11px!important;margin-top:3px!important;line-height:1.4!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:0!important;}
+  #todayCard .xe-btn-arrow{transform:rotate(45deg)!important;}
   .categoryGroup{display:none!important;}
   /* 手机端 QQ 卡收紧：字号收一档（二维码 80px 与桌面统一，无需再覆盖） */
   .xe-wx-sub{font-size:18px!important;}
   .xe-wx-tip2{font-size:11px!important;margin-top:8px!important;}
   .xe-wx-sub,.xe-wx-tip2{white-space:nowrap;}
+  /* ===== 尾部节奏收口：宫格→文章卡 12px、文章卡→QQ 卡 16px、QQ 卡→页脚 16px ===== */
+  /* 文章卡 mt 用主题同款特异性选择器压掉（.lastestpost-item 两 class 比 div 元素选择器高一档） */
+  #recent-posts>.recent-post-item.lastestpost-item{margin:0!important;}
+  /* 分页是网格第二行，row-gap 10px 会垫出空隙——负 margin 抵消 + 内部高度归零 */
+  /* 分页是网格第二行，row-gap 10px 会垫出空隙——空壳分页（无页码链接）直接隐藏，
+     :has(a) 保证多页时恢复显示 */
+  #recent-posts>#pagination:not(:has(a)){display:none!important;}
+  /* 主题 #page 撑满视口 + body-wrap 弹性列把 footer 推到屏底，内容不足一屏时
+     页脚上方留出大段空白——两者归零后 footer 紧跟内容，QQ 卡→页脚 16px */
+  #page{min-height:0!important;}
+  #body-wrap{justify-content:flex-start!important;}
+  #aside-content{padding-bottom:calc(16px + env(safe-area-inset-bottom))!important;}
+  /* iPhone 底部安全区：页脚让位，防止最后一行被小白条遮挡 */
+  #footer{padding-bottom:calc(10px + env(safe-area-inset-bottom))!important;}
+  /* 触屏按压反馈（移动端无 hover）：文章卡/宫格/QQ 卡按下微透明 */
+  #recent-posts .recent-post-item:active{opacity:.85!important;}
+  .xe-grid6 a:active{opacity:.85!important;}
+  #aside-content .card-widget#card-wechat:active{opacity:.9!important;}
+  #aside-content .anzhiyu-right-widget{margin-top:16px!important;}
+  /* QQ 卡压扁 110→85px：外壳与 flip-wrapper 内胆都要压（主题双重钉死 110px） */
+  #aside-content .card-widget#card-wechat{height:85px!important;}
+  #aside-content #card-wechat #flip-wrapper{height:85px!important;}
+  #aside-content #card-wechat .xe-wx-front{padding-left:16px!important;}
+  #aside-content #card-wechat .xe-wx-title{font-size:22px!important;}
+  #aside-content #card-wechat .xe-wx-badge{font-size:11px!important;padding:2px 7px!important;}
+  #aside-content #card-wechat .xe-wx-tip{font-size:11px!important;margin-top:5px!important;}
+  #aside-content #card-wechat .xe-wx-mark{font-size:46px!important;}
+  #aside-content #card-wechat .xe-wx-qr{width:64px!important;height:64px!important;}
+  /* 六宫格：Shop 卡正下方 3×2 彩色导航（zibll 版式） */
+  .xe-grid6{display:grid!important;}
+  /* 双列文章卡（常态启用，对齐 zibll 版式）：封面在上、标题在下，两列等宽网格；
+     #categoryBar/#pagination 也在 #recent-posts 里，通栏占满避免被分列 */
+  #recent-posts{display:grid!important;grid-template-columns:repeat(1,minmax(0,1fr))!important;gap:10px!important;padding:0 20px!important;margin-top:12px!important;}
+  #recent-posts>#categoryBar,#recent-posts>#pagination{grid-column:1/-1!important;}
+  #recent-posts .recent-post-item{flex-direction:column!important;height:auto!important;min-height:0!important;margin:0!important;}
+  #recent-posts .recent-post-item .post_cover{width:100%!important;height:auto!important;flex:none!important;}
+  /* 封面不硬裁：高度跟随图片原始比例（width 100% + height auto），VISA/图标完整显示 */
+  #recent-posts .recent-post-item .post_cover img{width:100%!important;height:auto!important;object-fit:contain;}
+  #recent-posts .recent-post-item .recent-post-info{padding:10px 14px 12px!important;width:100%!important;}
+  #recent-posts .article-title{font-size:13px!important;line-height:1.45!important;
+    display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important;}
+  /* 文字区同比缩小对齐全宽卡版式：去主题 32px 侧缩进、140px 最小高、meta 行 absolute 钉位
+     （top:118px 造成标题与标签间大空档）；文字区起点贴封面底 4px */
+  #recent-posts .recent-post-info{min-height:0!important;height:auto!important;}
+  #recent-posts .recent-post-info-top{margin:0!important;padding:0!important;}
+  #recent-posts .article-meta-wrap{position:static!important;flex-direction:row!important;margin-top:5px!important;padding:0!important;line-height:1.5!important;}
+  #recent-posts .recent-post-info .content{margin:0!important;}
+  /* 徽章行（虚拟卡/最新/未读）整行去掉：单篇文章下全是冗余信息，且与标签行重复 */
+  #recent-posts .recent-post-info-top-tips{display:none!important;}
+  /* 标签+日期同行整体靠左：标签在前、日期紧跟其后，不再顶到右端 */
+  #recent-posts .article-meta-wrap{justify-content:flex-start!important;}
+  #recent-posts .article-meta-wrap .article-meta.tags{flex:0 1 auto!important;order:1!important;min-width:0!important;overflow:hidden!important;white-space:nowrap!important;text-overflow:clip!important;}
+  #recent-posts .article-meta-wrap .article-meta__tags{display:inline-block!important;font-size:10px!important;padding:1px 3px!important;margin-right:2px!important;}
+  /* # 号是图标字体（13px/伪元素17px），同步压到 10px 与文字一致 */
+  #recent-posts .article-meta-wrap .anzhiyufont{font-size:10px!important;}
+  #recent-posts .article-meta-wrap .anzhiyufont:before{font-size:10px!important;}
+  #recent-posts .article-meta-wrap .post-meta-date{flex:none!important;order:2!important;font-size:10px!important;margin-left:6px!important;margin-right:0!important;}
+  #recent-posts .article-meta-wrap .article-meta-label{display:none!important;}
+  /* 日期行同步缩小 */
+  #recent-posts .article-meta-wrap{font-size:10px!important;}
+  #recent-posts .article-meta-wrap .post-meta-date{font-size:10px!important;}
+  /* 分类条手机端隐藏：zibll 版式无此块，文章卡直接顶上宫格（桌面端不受影响） */
+  #recent-posts>#categoryBar{display:none!important;}
+  /* 文章页头图压缩：主题手机端 min-height 450px（基础 500px）+ post-info 顶部 padding 11rem，
+     头图独占真机视口 65%+、正文被推出首屏——压到 300px 档，标题左对齐降一档并钳 2 行 */
+  #page-header.post-bg{height:300px!important;min-height:0!important;}
+  #page-header #post-info{padding:3.5rem 6% 0!important;align-items:flex-start!important;}
+  #page-header #post-info .post-title{font-size:1.3rem!important;line-height:1.4!important;
+    -webkit-line-clamp:2!important;text-align:left!important;margin:.4rem 0!important;}
+  /* 「最新文章」小标题条：宫格与文章卡之间的衔接（zibll 式），桌面端由全局规则隐藏；
+     轻胶囊形态：浅蓝底圆角包文字，右侧淡细线，不与六宫格彩块抢视觉 */
+  /* 左缘对齐：宿主 .swiper_container_card 自带 20px 偏移，再写 20px margin 会双重缩进（40px），
+     归零后与宫格/文章卡左缘一致 */
+  .xe-sec-title{display:flex!important;align-items:center!important;gap:8px!important;margin:12px 0 0!important;}
+  .xe-sec-title .xe-sec-bar{display:none!important;}
+  .xe-sec-title .xe-sec-txt{font-size:14px!important;font-weight:500!important;color:#185fa5!important;
+    background:#e6f1fb!important;padding:6px 16px!important;border-radius:15px!important;line-height:1.2!important;}
+  .xe-sec-title .xe-sec-line{flex:1!important;height:1px!important;background:rgba(0,0,0,.08)!important;}
   /* 手机端去掉侧栏标签/归档/建站整块：6 个标签同指一篇无分流价值、归档「1 篇」暴露内容量；
      CSS 隐藏保 DOM 内链给爬虫，桌面端侧栏原样；文章攒多后删此行即可恢复 */
   #aside-content .sticky_layout{display:none!important;}
+  /* 手机抽屉菜单：去主题作者推广块（网页-博客/项目-安知鱼图床，JS remove 双保险）；
+     六分类胶囊化（白底圆角块+图标，两列网格），按压 :active 反馈 */
+  #sidebar-menus .back-menu-list-groups{display:none!important;}
+  #sidebar-menus .menus_items{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;padding:4px 16px 8px!important;}
+  #sidebar-menus .menus_item{margin:0!important;}
+  #sidebar-menus .menus_item a.site-page{display:flex!important;align-items:center!important;gap:8px!important;
+    height:auto!important;padding:9px 12px!important;font-size:13px!important;line-height:1.3!important;
+    background:var(--anzhiyu-card-bg,#fff)!important;border:0.5px solid rgba(0,0,0,.08)!important;border-radius:10px!important;}
+  #sidebar-menus .menus_item a.site-page:active{background:#eceef2!important;}
+  #sidebar-menus .xe-drawer-ico{font-size:15px!important;flex:none!important;}
   /* 聚合页 6 列对比表手机端放不下（322px 挤成一字一行）：转横向滚动块、单元格不折行，
      标准响应式表格方案（display:block + overflow-x:auto），桌面端不受影响 */
   #page table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;}
@@ -436,13 +550,77 @@ function xeInitShareButton() {
   slot.appendChild(b);
 }
 
+/* ---------------- 手机端六宫格：Shop 卡下方 3×2 彩色导航（基准 CSS 隐藏，仅 ≤768px 显示） ---------------- */
+function xeInitGrid6() {
+  var top = document.querySelector("#home_top .swiper_container_card");
+  var group = document.querySelector("#home_top .topGroup");
+  if (!top || !group || document.querySelector(".xe-grid6")) return;
+  /* 前三格链接动态读电脑端「开卡/办号/订AI」聚合卡（categoryGroup 手机端仅 CSS 隐藏、DOM 仍在），两端永不脱钩 */
+  var agg = [];
+  document.querySelectorAll(".categoryGroup .categoryItem a[href]").forEach(function (a) {
+    agg.push(a.getAttribute("href"));
+  });
+  var items = [
+    { t: "开卡", s: "实测·费率对比", href: agg[0] || "/card/", bg: "linear-gradient(135deg,#4fc97e,#2f9e63)", ico: "💳" },
+    { t: "办号", s: "eSIM + AppleID", href: agg[1] || "/esim/", bg: "linear-gradient(135deg,#3fa9f5,#2f86c9)", ico: "🪪" },
+    { t: "订AI", s: "GPT·Claude 等", href: agg[2] || "/ai-subscription/", bg: "linear-gradient(135deg,#ff5e7a,#e6455f)", ico: "🤖" },
+    { t: "攻略", s: "教程·项目实测", href: "/p/roogoo/", bg: "linear-gradient(135deg,#ff9d42,#ef8325)", ico: "📝" },
+    { t: "工具", s: "站长自用", href: "/toolbox/", bg: "linear-gradient(135deg,#2e9bab,#237a88)", ico: "🧰" },
+    { t: "资源", s: "开源·素材", href: "/free-list/", bg: "linear-gradient(135deg,#9b6bf2,#7d51cf)", ico: "🧩" }
+  ];
+  var grid = document.createElement("div");
+  grid.className = "xe-grid6";
+  items.forEach(function (it) {
+    var a = document.createElement("a");
+    a.href = it.href;
+    a.style.background = it.bg;
+    a.innerHTML = '<span class="xe-g6-ico">' + it.ico + '</span><span class="xe-g6-txt"><span class="xe-g6-title">' + it.t + '</span><span class="xe-g6-sub">' + it.s + "</span></span>";
+    grid.appendChild(a);
+  });
+  group.after(grid);
+}
+
+/* ---------------- 手机端「最新文章」标题条：宫格与文章卡之间的衔接（桌面端隐藏） ---------------- */
+function xeInitSectionTitle() {
+  var grid = document.querySelector(".xe-grid6");
+  if (!grid || document.querySelector(".xe-sec-title")) return;
+  var bar = document.createElement("div");
+  bar.className = "xe-sec-title";
+  bar.innerHTML = '<span class="xe-sec-bar"></span><span class="xe-sec-txt">最新文章</span><span class="xe-sec-line"></span>';
+  grid.after(bar);
+}
+
+/* ---------------- 手机抽屉菜单：移除主题作者推广块 + 分类项注入图标 ---------------- */
+function xeInitDrawer() {
+  if (!window.matchMedia("(max-width:768px)").matches) return;
+  var menus = document.getElementById("sidebar-menus");
+  if (!menus) return;
+  var promo = menus.querySelector(".back-menu-list-groups");
+  if (promo) promo.remove();
+  var map = { "虚拟卡": "💳", "eSIM": "📶", "Apple ID": "🍎", "AI订阅": "🤖", "工具箱": "🧰", "清单": "🎁" };
+  menus.querySelectorAll(".menus_item").forEach(function (item) {
+    var a = item.querySelector("a.site-page");
+    if (!a || a.querySelector(".xe-drawer-ico")) return;
+    var name = a.querySelector(".xe-free-parent") ? "清单" : (a.textContent || "").trim();
+    var ico = map[name];
+    if (!ico) return;
+    var s = document.createElement("span");
+    s.className = "xe-drawer-ico";
+    s.textContent = ico;
+    a.insertBefore(s, a.firstChild);
+  });
+}
+
 /* ---------------- 统一初始化 ---------------- */
 function xeInitAll() {
   xeInjectStyle();
+  xeInitDrawer();
   xeFixPageName();
   xeInitBadge();
   xeInitCategorySub();
   xeInitIconWall();
+  xeInitGrid6();
+  xeInitSectionTitle();
   xeInitTodayCard();
   xeInitSayhi();
   xeInitWechatCard();
