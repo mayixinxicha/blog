@@ -380,6 +380,10 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   /* 聚合页 6 列对比表手机端放不下（322px 挤成一字一行）：转横向滚动块、单元格不折行，
      标准响应式表格方案（display:block + overflow-x:auto），桌面端不受影响 */
   #page table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;}
+  /* 正文表格同方案：主题 .table-wrap 只包主题生成的表，正文 markdown 是裸 <table>，
+     手机端多列表被压成竖排长条——转横滑块。桌面端不受影响 */
+  #article-container table{display:block!important;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  #article-container th,#article-container td{white-space:nowrap;}
   /* 侧栏建站信息卡（文章总数/建站天数）手机端隐藏：内容量小易露怯、对读者无决策价值；
      同卡内的标签云（内链入口）和归档保留。桌面端不受影响 */
   #aside-content .card-widget .card-webinfo{display:none!important;}
@@ -564,7 +568,7 @@ function xeInitGrid6() {
     { t: "开卡", s: "实测·费率对比", href: agg[0] || "/card/", bg: "linear-gradient(135deg,#4fc97e,#2f9e63)", ico: "💳" },
     { t: "办号", s: "eSIM + AppleID", href: agg[1] || "/esim/", bg: "linear-gradient(135deg,#3fa9f5,#2f86c9)", ico: "🪪" },
     { t: "订AI", s: "GPT·Claude 等", href: agg[2] || "/ai-subscription/", bg: "linear-gradient(135deg,#ff5e7a,#e6455f)", ico: "🤖" },
-    { t: "攻略", s: "教程·项目实测", href: "/p/roogoo/", bg: "linear-gradient(135deg,#ff9d42,#ef8325)", ico: "📝" },
+    { t: "攻略", s: "教程·项目实测", href: "/categories/攻略/", bg: "linear-gradient(135deg,#ff9d42,#ef8325)", ico: "📝" },
     { t: "工具", s: "站长自用", href: "/toolbox/", bg: "linear-gradient(135deg,#2e9bab,#237a88)", ico: "🧰" },
     { t: "资源", s: "开源·素材", href: "/free-list/", bg: "linear-gradient(135deg,#9b6bf2,#7d51cf)", ico: "🧩" }
   ];
@@ -578,6 +582,24 @@ function xeInitGrid6() {
     grid.appendChild(a);
   });
   group.after(grid);
+  /* 攻略分类页当前为空（预留给教程/项目类内容）：点击时探测 /categories/攻略/ 是否已生成，
+     存在则正常跳转（首篇攻略文发布后自动生效、零维护），不存在则提示筹备中不跳转；
+     探测通过记入 sessionStorage，同会话后续点击直接跳转零开销 */
+  var gonglue = grid.querySelector('a[href="/categories/攻略/"]');
+  if (gonglue) {
+    gonglue.addEventListener("click", function (e) {
+      if (sessionStorage.getItem("xe-gonglue-ok") === "1") return;
+      e.preventDefault();
+      fetch("/categories/%E6%94%BB%E7%95%A5/", { method: "HEAD" }).then(function (r) {
+        if (r.ok) {
+          sessionStorage.setItem("xe-gonglue-ok", "1");
+          location.href = gonglue.getAttribute("href");
+        } else if (typeof anzhiyu !== "undefined" && anzhiyu.snackbarShow) {
+          anzhiyu.snackbarShow("📝 攻略内容筹备中，敬请期待");
+        }
+      }).catch(function () {});
+    });
+  }
 }
 
 /* ---------------- 手机端「最新文章」标题条：宫格与文章卡之间的衔接（桌面端隐藏） ---------------- */
@@ -609,6 +631,14 @@ function xeInitDrawer() {
     s.textContent = ico;
     a.insertBefore(s, a.firstChild);
   });
+  /* 六胶囊上方加「项目」分组标题（与「功能」「标签」同款 sidebar-menu-item-title），胶囊随之下移 */
+  var items = menus.querySelector(".menus_items");
+  if (items && !menus.querySelector(".xe-drawer-proj-title")) {
+    var t = document.createElement("span");
+    t.className = "sidebar-menu-item-title xe-drawer-proj-title";
+    t.textContent = "项目";
+    items.before(t);
+  }
 }
 
 /* ---------------- 统一初始化 ---------------- */
