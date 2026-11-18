@@ -90,6 +90,17 @@ body:not(:has(#home_top)) #page-header.not-top-img #nav .site-page,body:not(:has
 /* 文末发文时间行：灰色小字（替代旧版 *斜体* 语法） */
 #article-container .xe-timeline{color:#949dae;font-size:.85em;text-align:center;margin:28px 0 0;}
 
+/* 文末双码联系块：QQ + 微信并列，手机长按识别 / 桌面扫码（xeMoveQrDuo 会挪出 article-container，故选择器不依赖容器；暗色模式适配） */
+.xe-qr-duo{display:flex;gap:14px;justify-content:center;margin:16px 0 2px;}
+.xe-qr-item{flex:1;max-width:230px;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:14px 12px 12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+.xe-qr-item img{width:100%;max-width:150px;aspect-ratio:1/1;object-fit:contain;display:block;margin:0 auto;border-radius:6px;background:#fff;}
+.xe-qr-label{margin-top:9px;font-size:13.5px;font-weight:600;color:#1f2937;line-height:1.3;}
+.xe-qr-label span{display:block;font-size:11px;font-weight:400;color:#6b7280;margin-top:3px;}
+[data-theme="dark"] .xe-qr-item{background:#2a2a2e;border-color:rgba(255,255,255,.12);box-shadow:none;}
+[data-theme="dark"] .xe-qr-item img{background:#fff;}
+[data-theme="dark"] .xe-qr-label{color:#e5e7eb;}
+[data-theme="dark"] .xe-qr-label span{color:#9ca3af;}
+
 /* ---------------- 正文排版优化（标题间距 / 数字等宽 / 结论卡 / 列表呼吸感） ---------------- */
 
 /* 标题间距铁律："离上文远、离下文近"——上边距约 2 倍于下边距，扫读时标题归属清晰 */
@@ -274,13 +285,11 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
   /* 按钮：Shop 字正下方居中（缩小+下移，退为辅助入口） */
   #todayCard .banner-button-group{left:0!important;right:0!important;top:auto!important;bottom:62px!important;transform:none!important;display:flex!important;justify-content:center!important;}
   #todayCard .banner-button{width:auto!important;height:27px!important;padding:0 13px!important;font-size:11.5px!important;}
-  #todayCard .xe-btn-arrow{transform:rotate(45deg)!important;}
   /* 文字块：整体居中贴卡底 */
   #todayCard .todayCard-info{left:16px!important;right:16px!important;top:auto!important;bottom:12px!important;transform:none!important;text-align:center!important;max-width:none!important;}
   #todayCard .todayCard-info .todayCard-title{font-size:16px!important;line-height:1.3!important;margin-top:0!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   /* 小字居中，超宽省略 */
   #todayCard .xe-shop-sub{font-size:11px!important;margin-top:3px!important;line-height:1.4!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:0!important;}
-  #todayCard .xe-btn-arrow{transform:rotate(45deg)!important;}
   .categoryGroup{display:none!important;}
   /* 手机端 QQ 卡收紧：字号收一档（二维码 80px 与桌面统一，无需再覆盖） */
   .xe-wx-sub{font-size:18px!important;}
@@ -495,7 +504,7 @@ function xeInitTodayCard() {
     title.parentNode.insertBefore(sub, title.nextSibling);
   }
   // 按钮：改文字 + 移除"展开文章宫格"拦截，让点击跟随整卡链接跳转
-  // 箭头单独包 span：桌面保持 ↗，手机端 CSS 旋转 45° 变朝右 →
+  // 箭头单独包 span：桌面手机统一 ↗ 原形（此前手机端 CSS 旋转 45° 已回退）
   var btn = card.querySelector(".banner-button");
   if (btn) {
     btn.removeAttribute("onclick");
@@ -655,6 +664,20 @@ function xeInitAll() {
   xeInitSayhi();
   xeInitWechatCard();
   xeInitShareButton();
+  xeMoveQrDuo();
+}
+
+/* 文末双码块加进作者卡内部、版权行（.post-copyright__notice）下方压轴（用户指定位置）：markdown 写不进主题渲染区，DOM 挪移实现 */
+function xeMoveQrDuo() {
+  var duo = document.querySelector("#article-container .xe-qr-duo");
+  var anchor = document.querySelector(".post-copyright");
+  if (!duo || !anchor) return;
+  var notice = anchor.querySelector(".post-copyright__notice");
+  if (notice) {
+    notice.insertAdjacentElement("afterend", duo);
+  } else {
+    anchor.appendChild(duo);
+  }
 }
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(xeInitAll, 30);

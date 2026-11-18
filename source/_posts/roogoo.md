@@ -654,6 +654,11 @@ Stripe 收款的平台（很多美国 AI 服务都用它）看到"我们未能�
 
 加好友请备注「**Roogoo乐享卡**」，照抄这五个字就行，我看到会优先通过。
 
+<div class="xe-qr-duo">
+  <div class="xe-qr-item"><img src="/img/qq-qr.jpg" alt="QQ 二维码"><div class="xe-qr-label">QQ 扫一扫<span>QQ 内扫码直接加好友</span></div></div>
+  <div class="xe-qr-item"><img src="/images/2026-11/roogoo-card/wechat-qr.jpg" alt="微信二维码"><div class="xe-qr-label">微信扫一扫<span>手机长按识别加好友</span></div></div>
+</div>
+
 后续 Roogoo 如果改费率、改规则，我直接改这篇文章，不另发通知——看文末的更新日期就知道是不是最新。
 
 **在线时间：15:00 - 24:00**（晚上 12 点之后不在）。上午发的消息，我会在下午 3 点后统一回，不是没看见。
