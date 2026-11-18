@@ -4,7 +4,7 @@
  * 图标流动动效由主题原生组件（_data/creativity.yml）提供
  */
 var XE_CONFIG = {
-  freeBadge: true,   // 「清单」菜单项显示蓝色"免费"角标
+  freeBadge: true,   // 「资源」菜单项显示蓝色"免费"角标
   iconWall: true,    // 问候卡深色渐变底 + 白色标题（配合原生标签云）
   categorySub: true, // 三彩色卡片下方小字说明
 };
@@ -21,7 +21,7 @@ function xeInjectStyle() {
   #recent-posts>.recent-post-item .post_cover{height:auto!important;aspect-ratio:1200/633!important;}
   #recent-posts>.recent-post-item .post_cover img.post_bg{height:100%!important;object-position:top!important;}
 }
-/* 免费角标：贴住「清单」右上角（只留一丝白） */
+/* 免费角标：贴住「资源」右上角（只留一丝白） */
 span.xe-free-parent{display:inline-block;position:relative;}
 .menu-badge{position:absolute;left:calc(100% + 1px);top:-3px;padding:0 5px;font-size:10px;line-height:15px;
   border-radius:7px;background:#425aeb;color:#fff;font-weight:600;white-space:nowrap;}
@@ -442,7 +442,7 @@ function xeInitBadge() {
   if (!XE_CONFIG.freeBadge) return;
   document.querySelectorAll(".menus_items a.site-page").forEach(function (a) {
     var span = a.querySelector("span");
-    if (!span || span.textContent.indexOf("清单") === -1) return;
+    if (!span || span.textContent.indexOf("资源") === -1) return;
     span.classList.add("xe-free-parent");
     if (span.querySelector(".menu-badge")) return;
     var b = document.createElement("span");
@@ -577,9 +577,9 @@ function xeInitGrid6() {
     { t: "开卡", s: "实测·费率对比", href: agg[0] || "/card/", bg: "linear-gradient(135deg,#4fc97e,#2f9e63)", ico: "💳" },
     { t: "办号", s: "eSIM + AppleID", href: agg[1] || "/esim/", bg: "linear-gradient(135deg,#3fa9f5,#2f86c9)", ico: "🪪" },
     { t: "订AI", s: "GPT·Claude 等", href: agg[2] || "/ai-subscription/", bg: "linear-gradient(135deg,#ff5e7a,#e6455f)", ico: "🤖" },
-    { t: "攻略", s: "教程·项目实测", href: "/categories/攻略/", bg: "linear-gradient(135deg,#ff9d42,#ef8325)", ico: "📝" },
+    { t: "项目", s: "实测·可上手", href: "/categories/项目/", bg: "linear-gradient(135deg,#ff9d42,#ef8325)", ico: "📝" },
     { t: "工具", s: "站长自用", href: "/toolbox/", bg: "linear-gradient(135deg,#2e9bab,#237a88)", ico: "🧰" },
-    { t: "资源", s: "开源·素材", href: "/free-list/", bg: "linear-gradient(135deg,#9b6bf2,#7d51cf)", ico: "🧩" }
+    { t: "资源", s: "免费·持续更新", href: "/free-list/", bg: "linear-gradient(135deg,#9b6bf2,#7d51cf)", ico: "🧩" }
   ];
   var grid = document.createElement("div");
   grid.className = "xe-grid6";
@@ -591,24 +591,7 @@ function xeInitGrid6() {
     grid.appendChild(a);
   });
   group.after(grid);
-  /* 攻略分类页当前为空（预留给教程/项目类内容）：点击时探测 /categories/攻略/ 是否已生成，
-     存在则正常跳转（首篇攻略文发布后自动生效、零维护），不存在则提示筹备中不跳转；
-     探测通过记入 sessionStorage，同会话后续点击直接跳转零开销 */
-  var gonglue = grid.querySelector('a[href="/categories/攻略/"]');
-  if (gonglue) {
-    gonglue.addEventListener("click", function (e) {
-      if (sessionStorage.getItem("xe-gonglue-ok") === "1") return;
-      e.preventDefault();
-      fetch("/categories/%E6%94%BB%E7%95%A5/", { method: "HEAD" }).then(function (r) {
-        if (r.ok) {
-          sessionStorage.setItem("xe-gonglue-ok", "1");
-          location.href = gonglue.getAttribute("href");
-        } else if (typeof anzhiyu !== "undefined" && anzhiyu.snackbarShow) {
-          anzhiyu.snackbarShow("📝 攻略内容筹备中，敬请期待");
-        }
-      }).catch(function () {});
-    });
-  }
+  /* 项目分类入口的 404 守卫已独立为 xeInitProjectGuard（覆盖桌面导航/手机抽屉/六宫格全站链接） */
 }
 
 /* ---------------- 手机端「最新文章」标题条：宫格与文章卡之间的衔接（桌面端隐藏） ---------------- */
@@ -621,6 +604,29 @@ function xeInitSectionTitle() {
   grid.after(bar);
 }
 
+/* ---------------- 项目分类 404 守卫：分类页未生成时全站「项目」链接点击弹提示不跳转 ----------------
+   分类页 /categories/项目/ 生成前（首篇项目文发布前），桌面导航/手机抽屉/六宫格的所有入口都会 404；
+   主题 pjax 会在冒泡层自行拦截导航，链接级 preventDefault 拦不住——必须用 document 捕获层截停；
+   主题渲染的导航 href 是百分号编码、六宫格自建链接是原文中文，两种形式都要匹配（closest 兼容）；
+   探测通过记入 sessionStorage，同会话后续点击直接放行零开销 */
+function xeInitProjectGuard() {
+  document.addEventListener("click", function (e) {
+    var a = e.target && e.target.closest && e.target.closest('a[href="/categories/项目/"], a[href="/categories/%E9%A1%B9%E7%9B%AE/"]');
+    if (!a) return;
+    if (sessionStorage.getItem("xe-gonglue-ok") === "1") return;
+    e.preventDefault();
+    e.stopPropagation();
+    fetch("/categories/%E9%A1%B9%E7%9B%AE/", { method: "HEAD" }).then(function (r) {
+      if (r.ok) {
+        sessionStorage.setItem("xe-gonglue-ok", "1");
+        location.href = a.getAttribute("href");
+      } else if (typeof anzhiyu !== "undefined" && anzhiyu.snackbarShow) {
+        anzhiyu.snackbarShow("📝 项目内容筹备中，敬请期待");
+      }
+    }).catch(function () {});
+  }, true);
+}
+
 /* ---------------- 手机抽屉菜单：移除主题作者推广块 + 分类项注入图标 ---------------- */
 function xeInitDrawer() {
   if (!window.matchMedia("(max-width:768px)").matches) return;
@@ -628,7 +634,7 @@ function xeInitDrawer() {
   if (!menus) return;
   var promo = menus.querySelector(".back-menu-list-groups");
   if (promo) promo.remove();
-  var map = { "虚拟卡": "💳", "eSIM": "📶", "Apple ID": "🍎", "AI订阅": "🤖", "工具箱": "🧰", "清单": "🎁" };
+  var map = { "虚拟卡": "💳", "eSIM": "📶", "Apple ID": "🍎", "AI订阅": "🤖", "项目": "📋", "资源": "🧩" };
   menus.querySelectorAll(".menus_item").forEach(function (item) {
     var a = item.querySelector("a.site-page");
     if (!a || a.querySelector(".xe-drawer-ico")) return;
@@ -640,12 +646,12 @@ function xeInitDrawer() {
     s.textContent = ico;
     a.insertBefore(s, a.firstChild);
   });
-  /* 六胶囊上方加「项目」分组标题（与「功能」「标签」同款 sidebar-menu-item-title），胶囊随之下移 */
+  /* 六胶囊上方加「出海一站配齐」分组标题（与「功能」「标签」同款 sidebar-menu-item-title；原「项目」标题与新增的「项目」导航胶囊同名打架，批次60 改为 slogan 后半句） */
   var items = menus.querySelector(".menus_items");
   if (items && !menus.querySelector(".xe-drawer-proj-title")) {
     var t = document.createElement("span");
     t.className = "sidebar-menu-item-title xe-drawer-proj-title";
-    t.textContent = "项目";
+    t.textContent = "出海一站配齐";
     items.before(t);
   }
 }
@@ -659,6 +665,7 @@ function xeInitAll() {
   xeInitCategorySub();
   xeInitIconWall();
   xeInitGrid6();
+  xeInitProjectGuard();
   xeInitSectionTitle();
   xeInitTodayCard();
   xeInitSayhi();
