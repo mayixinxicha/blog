@@ -71,7 +71,7 @@ description: 边做边截图的 Bybit 虚拟卡开卡实测：注册认证、选
 
 ### 动手前，手上要有这五样
 
-1. **Bybit App**——国区 App Store 大概率搜不到。iOS 要么切外区 Apple ID、要么去官网下；安卓走 Google Play 或官网安装包（[www.bybitglobal.com](https://www.bybitglobal.com)）。**这一步过不去，后面都谈不上**；
+1. **Bybit App**——国区 App Store 大概率搜不到。iOS 要么切外区 Apple ID、要么去官网下；安卓走 Google Play 或官网安装包（[官网下载入口](https://www.bybitglobal.com/invite?ref=6GJL7E6)，链接已带邀请码，下载注册一链全包）。**这一步过不去，后面都谈不上**；
 2. **常用邮箱**——注册用；
 3. **身份证原件**——认证要拍，不能是截图；
 4. **能收验证码的手机号**——注册和绑卡都要，+86 直接能用；
@@ -102,16 +102,15 @@ description: 边做边截图的 Bybit 虚拟卡开卡实测：注册认证、选
 ![图1｜Bybit 邀请海报](/images/2026-11/bybit/fig01-invite.webp)
 <div class="fig-cap">图1｜邀请码 6GJL7E6，扫码可直接注册。</div>
 
-![首页注册入口](/images/2026-11/bybit/step1-1.webp)
-<div class="fig-cap">首页：橙色「注册」按钮。</div>
-
 第一件事是选居住地——这一步是全文最大的坑点：
 
 - **居住地选「中国台湾」**（App 里显示为「台湾」）。这张卡的申请资格检查就认这个地区；
 - 用定位还是手选都行，选完核对一眼再点「创建账户」。
 
-![居住地选择](/images/2026-11/bybit/step1-2.webp)
-<div class="fig-cap">居住地：选中国台湾（App 里显示为「台湾」）。</div>
+<div class="fig-row">
+  <figure><img src="/images/2026-11/bybit/step1-1.webp" alt="首页注册入口"><div class="fig-cap">左：首页｜橙色「注册」按钮</div></figure>
+  <figure><img src="/images/2026-11/bybit/step1-2.webp" alt="居住地选择"><div class="fig-cap">右：居住地｜选中国台湾（App 里显示为「台湾」）</div></figure>
+</div>
 
 接着填邮箱，邀请码一栏填 `6GJL7E6`，勾上服务条款，点「立即注册」。
 
@@ -241,7 +240,7 @@ description: 边做边截图的 Bybit 虚拟卡开卡实测：注册认证、选
 ![英文地址表单](/images/2026-11/bybit/step4-address.webp)
 <div class="fig-cap">英文地址表单｜生成器只对齐格式，地址要能说清来路。</div>
 
-下一步确认信息页：核对 Email 和手机号，底部还有个「推荐码（可选）」，可填 `6GJL7E6`，然后勾两条条款，点「提交」。
+下一步确认信息页：核对 Email 和手机号，底部还有个「推荐码」——**要填 `6GJL7E6`**，这一处不填，申卡这笔的返佣就断了；然后勾两条条款，点「提交」。
 
 ![确认信息](/images/2026-11/bybit/step4-confirm.webp)
 <div class="fig-cap">确认信息｜只有邮箱和手机号能改——地区在第①步已锁定，务必一次选对。</div>
@@ -264,11 +263,12 @@ description: 边做边截图的 Bybit 虚拟卡开卡实测：注册认证、选
 
 审核通过回到卡片页，卡面就出来了。申请记录里能看到这条通过凭证：
 
-![申请记录](/images/2026-11/bybit/step5-history.webp)
-<div class="fig-cap">Application History｜卡类型 Virtual、状态已激活、Approved，绿字见着就是成了。</div>
+<div class="fig-row">
+  <figure><img src="/images/2026-11/bybit/step5-history.webp" alt="申请记录"><div class="fig-cap">左：Application History｜卡类型 Virtual、状态已激活、Approved，绿字见着就是成了</div></figure>
+  <figure><img src="/images/2026-11/bybit/step5-carddetail.webp" alt="虚拟卡详情"><div class="fig-cap">右：卡详情｜卡号、到期日、CVC、持卡人姓名全在这一页，点小眼睛图标显示（敏感字段已打码）</div></figure>
+</div>
 
-![图9｜虚拟卡详情](/images/2026-11/bybit/step5-carddetail.webp)
-<div class="fig-cap">图9｜卡号、到期日、CVC/CVV、持卡人姓名全在这一页，点小眼睛图标显示，绑卡时用（图中敏感字段已全部打码）。<strong>「签发国家/地区」显示 Kazakhstan 不是开错区</strong>——那是发卡机构的注册地，不是卡组织，也不决定苹果钱包支不支持。</div>
+卡详情里有一样东西先给你打预防针：**「签发国家/地区」显示 Kazakhstan 不是开错区**——那是发卡机构的注册地，不是卡组织，也不决定苹果钱包支不支持。
 
 那到底按哪个计划发的卡？看两个地方，页面上都写着：
 
@@ -465,7 +465,7 @@ Bybit 侧看到这条才算落地：
 ## 七、常见问题
 
 {% folding Q：能付 ChatGPT 吗？ %}
-Mastercard 走订阅场景没问题，Google Pay 我已经实测绑通。卡号、有效期、CVV 在「虚拟卡详情」里取（图9）。
+Mastercard 走订阅场景没问题，Google Pay 我已经实测绑通。卡号、有效期、CVV 在第⑤步「卡详情」图里取。
 {% endfolding %}
 
 {% folding Q：Apple Pay 一定能绑上吗？ %}
@@ -523,13 +523,21 @@ USDT 折算成美元的损耗，约 1.4%，属于换汇成本，每一笔充值�
 > **拿到卡只是第一步**——如果你想要 ChatGPT Plus / Claude 等 AI 现成账号、不想自己折腾开卡绑卡，**[谢小二AI小店](https://shop.xiaomimiai.com)** 里直接挑。
 
 **注册入口**：[https://www.bybitglobal.com/invite?ref=6GJL7E6](https://www.bybitglobal.com/invite?ref=6GJL7E6)
-**邀请码**：`6GJL7E6`（注册和卡片申请两处都能填）
+**邀请码**：`6GJL7E6`（注册和卡片申请两处都要填）
 
-{% note warning %}
-<span class="note-hd">注意</span>｜最后照例拦一下：这类卡都可能冻卡、停服，活动奖励随时会变，本文只做流程记录，不为任何平台背书。所有费率和活动数字，以你打开 App 那一刻页面显示的为准。用多少充多少，别在卡里放闲钱。
-{% endnote %}
+这篇就到这里。开卡路上撞到什么坑，微信 / TG 上说一声，我补进避坑清单里。活动奖励随时会变，所有费率和数字以你打开 App 那一刻页面显示的为准；**费率、限额、活动有变动，我直接改这篇文章，以文末日期为准。**
 
-这篇就到这里。开卡路上撞到什么坑，微信 / TG 上说一声，我补进避坑清单里。**费率、限额、活动有变动，我直接改这篇文章，以文末日期为准。**
+**怎么找到我**（加好友备注「**Bybit虚拟卡**」，我看到优先通过）：
+
+| 通道 | 账号 | 适合问什么 |
+| --- | --- | --- |
+| **Telegram** | **@xiexiaoer88** | 优先，能发图、不吞消息，长问题在这儿聊 |
+| **QQ** | **3911953728** | 次选，传文件 / 截图方便 |
+
+<div class="xe-qr-duo">
+  <div class="xe-qr-item"><img src="/img/qq-qr.jpg" alt="QQ 二维码"><div class="xe-qr-label">QQ 扫一扫<span>QQ 内扫码直接加好友</span></div></div>
+  <div class="xe-qr-item"><img src="/images/2026-11/bybit/wechat-qr.jpg" alt="微信二维码"><div class="xe-qr-label">微信扫一扫<span>手机长按识别加好友</span></div></div>
+</div>
 
 ---
 
