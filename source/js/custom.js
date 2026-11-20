@@ -189,9 +189,16 @@ body:not(:has(#home_top)) #page-header.not-top-img #nav .site-page,body:not(:has
 /* 正文数字全局等宽：金额/版本号纵向对齐（.xe-num 为手动强调用法，此为全量兜底） */
 #article-container{font-variant-numeric:tabular-nums;}
 
-/* /card/ 聚合页实测徽章：绿色胶囊（呼应"测过才上榜"原则） */
-.xe-tested-badge{display:inline-block;background:var(--anzhiyu-green,#57bd6a);color:#fff;font-size:12px;
-  font-weight:600;padding:3px 12px;border-radius:20px;margin:2px 0 12px;}
+/* /card/ 聚合页状态胶囊：绿=站长实测（整体可点进教程），灰=官方资料仅供参考；
+   主题 #article-container a:not(...)x5+ 特异性过高且数量不明，锚点分支直接 !important 压制 */
+#article-container .xe-pill{display:inline-block;font-size:15px;font-weight:600;padding:4px 14px;
+  border-radius:20px;white-space:nowrap;vertical-align:middle;line-height:1.6;margin:0;}
+#article-container a.xe-pill{display:inline-block !important;font-size:15px;font-weight:600 !important;
+  padding:4px 14px !important;border-radius:20px;white-space:nowrap;vertical-align:middle;
+  line-height:1.6;margin:0;color:#fff !important;text-decoration:none !important;}
+.xe-pill-green{background:var(--anzhiyu-green,#57bd6a);}
+#article-container a.xe-pill-green:hover{color:#fff;opacity:.85;text-decoration:none;}
+.xe-pill-gray{background:var(--anzhiyu-gray,#90a4ae);color:#fff;}
 
 /* 问候卡：白底（主题原生），图标带回归主题原生间距（7rem），网址字号加大 */
 #random-banner.xe-wall .banners-title-small{font-size:15px;}
