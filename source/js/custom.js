@@ -231,8 +231,8 @@ body:not(:has(#home_top)) #page-header.not-top-img #nav .site-page,body:not(:has
 .xe-btn-arrow{display:inline-block;transition:transform .3s;}
 .topGroup .banner-button:hover .xe-btn-arrow{transform:translateX(2px);}
 
-/* 六宫格（开卡/办号/订AI/实测项目/工具/资源清单）：手机端 Shop 卡下方的 3×2 彩色导航宫格
-   （对齐 zibll 参考版式）。基准隐藏，仅手机端显示；全部链接为站内真实页面 */
+/* 六宫格（开卡/办号/订AI/网络/项目/资源）：手机端 Shop 卡下方的 3×2 彩色导航宫格
+   （对齐 zibll 参考版式）。基准隐藏，仅手机端显示；前三格指聚合页（动态同步）、后三格指分类/清单页 */
 .xe-grid6{display:none;width:100%;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px;}
 .xe-grid6 a{display:flex;flex-direction:row;align-items:center;gap:7px;height:52px;padding:0 9px;
   border-radius:12px;color:#fff;text-decoration:none;transition:transform .3s;overflow:hidden;
@@ -401,6 +401,15 @@ a.footer-bar-link[href*="hexo-theme-anzhiyu"]{display:none!important;}
     background:var(--anzhiyu-card-bg,#fff)!important;border:0.5px solid rgba(0,0,0,.08)!important;border-radius:10px!important;}
   #sidebar-menus .menus_item a.site-page:active{background:#eceef2!important;}
   #sidebar-menus .xe-drawer-ico{font-size:15px!important;flex:none!important;}
+  /* 抽屉顶部「快捷入口」块：聚合页三动词（开卡/办号/订AI）一行三格，
+     宫格后三格改指分类页后聚合动线由抽屉承接；样式对齐六分类胶囊（同卡底/圆角/描边） */
+  #sidebar-menus .xe-drawer-quick{padding:2px 16px 4px!important;}
+  #sidebar-menus .xe-drawer-quick-row{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:8px!important;}
+  #sidebar-menus .xe-drawer-quick-row a{display:flex!important;flex-direction:column!important;align-items:center!important;gap:2px!important;
+    padding:9px 4px!important;font-size:12.5px!important;font-weight:600!important;line-height:1.2!important;
+    background:var(--anzhiyu-card-bg,#fff)!important;border:0.5px solid rgba(0,0,0,.08)!important;border-radius:10px!important;}
+  #sidebar-menus .xe-drawer-quick-row a:active{background:#eceef2!important;}
+  #sidebar-menus .xe-drawer-quick-row .xe-q-ico{font-size:16px!important;}
   /* 聚合页 6 列对比表手机端放不下（322px 挤成一字一行）：转横向滚动块、单元格不折行，
      标准响应式表格方案（display:block + overflow-x:auto），桌面端不受影响 */
   #page table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;}
@@ -592,9 +601,9 @@ function xeInitGrid6() {
     { t: "开卡", s: "实测·费率对比", href: agg[0] || "/card/", bg: "linear-gradient(135deg,#4fc97e,#2f9e63)", ico: "💳" },
     { t: "办号", s: "eSIM + AppleID", href: agg[1] || "/esim/", bg: "linear-gradient(135deg,#3fa9f5,#2f86c9)", ico: "🛂" },
     { t: "订AI", s: "GPT·Claude 等", href: agg[2] || "/ai-subscription/", bg: "linear-gradient(135deg,#ff5e7a,#e6455f)", ico: "🤖" },
-    { t: "实测项目", s: "教程·可上手", href: "/categories/实测项目/", bg: "linear-gradient(135deg,#ff9d42,#ef8325)", ico: "📝" },
-    { t: "工具", s: "站长自用", href: "/toolbox/", bg: "linear-gradient(135deg,#2e9bab,#237a88)", ico: "🧰" },
-    { t: "资源清单", s: "条条实测", href: "/free-list/", bg: "linear-gradient(135deg,#9b6bf2,#7d51cf)", ico: "🧩" }
+    { t: "网络", s: "环境 · IP 验收", href: "/categories/网络环境/", bg: "linear-gradient(135deg,#ff9d42,#ef8325)", ico: "🌐" },
+    { t: "项目", s: "实测 · 教程", href: "/categories/实测项目/", bg: "linear-gradient(135deg,#2e9bab,#237a88)", ico: "📝" },
+    { t: "资源", s: "清单 · 持续更新", href: "/free-list/", bg: "linear-gradient(135deg,#9b6bf2,#7d51cf)", ico: "🧩" }
   ];
   var grid = document.createElement("div");
   grid.className = "xe-grid6";
@@ -681,8 +690,19 @@ function xeInitDrawer() {
     s.textContent = ico;
     a.insertBefore(s, a.firstChild);
   });
-  /* 六胶囊上方加「出海一站配齐」分组标题（与「功能」「标签」同款 sidebar-menu-item-title；原「项目」标题与新增的「项目」导航胶囊同名打架，批次60 改为 slogan 后半句） */
+  /* 快捷入口块（聚合页三动词）置于「出海一站配齐」分组标题上方 */
   var items = menus.querySelector(".menus_items");
+  if (items && !menus.querySelector(".xe-drawer-quick")) {
+    var q = document.createElement("div");
+    q.className = "xe-drawer-quick";
+    q.innerHTML = '<div class="xe-drawer-quick-row">'
+      + '<a href="/card/"><span class="xe-q-ico">💳</span>开卡</a>'
+      + '<a href="/esim/"><span class="xe-q-ico">🛂</span>办号</a>'
+      + '<a href="/ai-subscription/"><span class="xe-q-ico">🤖</span>订AI</a>'
+      + "</div>";
+    items.before(q);
+  }
+  /* 六胶囊上方加「出海一站配齐」分组标题（与「功能」「标签」同款 sidebar-menu-item-title；原「项目」标题与新增的「项目」导航胶囊同名打架，批次60 改为 slogan 后半句） */
   if (items && !menus.querySelector(".xe-drawer-proj-title")) {
     var t = document.createElement("span");
     t.className = "sidebar-menu-item-title xe-drawer-proj-title";
