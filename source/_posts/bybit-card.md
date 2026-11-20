@@ -1,0 +1,516 @@
+---
+title: Bybit 虚拟卡实测：0 开卡费、0 验证费，大陆身份证微信绑卡（2026 版）
+date: 2026-11-21 09:00:00
+categories: [[虚拟卡库],[实测项目]]
+tags: [Bybit, Bybit Card, 虚拟卡, Mastercard, 微信绑卡, Google Pay, 开卡教程]
+cover: /images/2026-11/bybit/cover.svg
+description: 边做边截图的 Bybit 虚拟卡开卡实测：注册认证、选链充值、绑微信 Google Pay、首刷 ¥20.6 明细逐项拆解，附费率红线与退出机制。
+---
+
+先说清楚这张卡是什么：Bybit Card 是交易所 Bybit 推出的 **Mastercard 预付卡**，有虚拟卡和实体卡两种形态。本文只讲主力玩法：用大陆身份证，从台湾区入口申请一张虚拟卡，从注册一路讲到拿到卡号、绑上微信、刷出第一笔。
+
+有个细节先讲明白，免得你后面看到「哈萨克」就以为开错了：**卡是从台湾区入口申请的，但按哈萨克计划发卡**——卡面「签发国家/地区」写 Kazakhstan，指的是发卡机构的注册地。判断依据在卡片页上摆着，第⑤步会教你看。
+
+我这次从注册到卡片激活、绑卡、首刷，边做边截图；身份认证页面标「预计 5 分钟」，卡片审核几分钟内通过，从币安提币到 Bybit 入账两分钟级（BSC 要 60 次确认，这大概就是那两三分钟的由来）。每一步都留了图，你卡在哪一步，能对着图找到。
+
+这篇是写给谁的：想把外卡绑进微信 / Apple Pay 消费、订 ChatGPT / Netflix 这类境外服务，手上只有大陆身份证、没有国际信用卡的人（还没搞定订阅环境的，先看[订AI 指南](/ai-subscription/)）。它和之前写的 [Roogoo 乐享卡](/p/roogoo/)是两条路——Roogoo 胜在费率低，Bybit 胜在平台大、开卡真免费、绑卡不收验证费，还有消费返现。两张都想要的话，文末「写在最后」有怎么分工的建议。
+
+先把利益和丑话都摆在桌上：注册和申卡填邀请码 `6GJL7E6`，对你开卡费照样是 0、迎新奖励一分不少；**走我的码注册，我会拿到 Bybit 给的邀请奖励**——这就是这篇教程的全部回报，除此之外没有其他收费。
+
+{% note warning %}
+<span class="note-hd">注意</span>｜这类卡都可能冻卡、停服，本文只做流程记录，不为任何平台背书。原则还是那一条：用多少充多少，别在卡里放闲钱。如果现在就不打算上传身份证，可以先关掉这页。
+{% endnote %}
+
+{% note warning %}
+<span class="note-hd">注意</span>｜还有一句实话：这套流程要填中国台湾的居住地和地址。**地址请填你能解释得清的那个**——真被风控问到，你得答得上来为什么住这儿。地址生成器只帮你把字段格式对齐，不替你解释。
+{% endnote %}
+
+![图1｜Bybit 邀请海报](/images/2026-11/bybit/fig01-invite.webp)
+<div class="fig-cap">图1｜邀请码 6GJL7E6，扫码可直接注册。开卡链接：<code>https://www.bybitglobal.com/invite?ref=6GJL7E6</code></div>
+
+---
+
+## 先看四个数
+
+| 你可能关心 | 答案 |
+| --- | --- |
+| **要先充多少钱** | 开卡 0 元、无最低余额，先充 **5-10 U** 把流程跑通就够（我实测充 4.99）；冲迎新奖励才需要 100 U 起 |
+| **要花多久** | 边做边截图全程 20-30 分钟；认证页面标「预计 5 分钟」，卡片审核几分钟，充值到账两分钟级 |
+| **什么人能开** | 大陆身份证 + 能收验证码的手机号 + 邮箱；注册时居住地选中国台湾，全程用台湾网络环境；地址一栏要填英文 |
+| **真实费率** | 卡片页列两行 2%（境外交易、国际交易），**实测只收一笔 1.9%**——具体见第一节，别按 4% 吓自己 |
+
+---
+
+## 一、这张卡到底收多少钱
+
+### 费用全表（页面数字 + 实测数字，两个口径都给你）
+
+| 项目 | 数字 | 来源 |
+| --- | --- | --- |
+| 开卡费 | 0（按钮上直接标 Free） | 图6 |
+| 年费 / 月费 | 0 | 图11 |
+| 绑卡验证费 | **0**——微信绑一张（`tenpay`）、Google 绑一张，各记 **-0.00 USD** | 图20 |
+| 充值手续费 | 平台不收；链上手续费自付，实测 0.01 USDT | 图15 |
+| 充值折算损耗 | 入金 4.99，卡里可用 4.92，差 0.07（约 1.4%） | 图15、图16 |
+| 境外 / 国际交易手续费 | 页面各标 2%；实测一笔微信消费收 **1.9%**，且只收一笔 | 图11、图19 |
+| ATM 取现 | **每月前 $150 免手续费**；ATM 日限额 1,000 USD | 图6、图11 |
+| 消费限额 | **单日 15,000 USD** | 图11 |
+| 返现 | **2% 起，最高 10%**；**有每月上限**，具体看 App 里「My Rewards」 | 图6、图10 |
+| 迎新奖励 | 26 USDT（需手动报名）、$30 + $500 盲盒、认证后充值奖……活动常变，以打开 App 那天为准 | 图2、图10 |
+
+一句话总结成本结构：**开卡不要钱、绑卡也不要钱，花钱只在汇率和手续费**——页面标 2%、实测一笔 1.9%。这个费率意味着它不适合当日常主力卡刷大额；订阅境外服务、绑微信偶尔用、领迎新奖励，才是它的正确打开方式。
+
+> 顺手定一个用词：**充值讲「U（USDT）」，扣款讲「USD」**，1 U ≈ 1 USD，差的是汇率，不是两种钱。全篇按这个来。
+
+### 那两行 2% 不是要收两次
+
+卡片页并排列了「境外交易手续费 2%」和「国际交易手续费 2%」，看着像要收两笔。
+
+**我这一笔明细里只有一条外币交易手续费 1.9%，没有第二笔。** 所以这两行大概率是同一个费的两个标签。**会不会叠收，我只有一笔数据，不下结论**——你刷第二笔时自己看一眼明细。
+
+---
+
+## 二、开卡六步（2026.11 流程）
+
+**流程一览**：① 注册（居住地选中国台湾）→ ② 身份认证 → ③ 绑定手机号 → ④ 申请虚拟卡（资格检查 → 附加信息 → 英文地址 → 确认提交）→ ⑤ 查看卡片信息 → ⑥ 充值
+
+每一步都是三件套：做什么 → 图 → 卡住了怎么办。
+
+### 动手前，手上要有这五样
+
+1. **Bybit App**——国区 App Store 大概率搜不到。iOS 要么切外区 Apple ID、要么去官网下；安卓走 Google Play 或官网安装包（`www.bybitglobal.com`）。**这一步过不去，后面都谈不上**；
+2. **常用邮箱**——注册用；
+3. **身份证原件**——认证要拍，不能是截图；
+4. **能收验证码的手机号**——注册和绑卡都要，+86 直接能用；
+5. **台湾网络环境**——注册和申请卡片全程用台湾 IP（这张卡和 Roogoo 相反：Roogoo 要求国内网络，Bybit 要求台湾 IP，别搞混）。
+
+另外备一个台湾地址生成器：`https://www.meiguodizhi.com/tw-address`，第④步填地址用，两分钟的事。
+
+**卡在哪一步，直接跳到对应步骤：**
+
+| 你现在的状态 | 跳到 |
+| --- | --- |
+| App 装不上 / 打开一片空白 | 第①步开头 |
+| 居住地 / 证件类型不知道怎么选 | 第①②步 |
+| 附加信息四个英文下拉不会填 | 第④步 |
+| 地址表单只能输英文，生成器出的是中文 | 第④步 |
+| 卡片详情签发地显示 Kazakhstan，以为开错了 | 第⑤步 |
+| 充值选了网络，怕选错 | 第⑥步 |
+| 想知道绑微信、Apple Pay 的坑 | 第三节 |
+
+---
+
+### 第①步 注册：居住地选台湾，邀请码别漏
+
+先把 App 装上（见上面五样第 1 条），**装好之后把网络环境切到台湾再打开**。首页点橙色「注册」按钮。
+
+<div class="fig-row">
+  <figure><img src="/images/2026-11/bybit/step1-1.webp" alt="注册① 首页"><div class="fig-cap">① 首页：橙色「注册」按钮</div></figure>
+  <figure><img src="/images/2026-11/bybit/step1-2.webp" alt="注册② 居住地"><div class="fig-cap">② 居住地：选中国台湾（App 里显示为「台湾」）</div></figure>
+</div>
+<div class="fig-row">
+  <figure><img src="/images/2026-11/bybit/step1-3.webp" alt="注册③ 邀请码"><div class="fig-cap">③ 邀请码：填 6GJL7E6，右侧亮「✓ 受邀好友奖励」才算生效</div></figure>
+  <figure><img src="/images/2026-11/bybit/step1-4.webp" alt="注册④ 密码"><div class="fig-cap">④ 密码：8-30 位，大小写 + 数字三条全亮勾按钮才亮</div></figure>
+</div>
+
+第一件事是选居住地——这一步是全文最大的坑点：
+
+- **居住地选「中国台湾」**（App 里显示为「台湾」）。这张卡的申请资格检查就认这个地区；
+- 用定位还是手选都行，选完核对一眼再点「创建账户」。
+
+接着填邮箱，邀请码一栏填 `6GJL7E6`，勾上服务条款，点「立即注册」。
+
+**填对了会有反馈**：右侧显示绿色小字「✓ 受邀好友奖励」——看到它才算生效。邮箱支持 Google / Apple / Telegram 一键注册，但后面一样要过身份认证，别想跳。
+
+最后设置登录密码：8-30 位，至少一个大写字母、一个小写字母、一个数字。三条要求全亮勾，按钮才会变亮。
+
+{% note info %}
+<span class="note-hd">卡住了怎么办</span>
+
+- App 装不上 → iOS 先确认是不是国区 ID，切外区或走官网；安卓别在第三方站点下安装包；
+- App 打不开 / 加载不出来 → 九成是 IP 没切对，确认网络环境是台湾再刷新；
+- 验证码收不到 → 翻垃圾邮件；还不行换个邮箱，Gmail 和 Outlook 成功率高。
+{% endnote %}
+
+---
+
+### 第②步 身份认证：签发国家选中国，证件类型选身份证
+
+注册完登录，首页会出现「花几分钟完成身份认证」的引导，点「去认证」。
+
+<div class="fig-row">
+  <figure><img src="/images/2026-11/bybit/step2-1.webp" alt="认证① 去认证"><div class="fig-cap">① 首页引导：点「去认证」</div></figure>
+  <figure><img src="/images/2026-11/bybit/step2-2.webp" alt="认证② 选证件"><div class="fig-cap">② 选证件：签发国家选中国、类型选身份证</div></figure>
+</div>
+<div class="fig-row">
+  <figure><img src="/images/2026-11/bybit/step2-3.webp" alt="认证③ 审核中"><div class="fig-cap">③ 审核中：页面标「预计 5 分钟」</div></figure>
+  <figure><img src="/images/2026-11/bybit/step2-4.webp" alt="认证④ 已认证"><div class="fig-cap">④ 已认证（标准）</div></figure>
+</div>
+
+认证页有两个下拉，这里是第二个坑点：
+
+- **证件签发国家：选「中国」**；
+- **证件类型：选「身份证」**（页面上标了「推荐」）。
+
+> **这两处不是矛盾，是这么设计的**：居住地决定卡的开卡区，签发国家决定用什么证件认证。选反了会卡在资格检查。
+
+然后按提示拍身份证正反面、做人脸识别，提交。页面写「预计 5 分钟完成；高峰期可能略有延迟」。
+
+审核通过，状态变「已认证（标准）」。下方会弹「充值至少 $75，即享限时奖励」这类迎新活动——**活动随缘参与，别为凑奖励多充钱**，原则还是用多少充多少。
+
+{% note info %}
+<span class="note-hd">卡住了怎么办</span>
+
+- 拍照被拒 → 九成是照片问题：原件重拍、别反光、四个角齐全再提交；
+- 人脸识别失败 → 找光线好的地方，摘眼镜素颜过一遍。
+{% endnote %}
+
+---
+
+### 第③步 绑定手机号：卡片申请前必做
+
+认证通过后，先别急着申卡——手机号没绑，后面收不到交易通知。点左上角头像进用户中心。
+
+![图4｜用户中心](/images/2026-11/bybit/step3-user.webp)
+<div class="fig-cap">图4｜「Bybit Card 立即申请」的入口也在这张图里，第④步就是从这进的。</div>
+
+进「安全设置」，基础防护里点「手机号」，按提示绑定。
+
+<div class="fig-row">
+  <figure><img src="/images/2026-11/bybit/step3-phone-before.webp" alt="手机号未设置"><div class="fig-cap">左：手机号未设置</div></figure>
+  <figure><img src="/images/2026-11/bybit/step3-phone-after.webp" alt="手机号已绑定"><div class="fig-cap">右：绑定完成（号码已打码）</div></figure>
+</div>
+
+大陆 +86 号码直接能用，不用海外号。顺手把「谷歌身份验证器」也开了——后面大额操作要二次验证，提前开省得回头折腾。
+
+{% note info %}
+<span class="note-hd">卡住了怎么办</span>
+
+- 验证码短信收不到 → 检查手机的骚扰拦截，验证码短信常被误杀；还不行换个时段再发；
+- 提示手机号已被使用 → 说明这个号注册过 Bybit，走「找回账户」流程，别硬注册新号。
+{% endnote %}
+
+---
+
+### 第④步 申请虚拟卡：四个下拉 + 一个英文地址
+
+回到用户中心点「Bybit Card」，进入卡片页。
+
+<div class="fig-row">
+  <figure><img src="/images/2026-11/bybit/step4-entry.webp" alt="卡片入口"><div class="fig-cap">左：卡片入口｜2%-10% 返现、免年费、每月前 $150 ATM 免手续费，橙色按钮右上角 <strong>Free = 0 开卡费</strong></div></figure>
+  <figure><img src="/images/2026-11/bybit/step4-eligibility.webp" alt="资格检查"><div class="fig-cap">右：资格检查｜居住地 Taiwan，「您符合资格」绿勾——没有这个勾回第①步查居住地</div></figure>
+</div>
+
+接下来这页是附加信息（Additional Info），四个英文下拉——页面没中文提示，第一次来容易懵，直接照抄这组：
+
+| 问题 | 选这个 |
+| --- | --- |
+| What will you use Bybit for?（用 Bybit 做什么） | Fiat Gateway and Bybit Card |
+| What's your employment status?（就业状态） | Self-employed（受雇的选 Employed） |
+| What's your source of income?（收入来源） | Self-employed income（**必须和上一项对得上**） |
+| Your annual income?（年收入区间） | $10,000 – $99,999（如实选，区间不影响申卡） |
+
+**这几项里唯一会被挑的是第 2 和第 3 项**：就业状态选 Self-employed、收入来源却选 Salary，前后矛盾，等于自己给自己埋雷。两个一起改，或者都按受雇填。
+
+再往下一步是填居住地址——这页只能输英文，中文直接粘进去是无效的。用准备好的生成器：`https://www.meiguodizhi.com/tw-address`，生成结果转成英文再填，字段对应关系：
+
+| 表单字段 | 填什么 |
+| --- | --- |
+| Country | Taiwan（默认带出，不用动） |
+| Street | 路 + 区 + 市，如 Zhongqing Road, Shalu District, Taichung City |
+| Building No. | 门牌号，如 No. 262 |
+| Apartment or Unit No. | 没有房号就勾下面的 No Apartment or Unit No. |
+| City | 市，如 Taichung City |
+| Province | 同级行政区，如 Shalu District |
+| Postal Code | 生成器给的邮编 |
+
+<div class="fig-row">
+  <figure><img src="/images/2026-11/bybit/step4-addinfo.webp" alt="附加信息"><div class="fig-cap">左：Additional Info｜四个英文下拉照上表抄</div></figure>
+  <figure><img src="/images/2026-11/bybit/step4-address.webp" alt="英文地址表单"><div class="fig-cap">右：英文地址表单｜生成器只对齐格式，地址要能说清来路</div></figure>
+</div>
+
+下一步确认信息页：核对 Email 和手机号，底部还有个「推荐码（可选）」，可填 `6GJL7E6`，然后勾两条条款，点「提交」。
+
+<div class="fig-row">
+  <figure><img src="/images/2026-11/bybit/step4-confirm.webp" alt="确认信息"><div class="fig-cap">左：确认信息｜地区改不了，只能改邮箱和手机——第①步居住地务必一次选对</div></figure>
+  <figure><img src="/images/2026-11/bybit/step4-review.webp" alt="审核中"><div class="fig-cap">右：审核中｜「通常几分钟，特殊情况下最多 7 个工作日」，本单几分钟批完</div></figure>
+</div>
+
+{% note info %}
+<span class="note-hd">卡住了怎么办</span>
+
+- 资格检查不过 → 十有八九是居住地和 IP 地区对不上，都改成台湾再来；
+- 地址提交被退回 → 检查是不是混进了中文或全角符号，整页重新用英文输一遍。
+{% endnote %}
+
+---
+
+### 第⑤步 查看卡片信息：卡号、费率、开关都在这
+
+审核通过回到卡片页，卡面就出来了。
+
+![图9｜虚拟卡详情](/images/2026-11/bybit/step5-carddetail.webp)
+<div class="fig-cap">图9｜卡号、到期日、CVC/CVV、持卡人姓名全在这一页，点小眼睛图标显示，绑卡时用（图中敏感字段已全部打码）。<strong>「签发国家/地区」显示 Kazakhstan 不是开错区</strong>——那是发卡机构的注册地，不是卡组织，也不决定苹果钱包支不支持。</div>
+
+那到底按哪个计划发的卡？看两个地方，页面上都写着：
+
+| 看什么 | 你这张是 | 说明 |
+| --- | --- | --- |
+| **卡面有效期** | 2029 年 10 月（**3 年期**） | 亚太区计划是 6 年期；3 年期对应哈萨克 / AIFC 计划 |
+| **卡片页按钮** | 有 `Add to Apple Wallet` | 有这个按钮 = 官方把它算作支持 Apple Pay 的卡 |
+
+<div class="fig-row">
+  <figure><img src="/images/2026-11/bybit/step5-cardpage.webp" alt="卡片页"><div class="fig-cap">左：卡片页｜虚拟卡 ····6223、Spending Power 0.00（没充钱余额 0 正常）；「解锁 26 USDT 迎新奖励」<strong>要手动点报名</strong>，倒计时 14 天</div></figure>
+  <figure><img src="/images/2026-11/bybit/step5-history.webp" alt="申请记录"><div class="fig-cap">右：Application History｜卡类型 Virtual、状态已激活、Approved，绿字见着就是成了</div></figure>
+</div>
+
+![图11｜限额与费率](/images/2026-11/bybit/step5-limits.webp)
+<div class="fig-cap">图11｜<strong>日限额 15,000 USD、ATM 日限额 1,000 USD；年费：免费；境外交易手续费 2%；国际交易手续费 2%。</strong>这四个数就是这张卡的成本底牌，<strong>截图存下来</strong>。注意「$150 免手续费」和「日限额 1,000 USD」是两件事：前者是每月免掉的 ATM 手续费额度，后者是每天最多能取多少。</div>
+
+最后看一眼「更多操作」，有几个开关跟你钱包安全直接相关：
+
+![图12｜更多操作](/images/2026-11/bybit/step5-controls.webp)
+<div class="fig-cap">图12｜底部三个交易控制开关：线上交易（<strong>默认开</strong>）、非 3DS 在线交易（<strong>默认开</strong>）、ATM 提现（默认关）。<strong>「非 3DS 在线交易」别顺手关掉</strong>——微信、部分境外订阅走的都是不走 3DS 的通道，关了这个开关它们会直接失败。这个开关同时也是欺诈风险的入口，自己权衡：<strong>绑了微信就别关</strong>。页面上还有 <code>CVC 解锁</code>、<code>Reset PIN</code>、<code>Lost/Stolen</code>、<code>终止</code> 四个入口，后面第五节会用到。</div>
+
+{% note info %}
+<span class="note-hd">卡住了怎么办</span>
+
+- 找不到卡详情入口 → 卡片页点卡面进「我的卡片」，再点「卡片详情」；认准小眼睛图标；
+- 卡片页一直显示审核中 → 超过 30 分钟没变「已激活」，先查注册邮箱有没有补件通知，没有就找客服报 UID。
+{% endnote %}
+
+---
+
+### 第⑥步 充值：先选对网络，再复制地址
+
+卡是 0 余额开的，充钱才刷卡。卡片页点「充值」。
+
+![图13｜选择支付方式](/images/2026-11/bybit/step6-paymethod.webp)
+<div class="fig-cap">图13｜三条路：「存入加密货币」（推荐）——从链上钱包或其他交易所转入；「用 TWD 买币」要走台币通道，大陆用户直接选第一条；「从 Bybit 用户处收款」是用不上的。</div>
+
+选 USDT，接下来这页是**全文最不能出错的一步**。
+
+![图14｜USDT 充值网络列表](/images/2026-11/bybit/deposit-networks.webp)
+<div class="fig-cap">图14｜<strong>一屏 8 个网络，往下还能滚</strong>：BSC(BEP20)、Ethereum(ERC20)、TRON(TRC20)、Mantle(USDT0)、APTOS、TON、Plasma(USDT0)、SOL。这里有两个数必须看：<strong>①「充值到账」后面的确认次数，越少到账越快</strong>——APTOS、TON 1 次，ERC20 6 次，TRC20 20 次，BSC 60 次，SOL 要 200 次；<strong>②最低充值 0.005 USDT</strong>，低于这个数别充，充了不到账。<strong>页顶那句话是官方写的</strong>：「请确保充值时所选的链类型与提币时所选的链类型一致。」选错了，钱不一定会退回来。</div>
+
+我走的是 **BSC**（60 次确认），从币安提出来到 Bybit 入账两分钟级，和这个确认数对得上。
+
+{% note warning %}
+<span class="note-hd">注意</span>｜表里 <strong>Mantle、Plasma 那两条写的是 USDT0</strong>，不是普通 USDT。你交易所那边发的如果不是 USDT0，别选这两条——同名不同币，是这类失误里最常见的一种。
+{% endnote %}
+
+去你的交易所（币安 / OKX 都行）提币，**网络一定选和 Bybit 充值页一致的那个**。
+
+<div class="fig-row">
+  <figure><img src="/images/2026-11/bybit/step6-binance.webp" alt="币安提现记录"><div class="fig-cap">左：币安提现｜4.99 USDT、BSC 网络、手续费 0.01、已完成（地址与哈希只留首尾）</div></figure>
+  <figure><img src="/images/2026-11/bybit/step6-deposit.webp" alt="Bybit 资产记录"><div class="fig-cap">右：Bybit 资产记录｜「充值 USDT +4.99」——到账见着这行才算落地</div></figure>
+</div>
+
+回到卡片页看余额。
+
+![图16｜卡片 Spending Power](/images/2026-11/bybit/step6-balance.webp)
+<div class="fig-cap">图16｜入金 4.99，卡片可用 4.92——差的 0.07 是 USDT 折算成美元的损耗（约 1.4%），不是丢了，是换汇成本。另外注意：<strong>卡不设单独钱包，Spending Power 直接跟账户资金联动</strong>，账户里有多少就能刷多少，没有「钱充错地方」这回事。</div>
+
+{% note info %}
+<span class="note-hd">卡住了怎么办</span>
+
+- 提币完成但 Bybit 没到账 → 先看你要的是几条确认：BSC 要 60 次，等几分钟再刷新；超过 30 分钟没动静，拿交易哈希找客服；
+- 到账金额和预期差一点 → 是折算损耗，不是丢币；
+- 提币被交易所卡住 → 检查是不是选错网络填了不支持的地址，别重复发第二笔。
+{% endnote %}
+
+---
+
+## 三、开卡之后：绑卡与首刷
+
+卡激活、钱到位，接下来把它挂进你的支付工具。**Google Pay 和微信是我实测走通的；Apple Pay 有官方界面依据，但我没绑完；其他钱包我没试，不替它们说话。**
+
+先分清两个词：**Mastercard 是卡组织**（发卡时挂它的支付网络），**哈萨克/AIFC 是这张卡的发卡计划**——能不能绑某个支付工具，看的是发卡计划，不是卡组织。判断方法第⑤步给过了：看卡面有效期和卡片页有没有那个按钮。
+
+### 1. Google Pay（实测通过，0 美元验证）
+
+安卓党走 Google 钱包：设置 → 钱包和订阅 → 添加付款方式 → 输卡号 → 过验证。
+
+![图17｜Google 钱包](/images/2026-11/bybit/gpay-wallet.webp)
+<div class="fig-cap">图17｜Mastercard ••••6223 已经挂进支付方式列表，和本机原有卡并列。绑卡时 Google 会做一笔 <strong>0 美元</strong>预授权验证，交易列表里那条 <code>GOOGLE*TEMPORARY HOLD</code> 就是它，正常现象，过几天自己消失。</div>
+
+**这条和 Roogoo 那张卡不一样**：Roogoo 绑卡会扣 0.1 U 的「0 元授权」费，Bybit 是干干净净的 0 美元（图20 那两笔 `-0.00 USD`）。两篇连着看的人容易记混。
+
+### 2. 微信 + 首刷：点了一单外卖
+
+微信 → 服务 → 钱包 → 添加银行卡，输卡号、有效期、CVV，过短信验证。绑定成功即出现在银行卡列表里（页面底部「本服务由财付通提供」）。
+
+绑完我直接下了单外卖试试水：
+
+<div class="fig-row">
+  <figure><img src="/images/2026-11/bybit/wechat-bind.webp" alt="微信绑卡成功"><div class="fig-cap">左：微信绑卡成功｜MASTERCARD ••••6223 出现在银行卡列表</div></figure>
+  <figure><img src="/images/2026-11/bybit/wechat-pay.webp" alt="支付成功"><div class="fig-cap">右：美团 ¥20.60 支付成功｜「微信支付已免除国际卡手续费」——首绑 90 天内每天前 1000 元额度免微信手续费（活动到 2026-12-31）</div></figure>
+</div>
+
+那 Bybit 侧到底扣了多少？这一页是全篇最值钱的一张图。
+
+![图19｜交易详情：这笔钱怎么算的](/images/2026-11/bybit/transaction-detail.webp)
+<div class="fig-cap">图19｜页面给的是四行数，一个都不多：<strong>本地金额 20.60 CNY</strong> ／ <strong>交易金额 3.09 USD</strong> ／ <strong>外币交易手续费 1.9%（0.06 USD）</strong> ／ <strong>合计 3.15 USD</strong>。3.09 + 0.06 = 3.15，加法对得上。20.60 换 3.09，隐含汇率约 6.67——<strong>页面没写按什么价换的，我也不反推</strong>，以你账单上的显示为准。手续费换算成钱是 <strong>0.06 USD，约四毛</strong>：小额感觉不出来，但它按比例走，金额越大越明显。页面标 2%、这一笔实收 1.9%，差的那点大概率是折算取整，<strong>别按「它比标称便宜」去理解</strong>。</div>
+
+这张图还有三个细节，值得单独讲：
+
+**① 状态是「进行中」，不是「已完成」。** 这时候钱已经从可用余额里划走，但还没真正结算给商户。所以看到「余额少了一笔、状态还挂着进行中」，是正常的，不是被盗刷。等商户结算，状态才会变。
+
+**② 「获得积分 0.06 USD」是积分，不是现金返现。** 金额正好等于手续费——等于把手续费返成了积分。**法币消费不计返现，只有用加密资产付款才返现**，这条第三节后面还会说一次。
+
+**③ 商户名显示 `WEIXIN*Meituan platfor`**，这是走微信支付通道的标识（`platfor` 是 `platform` 被截断），不是记错了商户。
+
+交易列表里还有两笔 0.00：`tenpay` 是绑微信那次，`GOOGLE*TEMPORARY HOLD` 是加进 Google 钱包那次——都是验证用的临时授权，过几天自动消失。
+
+![图20｜交易列表：三笔，两笔记 0.00](/images/2026-11/bybit/transaction-list.webp)
+<div class="fig-cap">图20｜20:34 加进 Google 钱包 → 20:44 绑微信 → 20:56 刷出第一单。<strong>加卡那两笔都是 -0.00 USD</strong>——这就是「绑卡不收验证费」的证据，不是扣款失败。</div>
+
+**首刷小结**：¥20.60 的外卖，微信侧 0 手续费，Bybit 侧收 1.9%（约四毛），同时到账等额积分。**小额日常消费可用，成本可接受；大额消费记得它背后站着 2% 费率。**
+
+### 3. Apple Pay：官方界面写着支持，但我没绑完
+
+先说依据，三处都在 App 里，不是我猜的：
+
+- 「我的卡片」页卡片下方就有 **`Add to Apple Wallet ›`** 按钮（图11）；
+- 「更多操作 → 交易控制」里明确写着：线上交易「**Google Pay 和 Apple Pay 等电子钱包不受影响**」（图12）；
+- 实体卡页的 `Support` 栏，Apple Pay 和 G Pay 两个徽章都在（图22）。
+
+![图21｜Apple Pay 引导弹窗](/images/2026-11/bybit/applepay-promo.webp)
+<div class="fig-cap">图21｜App 主动弹的「全新支持 Apple Pay」，是官方在推这个入口的直接证据。注意底下那行 <code>Base: 2% 返现</code>——返现的 Base 档就是从每笔消费里出的。</div>
+
+**但我这次没走完绑定流程，所以不给「一定能绑上」的结论。** 想试的话：点那个按钮 → 选你的 Mastercard 虚拟卡 → 确认加入。
+
+{% note info %}
+<span class="note-hd">卡住了怎么办</span>
+
+- 加不进去 → 先看 Apple 钱包里登录的是哪个地区的 Apple ID，钱包地区跟账号走；再确认卡片状态是「已激活」；
+- 卡在验证码 / 银行验证那一步 → 回 Bybit 看有没有待处理的验证，别反复重试触发风控。
+{% endnote %}
+
+---
+
+## 四、Bybit 还能开哪些卡
+
+虚拟卡不是唯一选项，账户里还有两张可以申，按需选：
+
+<div class="fig-row">
+  <figure><img src="/images/2026-11/bybit/physical-card.webp" alt="Mastercard 实体卡"><div class="fig-cap">左：实体卡｜美元卡，签发地 Kazakhstan，Support 栏 Apple Pay 和 G Pay 都在；工本费 5 USDT、需 Tier 2</div></figure>
+  <figure><img src="/images/2026-11/bybit/hk-visa.webp" alt="Visa Platinum Business"><div class="fig-cap">右：香港那张｜Visa Platinum Business，签发地 Hong Kong，免年费，日 10 万 / 月 35 万 / 年 90 万 USD；Support 栏只列 G Pay</div></figure>
+</div>
+
+| 卡种 | 卡组织 | 签发计划 | 开卡成本 | 数字钱包（App 界面） | 适合 |
+| --- | --- | --- | --- | --- | --- |
+| Mastercard 虚拟卡（本文主角） | Mastercard | 哈萨克 / AIFC，从台湾区入口申请 | 0 | Apple Pay ✓ / Google Pay ✓；微信 ✓（实测） | 订阅 + 日常小额，大多数人的答案 |
+| Mastercard 实体卡 | Mastercard | 哈萨克 | 5 USDT（需 Tier 2） | Apple Pay ✓ / Google Pay ✓ | 线下刷卡、ATM 取现 |
+| Visa Platinum Business 虚拟卡 | Visa | 中国香港 | 0 | 仅 Google Pay | 大额消费、商务用途 |
+
+**同一账号能开不同地区的卡，限额差得很远**：本文这张日限 15,000 USD，香港那张日限 100,000 USD。所以「哪张好」得看你要干什么——日常小额用哈萨克这张够了，走大额才值得去折腾香港那张。
+
+---
+
+## 五、不想用了怎么退
+
+这类卡最让人不放心的是「钱会不会取不出来」。这张卡有个结构上的好处：**它没有独立余额**，钱一直在你 Bybit 账户的资金里（图16）。所以不存在「钱锁在卡里拿不回」这种情况。
+
+具体四个动作，都在「更多操作」页（图12）：
+
+| 想干什么 | 点哪里 |
+| --- | --- |
+| **彻底不用了** | 更多操作 → **终止**（销卡）。这一页写着**年费免费**，没有闲置费 |
+| CVC 输错锁了 / 忘了 PIN | 更多操作 → **CVC 解锁** / **Reset PIN** |
+| 卡号泄露、卡丢了 | 更多操作 → **Lost/Stolen**，先挂失再补 |
+| 只想暂停线上消费 | 交易控制里关「线上交易」开关（**这会连 Apple Pay / Google Pay 一起停掉**） |
+
+两件事要提前知道：
+
+**① 销卡前先把余额安顿好**：转回资金账户或者直接花掉。别把销卡当「清空余额」用——具体退到哪儿、多久到，以你操作时页面提示为准。
+
+**② 这张卡是 3 年期（2029 年 10 月）。** 到期换新卡，卡号会变，**所有绑过它的订阅（ChatGPT、Netflix、Google Play……）都要重绑一遍**。这是 3 年期比 5 年期卡多出来的一次麻烦，开卡前就该知道，别等扣款失败才发现。
+
+---
+
+## 六、避坑：四个最容易忘的
+
+前面讲过的都不重复，只留四条「到时候一定会想不起来」的：
+
+1. **居住地和证件是两件事**——居住地选中国台湾（决定开卡区），证件签发国家选中国、类型选身份证（决定怎么认证）。看到「台湾」别打退堂鼓，也别顺手把签发国家选成别的；
+2. **充值网络两边必须一模一样**——Bybit 选了 BSC，交易所提币也得选 BSC；那两条写 USDT0 的链，交易所发的必须是 USDT0；
+3. **ATM 提现开关默认是关的**——不取现别手痒去开；真要取，每月前 $150 免手续费，超出部分按 2% 收，日限额 1,000 USD；
+4. **返现只算加密资产消费**——法币余额付款不给返现（只给积分），返现 2% 起、最高 10%、**每月有上限**，以 App 里 My Rewards 为准；别把它当收益。
+
+---
+
+## 七、常见问题
+
+{% folding Q：能付 ChatGPT 吗？ %}
+Mastercard 走订阅场景没问题，Google Pay 我已经实测绑通。卡号、有效期、CVV 在「虚拟卡详情」里取（图9）。
+{% endfolding %}
+
+{% folding Q：Apple Pay 一定能绑上吗？ %}
+我这张卡页面上有「Add to Apple Wallet」按钮，更多操作里也写着电子钱包不受影响——**官方界面给了支持**。但我没走完绑定，能不能绑成以你实测为准；加不进去先看 Apple ID 地区（见第三节第 3 小节）。
+{% endfolding %}
+
+{% folding Q：返现和积分什么区别？ %}
+两回事。**返现**只算加密资产消费，2% 起最高 10%，有每月上限；**积分**是每笔消费都给，能换 USDT 或礼品卡。我那一笔微信消费 ¥20.60，拿到的是 0.06 USD 积分，不是返现。
+{% endfolding %}
+
+{% folding Q：迎新奖励怎么领？ %}
+都是 App 里的活动页报名制：认证后的充值奖、卡片页的 26 USDT 迎新、首页的盲盒，各自有入口和条件（比如 30 天内充值 ≥100 USDT）。**26 USDT 那个一定要手动点「立即报名」**，倒计时 14 天。以打开 App 那天的页面为准，别为凑奖励多充钱。
+{% endfolding %}
+
+{% folding Q：为什么我充 4.99，卡里只有 4.92？ %}
+USDT 折算成美元的损耗，约 1.4%，属于换汇成本，每一笔充值都会有，预算时把它算进去。
+{% endfolding %}
+
+{% folding Q：大陆手机号能用吗？要海外号吗？ %}
++86 直接用，注册、绑卡、收验证码全程没问题（实测）。
+{% endfolding %}
+
+{% folding Q：需要海外地址证明或签证吗？ %}
+不需要。大陆身份证 + 一个台湾地址（生成器对齐格式、转英文填写）就能走完全流程。**但地址要填你能解释得清的**，别随便复制一个。
+{% endfolding %}
+
+{% folding Q：这张卡和 Roogoo 乐享卡怎么选？ %}
+一句话——高频订阅、在乎费率的，[Roogoo 乐享卡](/p/roogoo/) 1% 交易费更划算；想要平台靠谱、0 开卡费、还带返现的，Bybit 顺手。两张都开也不冲突：Roogoo 专供订阅，Bybit 专供微信日常消费。
+{% endfolding %}
+
+{% folding Q：钱放在卡里安全吗？ %}
+这张卡没有单独余额，钱在你 Bybit 账户里；但账户本身是交易所账户，别把它当储蓄卡放大额闲钱。用多少充多少，这条对所有 U 卡都成立。
+{% endfolding %}
+
+---
+
+## 写在最后
+
+三类人的建议：
+
+- 想订 ChatGPT / Netflix，偶尔海外网购：这张卡完全够用，0 开卡费，试错成本几乎为零；
+- 微信重度用户，就想体验「外卡消费」：能绑、能用，首绑还有微信免手续费活动，值得一试；
+- 想刷大额、当主力卡：2% 费率 + 折算损耗，成本不低，绕道。
+
+**两张卡的分工**（另一篇是[《Roogoo 乐享卡 0 开卡费，美国 Visa 虚拟卡完整申请教程》](/p/roogoo/)）：
+
+| 场景 | 用哪张 | 为什么 |
+| --- | --- | --- |
+| ChatGPT / Claude 订阅 | Roogoo | 消费费 1%，比这张的 2% 低 |
+| 微信 / 国内小额 | **Bybit** | 能绑、能刷、还有积分 |
+| 大额、要 ATM | 都不合适 | 2% 起，成本太高 |
+
+两张卡的完整费率对照，收在 → [虚拟卡库](/card/)。
+
+> **拿到卡只是第一步**——如果你想要 ChatGPT Plus / Claude 等 AI 现成账号、不想自己折腾开卡绑卡，**[谢小二AI小店](https://shop.xiaomimiai.com)** 里直接挑。
+
+**注册入口**：`https://www.bybitglobal.com/invite?ref=6GJL7E6`
+**邀请码**：`6GJL7E6`（注册和卡片申请两处都能填）
+
+{% note warning %}
+<span class="note-hd">注意</span>｜最后照例拦一下：这类卡都可能冻卡、停服，活动奖励随时会变，本文只做流程记录，不为任何平台背书。所有费率和活动数字，以你打开 App 那一刻页面显示的为准。用多少充多少，别在卡里放闲钱。
+{% endnote %}
+
+这篇就到这里。开卡路上撞到什么坑，微信 / TG 上说一声，我补进避坑清单里。**费率、限额、活动有变动，我直接改这篇文章，以文末日期为准。**
+
+---
+
+{% note warning %}<span class="note-hd">风险提示</span>：文章实测收录的虚拟卡 / U 卡大多由非持牌或监管较弱的机构发行，可能出现冻卡、扣款、停止服务甚至跑路的情况，资金安全没有保障。本站只是信息整理和站长实测分享，不为任何虚拟卡或平台背书，也不构成任何金融或投资建议。请自行判断风险，投资需谨慎。{% endnote %}
+
+<div class="xe-timeline">本文首发：2026-11-21｜费率、限额、活动有变动会直接更新本文，以文末日期为准。</div>

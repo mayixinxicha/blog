@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+    <title>Bybit 虚拟卡封面</title>
+    <defs>
+        <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#2A2D34"></stop>
+            <stop offset="55%" stop-color="#1A1C21"></stop>
+            <stop offset="100%" stop-color="#0E1013"></stop>
+        </linearGradient>
+        <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.10"></stop>
+            <stop offset="55%" stop-color="#FFFFFF" stop-opacity="0"></stop>
+        </linearGradient>
+        <linearGradient id="chip-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFC63D"></stop>
+            <stop offset="100%" stop-color="#F7A600"></stop>
+        </linearGradient>
+    </defs>
+
+    <!-- 卡面：整张封面即一张卡（Bybit 黑卡 + 品牌黄） -->
+    <rect x="0" y="0" width="1200" height="675" rx="42" fill="url(#card-grad)"></rect>
+    <rect x="0" y="0" width="1200" height="675" rx="42" fill="url(#sheen)"></rect>
+
+    <!-- 中央水印：超大幽灵字标 -->
+    <text x="560" y="430" fill="#FFFFFF" fill-opacity="0.05" font-family="Arial-BoldMT, Arial" font-size="190" font-weight="bold" letter-spacing="10">BYBIT</text>
+
+    <!-- 左上：Bybit 字标（黄竖条作「I」）+ 卡名 -->
+    <g transform="translate(70,88)">
+        <text x="0" y="52" fill="#FFFFFF" font-family="Arial-BoldMT, Arial" font-size="62" font-weight="bold" letter-spacing="2">BYB</text>
+        <rect x="148" y="9" width="15" height="49" rx="3" fill="#F7A600"></rect>
+        <rect x="172" y="45" width="11" height="12" rx="2" fill="#F7A600"></rect>
+        <text x="196" y="52" fill="#FFFFFF" font-family="Arial-BoldMT, Arial" font-size="62" font-weight="bold" letter-spacing="0">T</text>
+        <text x="252" y="52" fill="#FFFFFF" fill-opacity="0.85" font-family="ArialMT, Arial" font-size="40">Card</text>
+        <text x="2" y="96" fill="#FFFFFF" fill-opacity="0.9" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="21">Mastercard 虚拟卡 · 大陆身份证可开</text>
+    </g>
+
+    <!-- 左中：芯片 -->
+    <g transform="translate(72,300)">
+        <rect x="0" y="0" width="72" height="56" rx="10" fill="url(#chip-grad)"></rect>
+        <g stroke="#1A1C21" stroke-width="3" opacity="0.85">
+            <line x1="0" y1="19" x2="72" y2="19"></line>
+            <line x1="0" y1="37" x2="72" y2="37"></line>
+            <line x1="24" y1="0" x2="24" y2="19"></line>
+            <line x1="48" y1="37" x2="48" y2="56"></line>
+        </g>
+    </g>
+
+    <!-- 左下：卖点 -->
+    <text x="70" y="560" fill="#FFFFFF" fill-opacity="0.95" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="27">0 开卡费 · 0 验证费 · 微信绑卡实测</text>
+
+    <!-- 右下 Mastercard 双圆标 -->
+    <g transform="translate(1020,505)">
+        <circle cx="30" cy="30" r="30" fill="#EB001B"></circle>
+        <circle cx="66" cy="30" r="30" fill="#F79E1B" fill-opacity="0.92"></circle>
+        <text x="48" y="92" fill="#FFFFFF" fill-opacity="0.92" font-family="ArialMT, Arial" font-size="19" text-anchor="middle">Mastercard</text>
+    </g>
+</svg>
