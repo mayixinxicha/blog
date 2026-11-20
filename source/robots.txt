@@ -1,0 +1,8 @@
+User-Agent: *
+Allow: /
+Disallow: /js/
+Disallow: /css/
+Disallow: /fancybox/
+Disallow: /fonts/
+
+Sitemap: https://xiexiaoer.net/sitemap.xml

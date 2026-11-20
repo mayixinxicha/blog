@@ -4,7 +4,7 @@
  * 图标流动动效由主题原生组件（_data/creativity.yml）提供
  */
 var XE_CONFIG = {
-  freeBadge: true,   // 「资源」菜单项显示蓝色"免费"角标
+  freeBadge: false,  // 「免费」角标已废弃（2026-11-20 资源清单口径：条条实测，信息在页面内，不再挂角标）
   iconWall: true,    // 问候卡深色渐变底 + 白色标题（配合原生标签云）
   categorySub: true, // 三彩色卡片下方小字说明
 };
@@ -36,6 +36,21 @@ a.categoryButton.xe-has-sub:after{position:static;order:1;margin:6px 0 3px;}
 
 /* 图注：灰色小字居中（替代旧版 *斜体* 图注语法） */
 #article-container .fig-cap{color:#949dae;font-size:.85em;line-height:1.9;margin:-6px 0 20px;text-align:center;}
+
+/* 图组：同步骤截图并排（默认两列，cols-3 三列），组内各图保留独立图注；
+   760px 以下两列组保持（竖图 180px 可辨），三列组降单列 */
+#article-container .fig-row{display:grid;grid-template-columns:repeat(var(--cols,2),minmax(0,1fr));gap:14px;align-items:start;margin:8px 0 6px;}
+#article-container .fig-row figure{margin:0;}
+#article-container .fig-row figure img{width:100%;margin:0;border-radius:8px;}
+#article-container .fig-row .fig-cap{margin:2px 0 0;font-size:.8em;line-height:1.7;}
+#article-container .fig-row.cols-3{--cols:3;}
+@media screen and (max-width:760px){
+  #article-container .fig-row{gap:10px;}
+  #article-container .fig-row.cols-3{grid-template-columns:minmax(0,1fr);}
+}
+
+/* 全宽例外：氛围图/文字密集图不参与自动缩宽（xeFigShrink 跳过 .fig-full 内图片） */
+#article-container .fig-full img{width:100%;}
 
 /* 正文文字色对齐原主题演示站观感：加深为 --anzhiyu-fontcolor，加粗与正文同色 */
 body{color:var(--anzhiyu-fontcolor);}
@@ -216,7 +231,7 @@ body:not(:has(#home_top)) #page-header.not-top-img #nav .site-page,body:not(:has
 .xe-btn-arrow{display:inline-block;transition:transform .3s;}
 .topGroup .banner-button:hover .xe-btn-arrow{transform:translateX(2px);}
 
-/* 六宫格（开卡/订AI/eSIM/AppleID/卡库/工具箱）：手机端 Shop 卡下方的 3×2 彩色导航宫格
+/* 六宫格（开卡/办号/订AI/实测项目/工具/资源清单）：手机端 Shop 卡下方的 3×2 彩色导航宫格
    （对齐 zibll 参考版式）。基准隐藏，仅手机端显示；全部链接为站内真实页面 */
 .xe-grid6{display:none;width:100%;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px;}
 .xe-grid6 a{display:flex;flex-direction:row;align-items:center;gap:7px;height:52px;padding:0 9px;
@@ -575,11 +590,11 @@ function xeInitGrid6() {
   });
   var items = [
     { t: "开卡", s: "实测·费率对比", href: agg[0] || "/card/", bg: "linear-gradient(135deg,#4fc97e,#2f9e63)", ico: "💳" },
-    { t: "办号", s: "eSIM + AppleID", href: agg[1] || "/esim/", bg: "linear-gradient(135deg,#3fa9f5,#2f86c9)", ico: "🪪" },
+    { t: "办号", s: "eSIM + AppleID", href: agg[1] || "/esim/", bg: "linear-gradient(135deg,#3fa9f5,#2f86c9)", ico: "🛂" },
     { t: "订AI", s: "GPT·Claude 等", href: agg[2] || "/ai-subscription/", bg: "linear-gradient(135deg,#ff5e7a,#e6455f)", ico: "🤖" },
-    { t: "项目", s: "实测·可上手", href: "/categories/项目/", bg: "linear-gradient(135deg,#ff9d42,#ef8325)", ico: "📝" },
+    { t: "实测项目", s: "教程·可上手", href: "/categories/实测项目/", bg: "linear-gradient(135deg,#ff9d42,#ef8325)", ico: "📝" },
     { t: "工具", s: "站长自用", href: "/toolbox/", bg: "linear-gradient(135deg,#2e9bab,#237a88)", ico: "🧰" },
-    { t: "资源", s: "免费·持续更新", href: "/free-list/", bg: "linear-gradient(135deg,#9b6bf2,#7d51cf)", ico: "🧩" }
+    { t: "资源清单", s: "条条实测", href: "/free-list/", bg: "linear-gradient(135deg,#9b6bf2,#7d51cf)", ico: "🧩" }
   ];
   var grid = document.createElement("div");
   grid.className = "xe-grid6";
@@ -591,7 +606,7 @@ function xeInitGrid6() {
     grid.appendChild(a);
   });
   group.after(grid);
-  /* 项目分类入口的 404 守卫已独立为 xeInitProjectGuard（覆盖桌面导航/手机抽屉/六宫格全站链接） */
+  /* 空分类入口的「筹备中」守卫已泛化为 xeInitCategoryGuard（覆盖桌面导航/手机抽屉/六宫格全站链接） */
 }
 
 /* ---------------- 手机端「最新文章」标题条：宫格与文章卡之间的衔接（桌面端隐藏） ---------------- */
@@ -604,41 +619,61 @@ function xeInitSectionTitle() {
   grid.after(bar);
 }
 
-/* ---------------- 项目分类 404 守卫：分类页未生成时全站「项目」链接点击弹提示不跳转 ----------------
-   分类页 /categories/项目/ 生成前（首篇项目文发布前），桌面导航/手机抽屉/六宫格的所有入口都会 404；
-   主题 pjax 会在冒泡层自行拦截导航，链接级 preventDefault 拦不住——必须用 document 捕获层截停；
+/* ---------------- 空分类「筹备中」守卫：分类页未生成时全站入口点击弹提示不跳转 ----------------
+   覆盖三个尚无文章的分类（实测项目/网络环境/海外账号）：桌面导航、手机抽屉、六宫格的所有入口
+   点击时 HEAD 探测分类页，404 则弹主题 snackbar「筹备中」、不跳转、用户永远见不到 404 页；
+   pjax 在冒泡层自行拦截导航，链接级 preventDefault 拦不住——必须用 document 捕获层截停；
    主题渲染的导航 href 是百分号编码、六宫格自建链接是原文中文，两种形式都要匹配（closest 兼容）；
-   探测通过记入 sessionStorage，同会话后续点击直接放行零开销 */
-function xeInitProjectGuard() {
+   探测通过记入 sessionStorage（按分类分键），同会话后续点击直接放行零开销；
+   首篇文章归入分类、页面生成后守卫自动放行，无需摘除 */
+function xeInitCategoryGuard() {
+  var targets = [
+    { name: "实测项目", msg: "📝 实测项目内容筹备中，敬请期待" },
+    { name: "网络环境", msg: "🌐 网络环境内容筹备中，敬请期待" },
+    { name: "海外账号", msg: "🛂 海外账号内容筹备中，敬请期待" }
+  ].map(function (t) {
+    return {
+      enc: encodeURIComponent(t.name),
+      raw: t.name,
+      msg: t.msg,
+      key: "xe-cat-ok-" + t.name
+    };
+  });
+  var sel = targets.map(function (t) {
+    return 'a[href="/categories/' + t.raw + '/"], a[href="/categories/' + t.enc + '/"]';
+  }).join(",");
   document.addEventListener("click", function (e) {
-    var a = e.target && e.target.closest && e.target.closest('a[href="/categories/项目/"], a[href="/categories/%E9%A1%B9%E7%9B%AE/"]');
+    var a = e.target && e.target.closest && e.target.closest(sel);
     if (!a) return;
-    if (sessionStorage.getItem("xe-gonglue-ok") === "1") return;
+    var t = targets.filter(function (x) {
+      return a.getAttribute("href").indexOf(x.enc) !== -1 || a.getAttribute("href").indexOf(x.raw) !== -1;
+    })[0];
+    if (!t || sessionStorage.getItem(t.key) === "1") return;
     e.preventDefault();
     e.stopPropagation();
-    fetch("/categories/%E9%A1%B9%E7%9B%AE/", { method: "HEAD" }).then(function (r) {
+    fetch("/categories/" + t.enc + "/", { method: "HEAD" }).then(function (r) {
       if (r.ok) {
-        sessionStorage.setItem("xe-gonglue-ok", "1");
+        sessionStorage.setItem(t.key, "1");
         location.href = a.getAttribute("href");
       } else if (typeof anzhiyu !== "undefined" && anzhiyu.snackbarShow) {
-        anzhiyu.snackbarShow("📝 项目内容筹备中，敬请期待");
+        anzhiyu.snackbarShow(t.msg);
       }
     }).catch(function () {});
   }, true);
 }
 
-/* ---------------- 手机抽屉菜单：移除主题作者推广块 + 分类项注入图标 ---------------- */
+/* ---------------- 手机端抽屉菜单：图标映射随 2026-11-20 导航六词定稿同步 ---------------- */
 function xeInitDrawer() {
   if (!window.matchMedia("(max-width:768px)").matches) return;
   var menus = document.getElementById("sidebar-menus");
   if (!menus) return;
   var promo = menus.querySelector(".back-menu-list-groups");
   if (promo) promo.remove();
-  var map = { "虚拟卡": "💳", "eSIM": "📶", "Apple ID": "🍎", "AI订阅": "🤖", "项目": "📋", "资源": "🧩" };
+  var map = { "AI订阅": "🤖", "虚拟卡库": "💳", "网络环境": "🌐", "海外账号": "🛂", "实测项目": "📋", "资源清单": "🧩" };
   menus.querySelectorAll(".menus_item").forEach(function (item) {
     var a = item.querySelector("a.site-page");
     if (!a || a.querySelector(".xe-drawer-ico")) return;
-    var name = a.querySelector(".xe-free-parent") ? "清单" : (a.textContent || "").trim();
+    var name = (a.textContent || "").trim();
     var ico = map[name];
     if (!ico) return;
     var s = document.createElement("span");
@@ -665,13 +700,64 @@ function xeInitAll() {
   xeInitCategorySub();
   xeInitIconWall();
   xeInitGrid6();
-  xeInitProjectGuard();
+  xeInitCategoryGuard();
   xeInitSectionTitle();
   xeInitTodayCard();
   xeInitSayhi();
   xeInitWechatCard();
   xeInitShareButton();
   xeMoveQrDuo();
+  xeFigShrink();
+}
+
+/* 全屏大图自动缩宽：原始宽 >= 1100 的横向图（桌面全屏截图/宽面板）收窄 85% 居中，
+   纵向大图（手机竖截图）收窄 60% 防占满两屏。图组（.fig-row）与全宽例外（.fig-full）跳过。
+   主题图片走 data-lazy-src 懒加载（初始 src 是 1px 占位图，naturalWidth=1 且 complete=true），
+   load 监听拦不到写回时机——用 MutationObserver 盯 src 属性变更 + 定时兜底重扫双保险 */
+function xeFigShrink() {
+  var box = document.querySelector("#article-container");
+  if (!box) return;
+  var check = function (img) {
+    if (img.closest(".fig-row") || img.closest(".fig-full")) return;
+    if (!img.naturalWidth) return;
+    /* 占位图（naturalWidth=1）跳过，等真实图写回后再判 */
+    if (img.naturalWidth <= 2) return;
+    if (img.naturalWidth >= 1100 && img.naturalWidth > img.naturalHeight) {
+      img.style.width = "85%";
+      img.style.maxWidth = "85%";
+      img.style.display = "block";
+      img.style.margin = "8px auto 4px";
+      return;
+    }
+    if (img.naturalWidth >= 1100 && img.naturalWidth < img.naturalHeight) {
+      img.style.width = "60%";
+      img.style.maxWidth = "60%";
+      img.style.display = "block";
+      img.style.margin = "8px auto 4px";
+    }
+  };
+  var scan = function () {
+    box.querySelectorAll("img").forEach(function (img) {
+      if (img.complete && img.naturalWidth > 2) {
+        check(img);
+      } else if (!img.dataset.xeFigHook) {
+        img.dataset.xeFigHook = "1";
+        img.addEventListener("load", function () { check(img); }, { once: true });
+      }
+    });
+  };
+  scan();
+  if (window.MutationObserver) {
+    var mo = new MutationObserver(function (muts) {
+      muts.forEach(function (m) {
+        if (m.type === "attributes" && m.attributeName === "src" && m.target.tagName === "IMG") check(m.target);
+      });
+    });
+    mo.observe(box, { attributes: true, attributeFilter: ["src"], subtree: true, childList: true });
+  }
+  /* 兜底：懒加载分批写回后统一再扫 */
+  setTimeout(scan, 2500);
+  setTimeout(scan, 5000);
 }
 
 /* 文末双码块加进作者卡内部、版权行（.post-copyright__notice）下方压轴（用户指定位置）：markdown 写不进主题渲染区，DOM 挪移实现 */
