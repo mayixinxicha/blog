@@ -1,6 +1,6 @@
 ---
 title: Bybit 虚拟卡实测：0 开卡费、0 验证费，支持大陆身份证微信支付（2026 版）
-date: 2026-11-21 09:00:00
+date: 2026-11-21
 categories: [[虚拟卡库]]
 tags: [Bybit, Bybit Card, 虚拟卡, Mastercard, 微信绑卡, Google Pay, 开卡教程]
 cover: /images/2026-11/bybit/cover.svg

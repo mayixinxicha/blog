@@ -1,6 +1,6 @@
 ---
 title: Roogoo 乐享卡 0 开卡费，美国 Visa 虚拟卡完整申请教程（2026 版）
-date: 2026-11-14 06:30:00
+date: 2026-11-14
 categories: [虚拟卡库]
 tags: [Roogoo, 乐享卡, 虚拟卡, 美国Visa, 开卡教程, ChatGPT订阅]
 cover: /images/2026-11/roogoo-card/cover.svg
