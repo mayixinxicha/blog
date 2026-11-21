@@ -200,6 +200,10 @@ body:not(:has(#home_top)) #page-header.not-top-img #nav .site-page,body:not(:has
 #article-container a.xe-pill-green:hover{color:#fff;opacity:.85;text-decoration:none;}
 .xe-pill-gray{background:var(--anzhiyu-gray,#90a4ae);color:#fff;}
 
+/* /card/ 场景矩阵表（JS 自动打标 .xe-scenario）：压字号与内边距，保证表头和四档格子单行 */
+.xe-scenario th,.xe-scenario td{padding:8px 6px;font-size:14px;white-space:nowrap;}
+.xe-scenario{width:100%;}
+
 /* 问候卡：白底（主题原生），图标带回归主题原生间距（7rem），网址字号加大 */
 #random-banner.xe-wall .banners-title-small{font-size:15px;}
 
@@ -719,8 +723,17 @@ function xeInitDrawer() {
 }
 
 /* ---------------- 统一初始化 ---------------- */
+function xeTagScenarioTable() {
+  document.querySelectorAll("#article-container table").forEach(function (t) {
+    var ths = t.querySelectorAll("thead th");
+    if (ths.length === 7 && ths[4] && ths[4].textContent.trim() === "Google 钱包") {
+      t.classList.add("xe-scenario");
+    }
+  });
+}
 function xeInitAll() {
   xeInjectStyle();
+  xeTagScenarioTable();
   xeInitDrawer();
   xeFixPageName();
   xeInitBadge();
