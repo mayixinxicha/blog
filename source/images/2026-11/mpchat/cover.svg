@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+    <title>MPChat 云影卡封面</title>
+    <defs>
+        <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#F1F3F5"></stop>
+            <stop offset="50%" stop-color="#E3E6E9"></stop>
+            <stop offset="100%" stop-color="#D2D6DA"></stop>
+        </linearGradient>
+        <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.55"></stop>
+            <stop offset="55%" stop-color="#FFFFFF" stop-opacity="0"></stop>
+        </linearGradient>
+        <linearGradient id="ink" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#43494F"></stop>
+            <stop offset="100%" stop-color="#33383E"></stop>
+        </linearGradient>
+    </defs>
+
+    <!-- 卡面：整张封面即一张卡（云影卡银灰 + 白波纹，配色取自实卡渲染） -->
+    <rect x="0" y="0" width="1200" height="675" rx="42" fill="url(#card-grad)"></rect>
+    <rect x="0" y="0" width="1200" height="675" rx="42" fill="url(#sheen)"></rect>
+
+    <!-- 斜向波纹（白色细线束，从右上划向左下） -->
+    <g stroke="#FFFFFF" stroke-width="3" fill="none" opacity="0.75">
+        <path d="M 340 675 Q 700 520 1180 470"></path>
+        <path d="M 250 660 Q 660 470 1180 400"></path>
+        <path d="M 170 645 Q 620 420 1180 330"></path>
+        <path d="M 100 630 Q 580 370 1180 260"></path>
+        <path d="M 40 612 Q 540 320 1180 190"></path>
+        <path d="M -10 590 Q 500 270 1180 120"></path>
+    </g>
+    <g stroke="#FFFFFF" stroke-width="1.5" fill="none" opacity="0.5">
+        <path d="M 300 675 Q 690 545 1180 435"></path>
+        <path d="M 210 652 Q 640 445 1180 365"></path>
+        <path d="M 135 638 Q 600 395 1180 295"></path>
+        <path d="M 70 620 Q 560 345 1180 225"></path>
+    </g>
+
+    <!-- 中央幽灵字标 -->
+    <text x="600" y="500" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.30" font-family="Arial-BoldMT, Arial" font-size="200" font-weight="bold" letter-spacing="14">CLOUD</text>
+
+    <!-- 左上：云朵自绘标 + 卡名 -->
+    <g transform="translate(70,78)">
+        <g fill="none" stroke="#3A4046" stroke-width="7" stroke-linecap="round">
+            <path d="M 18 56 Q 4 56 4 42 Q 4 30 16 28 Q 18 14 34 12 Q 48 10 54 22 Q 68 20 70 34 Q 72 46 58 50 Q 56 56 46 56 Z"></path>
+        </g>
+        <text x="96" y="46" fill="url(#ink)" font-family="PingFangSC-Semibold, Microsoft YaHei, sans-serif" font-size="44" font-weight="600" letter-spacing="6">云影卡</text>
+        <text x="98" y="80" fill="#6E757C" font-family="ArialMT, Arial" font-size="19" letter-spacing="3">MPCHAT · VIRTUAL CARD</text>
+    </g>
+
+    <!-- 右下卡组织标 -->
+    <text x="1130" y="600" text-anchor="end" fill="#33383E" font-family="Arial-Black, Arial" font-size="86" font-weight="900" font-style="italic" letter-spacing="2">VISA</text>
+
+    <!-- 左下属性行 -->
+    <g transform="translate(70,560)">
+        <text x="0" y="0" fill="#4A5056" font-family="PingFangSC-Medium, Microsoft YaHei, sans-serif" font-size="24" letter-spacing="3">新加坡卡段 · USD 计价 · 无月费年费</text>
+    </g>
+</svg>
