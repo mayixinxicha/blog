@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+    <title>BiyaPay 速捷卡封面</title>
+    <defs>
+        <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#D9F47A"></stop>
+            <stop offset="50%" stop-color="#C1EC62"></stop>
+            <stop offset="100%" stop-color="#9ED44E"></stop>
+        </linearGradient>
+        <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.30"></stop>
+            <stop offset="55%" stop-color="#FFFFFF" stop-opacity="0"></stop>
+        </linearGradient>
+        <linearGradient id="ink" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#2A3018"></stop>
+            <stop offset="100%" stop-color="#1F2412"></stop>
+        </linearGradient>
+    </defs>
+
+    <!-- 卡面：整张封面即一张卡（BiyaPay 品牌绿，取自官方速捷卡渲染） -->
+    <rect x="0" y="0" width="1200" height="675" rx="42" fill="url(#card-grad)"></rect>
+    <rect x="0" y="0" width="1200" height="675" rx="42" fill="url(#sheen)"></rect>
+
+    <!-- 斜向白波纹（细线束，右下向左上扫） -->
+    <g stroke="#FFFFFF" stroke-width="3" fill="none" opacity="0.45">
+        <path d="M 380 675 Q 760 540 1180 500"></path>
+        <path d="M 290 660 Q 700 480 1180 420"></path>
+        <path d="M 210 645 Q 640 420 1180 340"></path>
+        <path d="M 140 630 Q 600 370 1180 260"></path>
+    </g>
+    <g stroke="#FFFFFF" stroke-width="1.5" fill="none" opacity="0.3">
+        <path d="M 340 675 Q 720 500 1180 460"></path>
+        <path d="M 250 652 Q 670 450 1180 380"></path>
+        <path d="M 175 638 Q 620 400 1180 300"></path>
+    </g>
+
+    <!-- 中央幽灵字标 -->
+    <text x="600" y="490" text-anchor="middle" fill="#1F2412" fill-opacity="0.08" font-family="Arial-BoldMT, Arial" font-size="185" font-weight="bold" letter-spacing="10">BIYAPAY</text>
+
+    <!-- 左上：BiyaPay 字标 + 卡名 -->
+    <g transform="translate(70,88)">
+        <g transform="translate(0,6)">
+            <circle cx="26" cy="26" r="26" fill="#1F2412"></circle>
+            <path d="M 14 30 Q 22 18 34 20 Q 30 14 24 16 Q 28 10 34 14 Q 40 18 36 26 Q 32 34 22 32 Q 16 32 14 30 Z" fill="#C1EC62"></path>
+        </g>
+        <text x="66" y="52" fill="url(#ink)" font-family="Arial-BoldMT, Arial" font-size="54" font-weight="bold" letter-spacing="1">BiyaPay</text>
+        <text x="330" y="52" fill="#1F2412" fill-opacity="0.85" font-family="PingFangSC-Semibold, Microsoft YaHei, sans-serif" font-size="36" font-weight="600">速捷卡</text>
+        <text x="2" y="96" fill="#1F2412" fill-opacity="0.9" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="21">AI 专用卡段 · Mastercard · USD 计价</text>
+    </g>
+
+    <!-- 左中：芯片（深墨绿描线） -->
+    <g transform="translate(72,300)">
+        <rect x="0" y="0" width="72" height="56" rx="10" fill="url(#ink)"></rect>
+        <g stroke="#C1EC62" stroke-width="3" opacity="0.9">
+            <line x1="0" y1="19" x2="72" y2="19"></line>
+            <line x1="0" y1="37" x2="72" y2="37"></line>
+            <line x1="24" y1="0" x2="24" y2="19"></line>
+            <line x1="48" y1="37" x2="48" y2="56"></line>
+        </g>
+    </g>
+
+    <!-- 左下：卖点 -->
+    <text x="70" y="560" fill="#1F2412" fill-opacity="0.95" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="27">1 USD 开卡 · 10 分钟过实名 · AI 订阅专用</text>
+
+    <!-- 右下 Mastercard 双圆标 -->
+    <g transform="translate(1020,505)">
+        <circle cx="30" cy="30" r="30" fill="#EB001B"></circle>
+        <circle cx="66" cy="30" r="30" fill="#F79E1B" fill-opacity="0.92"></circle>
+        <text x="48" y="92" fill="#1F2412" fill-opacity="0.92" font-family="ArialMT, Arial" font-size="19" text-anchor="middle">Mastercard</text>
+    </g>
+</svg>
