@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+    <title>Gate AI Card 封面</title>
+    <defs>
+        <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#16345F"></stop>
+            <stop offset="55%" stop-color="#0E2244"></stop>
+            <stop offset="100%" stop-color="#081428"></stop>
+        </linearGradient>
+        <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.10"></stop>
+            <stop offset="55%" stop-color="#FFFFFF" stop-opacity="0"></stop>
+        </linearGradient>
+        <linearGradient id="chip-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#DCEBFF"></stop>
+            <stop offset="100%" stop-color="#8FB8E8"></stop>
+        </linearGradient>
+    </defs>
+
+    <!-- 卡面：整张封面即一张卡（Gate 深蓝 + 冰蓝点缀） -->
+    <rect x="0" y="0" width="1200" height="675" rx="42" fill="url(#card-grad)"></rect>
+    <rect x="0" y="0" width="1200" height="675" rx="42" fill="url(#sheen)"></rect>
+
+    <!-- 中央水印：超大幽灵字标 -->
+    <text x="560" y="430" fill="#FFFFFF" fill-opacity="0.05" font-family="Arial-BoldMT, Arial" font-size="190" font-weight="bold" letter-spacing="10">GATE</text>
+
+    <!-- 左上：Gate 字标 + 卡名 -->
+    <g transform="translate(70,88)">
+        <text x="0" y="52" fill="#FFFFFF" font-family="Arial-BoldMT, Arial" font-size="62" font-weight="bold" letter-spacing="2">Gate</text>
+        <text x="152" y="52" fill="#8FD0FF" font-family="Arial-BoldMT, Arial" font-size="44" font-weight="bold" letter-spacing="1">AI Card</text>
+        <text x="2" y="96" fill="#FFFFFF" fill-opacity="0.9" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="21">Visa · USD 计价 · 大陆身份证可开</text>
+    </g>
+
+    <!-- 左中：芯片 -->
+    <g transform="translate(72,300)">
+        <rect x="0" y="0" width="72" height="56" rx="10" fill="url(#chip-grad)"></rect>
+        <g stroke="#0E2244" stroke-width="3" opacity="0.85">
+            <line x1="0" y1="19" x2="72" y2="19"></line>
+            <line x1="0" y1="37" x2="72" y2="37"></line>
+            <line x1="24" y1="0" x2="24" y2="19"></line>
+            <line x1="48" y1="37" x2="48" y2="56"></line>
+        </g>
+    </g>
+
+    <!-- 左下：卖点 -->
+    <text x="70" y="560" fill="#FFFFFF" fill-opacity="0.95" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="27">0 开卡费 · 50U 保证金 · ChatGPT / API 三笔扣款实录</text>
+
+    <!-- 右下 VISA 标 -->
+    <text x="1000" y="562" fill="#FFFFFF" fill-opacity="0.92" font-family="Arial-ItalicMT, Arial" font-size="50" font-weight="bold" font-style="italic" letter-spacing="3">VISA</text>
+</svg>
