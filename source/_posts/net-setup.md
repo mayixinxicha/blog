@@ -17,7 +17,7 @@ description: 从下载到连上的四端配置实录：v2rayNG、Shadowrocket、
 
 ## 先把丑话说在前面
 
-这篇**不教怎么选出口**。机场（圈内对共享线路服务的叫法）、独享 IP、自建 VPS 各要花多少钱、不订 AI 的日常用法哪档够用，另有一篇[《看剧、刷视频、查资料：日常访问海外网站，不订 AI，三档预算哪档够用》](/p/budget/)算给你看；要订 AI 怎么选档，系列第四篇会专门讲（筹备中，标题定稿后补链接）——这里都不重复。
+这篇**不教怎么选出口**。线路订阅、独享 IP、自建 VPS 各要花多少钱、不订 AI 的日常用法哪档够用，另有一篇[《看剧、刷视频、查资料：日常访问海外网站，不订 AI，三档预算哪档够用》](/p/budget/)算给你看；要订 AI 怎么选档，系列第四篇会专门讲（筹备中，标题定稿后补链接）——这里都不重复。
 
 这篇**不解决"换了 IP 账号还是被封"**。工具只管把路修通；路修通了账号照样被封，那是环境干不干净的问题，另见[《换了 IP，账号还是被封：三层排查，改错一层等于白改》](/p/ban-check/)和[《IP 干不干净怎么看：四步自查，全用免费工具，查完知道要不要换》](/p/ip-check/)。
 
@@ -43,7 +43,7 @@ description: 从下载到连上的四端配置实录：v2rayNG、Shadowrocket、
 | 设备 | 用什么 | 特殊门槛 | 直接跳 |
 |---|---|---|---|
 | 安卓 | v2rayNG（免费开源） | 无 | [第 1 节](#第-1-节-·-安卓：v2rayNG-从零到连上（教学样板）) |
-| iPhone | Shadowrocket / 小火箭（美区标价 $2.99 买断） | **要先有外区 Apple ID**（中国大陆以外的 App Store 区，比如港区/台区/美区；本文这单用的是繁体中文区商店），买 App 需要（还没有的话见[《美区 Apple ID 注册实测》](/p/appleid/)） | [第 2 节](#第-2-节-·-iPhone：Shadowrocket（小火箭），门槛在-App-之外) |
+| iPhone | Shadowrocket / 小火箭（美区标价 $2.99 买断） | **要先有外区 Apple ID**（App Store 里的港区、台区、美区这些都算；本文这单用的是繁体中文区商店），买 App 需要（还没有的话见[《美区 Apple ID 注册实测》](/p/appleid/)） | [第 2 节](#第-2-节-·-iPhone：Shadowrocket（小火箭），门槛在-App-之外) |
 | Windows | Clash Verge Rev（免费开源） | 无 | [第 3 节](#第-3-节-·-Windows：Clash-Verge-Rev，装完记得把两个模式都打开) |
 | Mac | Clash Verge Rev（免费开源） | 无 | [第 4 节](#第-4-节-·-Mac：Clash-Verge-Rev，只讲两个差异) |
 
@@ -130,7 +130,7 @@ v2rayNG 的安装包只在它的 [GitHub releases 页](https://github.com/2dust/
 
 ### 第 1 步：把 App 买下来——这道门槛绕不过
 
-Shadowrocket 是付费 App（美区标价 2.99 美元，一次买断；各区定价略有差异，本文这单是繁体中文区账号，以你商店页面标价为准），而且**中国大陆区 App Store 搜不到**——买它需要一个外区的 Apple ID。还没有的话，先去把 ID 办了，注册流程见[《美区 Apple ID 注册实测》](/p/appleid/)。美区商店页面：[Shadowrocket](https://apps.apple.com/us/app/shadowrocket/id932747118)——直链开的是美区页，你登录哪个区的 ID 就显示哪个区的标价。
+Shadowrocket 是付费 App（美区标价 2.99 美元，一次买断；各区定价略有差异，本文这单是繁体中文区账号，以你商店页面标价为准），而且**你的 App Store 里搜不到它**——买它需要一个外区的 Apple ID。还没有的话，先去把 ID 办了，注册流程见[《美区 Apple ID 注册实测》](/p/appleid/)。美区商店页面：[Shadowrocket](https://apps.apple.com/us/app/shadowrocket/id932747118)——直链开的是美区页，你登录哪个区的 ID 就显示哪个区的标价。
 
 已经买过的账号最省事：App Store 里显示云朵图标，点一下免费重装，一个账号全家设备通用。
 
@@ -389,7 +389,7 @@ curl -s https://api.ip.sb/geoip
 
 ## FAQ
 
-{% folding Q：你是不是卖机场的？ %}
+{% folding Q：你是不是卖线路的？ %}
 
 不是。判断标准很简单：全文下载地址只有 GitHub 官方仓库和 App Store，没有任何"从这里注册我拿提成"的链接，截图里配置名和域名已打码。这篇不涉及推荐服务商；后面讲选线的篇目如果带返佣，会当场明标——这个标准系列会一直按着写。
 
