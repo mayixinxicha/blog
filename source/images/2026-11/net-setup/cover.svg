@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" font-family="'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a121a"/>
+      <stop offset="1" stop-color="#0c1a24"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#143440"/>
+      <stop offset="1" stop-color="#0b1d28"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect x="36" y="36" width="1128" height="603" rx="42" fill="url(#card)" stroke="#2dd4bf2b" stroke-width="2"/>
+
+  <!-- 幽灵字（背景层） -->
+  <text x="720" y="616" font-size="190" font-weight="900" fill="#ffffff" opacity="0.05">四端</text>
+
+  <!-- 字标区 -->
+  <rect x="104" y="88" width="308" height="52" rx="26" fill="#2dd4bf1a" stroke="#2dd4bf66" stroke-width="1.5"/>
+  <text x="258" y="121" text-anchor="middle" font-size="22" font-weight="600" fill="#2dd4bf" letter-spacing="2">网络环境 · 工具篇 01</text>
+
+  <!-- 主标题 -->
+  <text x="104" y="252" font-size="56" font-weight="700" fill="#f1f5f9">Clash · 小火箭 · v2rayNG</text>
+  <text x="104" y="384" font-size="104" font-weight="900" fill="#f1f5f9">配置教程</text>
+  <rect x="106" y="412" width="140" height="8" rx="4" fill="#2dd4bf"/>
+
+  <!-- 设备行 -->
+  <g font-size="26" fill="#e2e8f0" text-anchor="middle">
+    <rect x="104" y="472" width="104" height="56" rx="28" fill="#ffffff0f" stroke="#ffffff2e" stroke-width="1.5"/>
+    <text x="156" y="508">安卓</text>
+    <rect x="224" y="472" width="152" height="56" rx="28" fill="#ffffff0f" stroke="#ffffff2e" stroke-width="1.5"/>
+    <text x="300" y="508">iPhone</text>
+    <rect x="392" y="472" width="188" height="56" rx="28" fill="#ffffff0f" stroke="#ffffff2e" stroke-width="1.5"/>
+    <text x="486" y="508">Windows</text>
+    <rect x="596" y="472" width="104" height="56" rx="28" fill="#ffffff0f" stroke="#ffffff2e" stroke-width="1.5"/>
+    <text x="648" y="508">Mac</text>
+  </g>
+
+  <!-- 右下徽标 -->
+  <rect x="806" y="556" width="342" height="56" rx="28" fill="#2dd4bf1f" stroke="#2dd4bf88" stroke-width="1.5"/>
+  <text x="977" y="591" text-anchor="middle" font-size="22" font-weight="600" fill="#2dd4bf">从下载到连上 · 每步都有图</text>
+</svg>
