@@ -37,6 +37,10 @@ a.categoryButton.xe-has-sub:after{position:static;order:1;margin:6px 0 3px;}
 /* 图注：灰色小字居中（替代旧版 *斜体* 图注语法） */
 #article-container .fig-cap{color:#949dae;font-size:.85em;line-height:1.9;margin:-6px 0 20px;text-align:center;}
 
+/* 独立 figure 重置浏览器默认缩进（1em 40px）：不重置则图和图注整体内缩 40px，
+   手机上被吃掉 80px 宽——旧文裸 div 无此问题，budget/net-setup 迁 figure 后踩坑（2026-11-27） */
+#article-container figure{margin:0;}
+
 /* 图组：同步骤截图并排（默认两列，cols-3 三列），组内各图保留独立图注；
    760px 以下两列组保持（竖图 180px 可辨），三列组降单列 */
 #article-container .fig-row{display:grid;grid-template-columns:repeat(var(--cols,2),minmax(0,1fr));gap:14px;align-items:start;margin:8px 0 6px;}
