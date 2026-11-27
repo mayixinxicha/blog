@@ -61,7 +61,7 @@ description: 从下载到连上的四端配置实录：v2rayNG、Shadowrocket、
 
 v2rayNG 的安装包只在它的 [GitHub releases 页](https://github.com/2dust/v2rayNG/releases)发布（✓官方）。页面上如果挂着 **Pre-release** 标签，那是预览版，往下拉找不带这个标签的最新正式版；哪天顶上那条不挂标签了，说明它已经转正，直接下顶上那条就可以。别从任何网盘、任何"打包分享"下载——安装包被二次打包夹带私货的案例并不少（⚠️未测）。
 
-![图1｜v2rayNG 官方 releases 页：认准地址栏和 Pre-release 标签——挂标签的是预览版，正式版往下拉](/images/2026-11/net-setup/fig01-gh-releases.webp)
+<figure><img src="/images/2026-11/net-setup/fig01-gh-releases.webp" alt="图1 v2rayNG 官方 releases 页"><div class="fig-cap">图1｜v2rayNG 官方 releases 页：认准地址栏和 Pre-release 标签——挂标签的是预览版，正式版往下拉</div></figure>
 
 注意：这里有一个一定会遇到的分叉——v2rayNG 在 GitHub 和 Google Play 是**两个不同签名的版本**，装了其中一个，另一个无法覆盖安装（✓官方，见 [2dust 仓库 README](https://github.com/2dust/v2rayNG)）。装了哪个渠道，以后升级就一直用哪个渠道，来回换只会反复卸载重装。Play 上搜不到就以 GitHub 为准，功能没有差别。
 
@@ -96,7 +96,7 @@ v2rayNG 的安装包只在它的 [GitHub releases 页](https://github.com/2dust/
 
 节点列表先看地区再看名字——先随便选一个近地区的，延迟是测速出来的，连上之后再拿它比才准。单击选中节点，点底部连接按钮。
 
-![图7｜节点列表：还没连，先看地区；右边数字是测速结果，连上之后再拿它比](/images/2026-11/net-setup/fig07-node-list.webp)
+<figure><img src="/images/2026-11/net-setup/fig07-node-list.webp" alt="图7 节点列表"><div class="fig-cap">图7｜节点列表：还没连，先看地区；右边数字是测速结果，连上之后再拿它比</div></figure>
 
 第一次连接会弹系统级"**VPN 连接请求**"，点确定。这个弹窗只出现一次，误点了"取消"要去系统设置里找回（设置页顶部搜索框搜"VPN"就能找到）——弹窗里那句"在 VPN 处于活动状态时，您的屏幕顶部会显示钥匙图标"，其实已经把验收标准写在上面了。
 
@@ -111,7 +111,7 @@ v2rayNG 的安装包只在它的 [GitHub releases 页](https://github.com/2dust/
 
 手机浏览器打开 [ip.sb](https://ip.sb)，显示的应该是节点所在地区，不再是你的本地运营商。
 
-![图10｜验收：浏览器里看到的已经是节点地区的 IP，不再是本地运营商](/images/2026-11/net-setup/fig10-verify-ip.webp)
+<figure><img src="/images/2026-11/net-setup/fig10-verify-ip.webp" alt="图10 验收"><div class="fig-cap">图10｜验收：浏览器里看到的已经是节点地区的 IP，不再是本地运营商</div></figure>
 
 到这里能上网了。但能上网不等于环境干净——干不干净怎么查，第 5 节验收完再说。
 
@@ -134,11 +134,11 @@ Shadowrocket 是付费 App（美区标价 2.99 美元，一次买断；各区定
 
 已经买过的账号最省事：App Store 里显示云朵图标，点一下免费重装，一个账号全家设备通用。
 
-![图11｜App Store 搜 shadowrocket：这单是繁体中文区商店，顶部三张是第三方买的搜索词广告，不是官方推荐](/images/2026-11/net-setup/fig11-appstore.webp)
+<figure><img src="/images/2026-11/net-setup/fig11-appstore.webp" alt="图11 App Store 搜 shadowrocket"><div class="fig-cap">图11｜App Store 搜 shadowrocket：这单是繁体中文区商店，顶部三张是第三方买的搜索词广告，不是官方推荐</div></figure>
 
 注意：搜索页顶部那三张（截图里是 relyvpn.com 的"保護隱私""福利模式 無限流量""優質專線一鍵即達"）是第三方买的搜索词广告，不是 Apple 推荐，也不是 Shadowrocket 官方——它们投的就是"shadowrocket"这个词，点进去是另一家的产品。往下滑，认开发者那一行写着 Shadow Launch Technology 的才是。
 
-![图12｜详情页右上角是云朵图标：已购账号点它直接重装，不再收费](/images/2026-11/net-setup/fig12-cloud-icon.webp)
+<figure><img src="/images/2026-11/net-setup/fig12-cloud-icon.webp" alt="图12 详情页右上角是云朵图标"><div class="fig-cap">图12｜详情页右上角是云朵图标：已购账号点它直接重装，不再收费</div></figure>
 
 **先说不选谁**：
 
@@ -153,7 +153,7 @@ Shadowrocket 是付费 App（美区标价 2.99 美元，一次买断；各区定
 
 打开 Shadowrocket → 右上角 **➕** → 类型选 **Subscribe** → 粘贴链接 → 右上角保存。配置出现在首页列表即成功，和安卓的逻辑一模一样。
 
-![图13｜添加节点表单：类型选 Subscribe，粘贴从服务商后台复制的链接（订阅链接已打码）](/images/2026-11/net-setup/fig13-add-subscribe.webp)
+<figure><img src="/images/2026-11/net-setup/fig13-add-subscribe.webp" alt="图13 添加节点表单"><div class="fig-cap">图13｜添加节点表单：类型选 Subscribe，粘贴从服务商后台复制的链接（订阅链接已打码）</div></figure>
 
 列表里如果混着"打不开网站请从官网跳转""无法订阅请重新复制导入"这种名字的条目（图18 左图底部就有两条）——那不是线路，是服务商塞进订阅的引导项，协议标注看着和真节点一样是 VLESS，选它只会把你导回某个网页。真节点长"香港 1""香港 2"这样。
 
@@ -174,7 +174,7 @@ iPhone 的授权比安卓多一道，共两道：
 
 误点后的找回入口长这样：
 
-![图17｜误点授权后的找回入口：设置 → VPN 与设备管理，VPN 状态就显示在这页](/images/2026-11/net-setup/fig17-vpn-settings.webp)
+<figure><img src="/images/2026-11/net-setup/fig17-vpn-settings.webp" alt="图17 误点授权后的找回入口"><div class="fig-cap">图17｜误点授权后的找回入口：设置 → VPN 与设备管理，VPN 状态就显示在这页</div></figure>
 
 ### 第 4 步：连上
 
@@ -189,7 +189,7 @@ iPhone 的授权比安卓多一道，共两道：
 
 同安卓：浏览器开 [ip.sb](https://ip.sb)，看到的应该是节点地区。
 
-![图19｜验收：iPhone 上的出口已经变成节点地区](/images/2026-11/net-setup/fig19-verify-iphone.webp)
+<figure><img src="/images/2026-11/net-setup/fig19-verify-iphone.webp" alt="图19 验收"><div class="fig-cap">图19｜验收：iPhone 上的出口已经变成节点地区</div></figure>
 
 到这里能上网了。但能上网不等于环境干净——干不干净怎么查，第 5 节见。
 
@@ -209,23 +209,23 @@ iPhone 的授权比安卓多一道，共两道：
 
 官方 [releases 页](https://github.com/clash-verge-rev/clash-verge-rev/releases)（✓官方）。认挂 **Latest** 标记的那条下，别按数字大小挑——版本号和日期都会变，标记的含义不会。只从这页下载，别从任何网盘拿安装包。安装时 SmartScreen 可能拦一下"Windows 已保护你的电脑"——开源软件没有数字签名，点"更多信息 → 仍要运行"即可，没弹的直接跳过。GitHub 打不开或下载慢？第 1 节的应对方法通用。
 
-![图20｜Clash Verge Rev 官方 releases 页：认准地址栏和 Latest 标记](/images/2026-11/net-setup/fig20-gh-releases.webp)
+<figure><img src="/images/2026-11/net-setup/fig20-gh-releases.webp" alt="图20 Clash Verge Rev 官方 releases 页"><div class="fig-cap">图20｜Clash Verge Rev 官方 releases 页：认准地址栏和 Latest 标记</div></figure>
 
 下载完安装，装完首次打开，主界面长这样：
 
-![图21｜安装完成首次启动：订阅为空是正常初始状态](/images/2026-11/net-setup/fig21-first-launch.webp)
+<figure><img src="/images/2026-11/net-setup/fig21-first-launch.webp" alt="图21 安装完成首次启动"><div class="fig-cap">图21｜安装完成首次启动：订阅为空是正常初始状态</div></figure>
 
 ### 第 2 步：导入订阅
 
 左侧"订阅"页 → 顶部输入框粘贴链接 → 点"导入"。配置卡片出现即成功，再点一下卡片把它设为当前生效的配置（卡片高亮即为活动）——不设这步，后面代理页是空的。
 
-![图22｜导入成功：配置卡片出现（名称已打码），点一下卡片设为活动配置](/images/2026-11/net-setup/fig22-imported.webp)
+<figure><img src="/images/2026-11/net-setup/fig22-imported.webp" alt="图22 导入成功"><div class="fig-cap">图22｜导入成功：配置卡片出现（名称已打码），点一下卡片设为活动配置</div></figure>
 
 ### 第 3 步：测速选节点
 
 左侧"代理"页 → 点分组标题行右侧的闪电图标测速 → 等延迟数字出全再选。显示 **Timeout 的直接排除**，名字起得再好听不通也是零。
 
-![图23｜代理页测速：数字出来再选节点，Timeout 的直接排除](/images/2026-11/net-setup/fig23-latency-test.webp)
+<figure><img src="/images/2026-11/net-setup/fig23-latency-test.webp" alt="图23 代理页测速"><div class="fig-cap">图23｜代理页测速：数字出来再选节点，Timeout 的直接排除</div></figure>
 
 ### 第 4 步：两个模式，都要开（全文最容易被坑的一步）
 
@@ -285,15 +285,15 @@ curl -s https://api.ip.sb/geoip
 
 **首次启动**：主界面和 Windows 的初始状态一致：
 
-![图28｜Mac 首次启动的空主界面](/images/2026-11/net-setup/fig28-mac-empty.webp)
+<figure><img src="/images/2026-11/net-setup/fig28-mac-empty.webp" alt="图28 Mac 首次启动的空主界面"><div class="fig-cap">图28｜Mac 首次启动的空主界面</div></figure>
 
 **订阅导入**：粘贴链接、点卡片设为活动配置：
 
-![图29｜导入订阅成功](/images/2026-11/net-setup/fig29-mac-imported.webp)
+<figure><img src="/images/2026-11/net-setup/fig29-mac-imported.webp" alt="图29 导入订阅成功"><div class="fig-cap">图29｜导入订阅成功</div></figure>
 
 **代理测速**：数字出来再选节点，Timeout 的直接排除：
 
-![图30｜代理页测速，和 Windows 同款操作](/images/2026-11/net-setup/fig30-mac-latency.webp)
+<figure><img src="/images/2026-11/net-setup/fig30-mac-latency.webp" alt="图30 代理页测速，和 Windows 同款操作"><div class="fig-cap">图30｜代理页测速，和 Windows 同款操作</div></figure>
 
 ### 差异 2：开虚拟网卡模式之前，先装系统服务（Mac 最容易卡住的一步）
 
@@ -301,7 +301,7 @@ Mac 上打开虚拟网卡模式，会先弹一个"**TUN 模式需要系统服务
 
 记住一条：**系统大版本更新后，这条授权常被重置**。Mac 升级完系统发现 Clash 突然连不上，先回来检查这里，别急着重装。
 
-![图31｜"TUN 模式需要系统服务"弹窗——点安装服务，输入开机密码，这就是入口](/images/2026-11/net-setup/fig31-service-prompt.webp)
+<figure><img src="/images/2026-11/net-setup/fig31-service-prompt.webp" alt="图31 &quot;TUN 模式需要系统服务&quot;弹窗——点安装服务，输入开机密码，这就是入口"><div class="fig-cap">图31｜"TUN 模式需要系统服务"弹窗——点安装服务，输入开机密码，这就是入口</div></figure>
 
 两个模式都开完，开关区的最终状态对照：
 
