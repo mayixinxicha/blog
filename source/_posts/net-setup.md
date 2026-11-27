@@ -430,3 +430,10 @@ iOS 上能用的客户端不止一个，但照着图能一次配通的是小火�
 ---
 
 > 本文所有截图为本人四端实测，配置名与域名已打码，节点名保留原样。截图拍摄于 2026-11，当时 v2rayNG 页面顶上为 2.4.1 Pre-release、Clash Verge 最新为 2.5.10；此后版本更新属正常，按第 1 节、第 3 节的两条规则挑即可，不必与这两个数字一致。文中指向的系列篇有的还在写——点进去是筹备预告页，正式内容发布后原地更新、链接不变。
+
+照着做卡住了，或想让我帮你看看哪一步对不上，加好友备注「**配置教程**」，我看到会优先通过：
+
+<div class="xe-qr-duo">
+  <div class="xe-qr-item"><img src="/img/qq-qr.jpg" alt="QQ 二维码"><div class="xe-qr-label">QQ 扫一扫<span>QQ 内扫码直接加好友</span></div></div>
+  <div class="xe-qr-item"><img src="/images/2026-11/net-setup/wechat-qr.jpg" alt="微信二维码"><div class="xe-qr-label">微信扫一扫<span>手机长按识别加好友</span></div></div>
+</div>

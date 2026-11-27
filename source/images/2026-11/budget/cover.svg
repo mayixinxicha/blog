@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" font-family="'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#120e22"/>
+      <stop offset="1" stop-color="#1a1330"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#221644"/>
+      <stop offset="1" stop-color="#140f2a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect x="36" y="36" width="1128" height="603" rx="42" fill="url(#card)" stroke="#2dd4bf2b" stroke-width="2"/>
+
+  <!-- 幽灵字（背景层） -->
+  <text x="760" y="616" font-size="190" font-weight="900" fill="#ffffff" opacity="0.05">三档</text>
+
+  <!-- 字标区 -->
+  <rect x="104" y="88" width="308" height="52" rx="26" fill="#2dd4bf1a" stroke="#2dd4bf66" stroke-width="1.5"/>
+  <text x="258" y="121" text-anchor="middle" font-size="22" font-weight="600" fill="#2dd4bf" letter-spacing="2">网络环境 · 预算篇 02</text>
+
+  <!-- 主标题 -->
+  <text x="104" y="252" font-size="56" font-weight="700" fill="#f1f5f9">看剧、刷视频、查资料</text>
+  <text x="104" y="384" font-size="96" font-weight="900" fill="#f1f5f9">三档预算哪档够用</text>
+  <rect x="106" y="412" width="140" height="8" rx="4" fill="#2dd4bf"/>
+
+  <!-- 三档价格行 -->
+  <g font-size="26" fill="#e2e8f0" text-anchor="middle">
+    <rect x="104" y="472" width="150" height="56" rx="28" fill="#ffffff0f" stroke="#ffffff2e" stroke-width="1.5"/>
+    <text x="179" y="508">¥17/月</text>
+    <rect x="270" y="472" width="196" height="56" rx="28" fill="#ffffff0f" stroke="#ffffff2e" stroke-width="1.5"/>
+    <text x="368" y="508">¥28.80/月</text>
+    <rect x="482" y="472" width="150" height="56" rx="28" fill="#ffffff0f" stroke="#ffffff2e" stroke-width="1.5"/>
+    <text x="557" y="508">¥99/季</text>
+  </g>
+
+  <!-- 右下徽标 -->
+  <rect x="806" y="556" width="342" height="56" rx="28" fill="#2dd4bf1f" stroke="#2dd4bf88" stroke-width="1.5"/>
+  <text x="977" y="591" text-anchor="middle" font-size="22" font-weight="600" fill="#2dd4bf">三家自购实测 · 52 图可验货</text>
+</svg>
