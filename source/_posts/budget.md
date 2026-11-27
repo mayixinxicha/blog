@@ -124,39 +124,27 @@ description: 三档预算三家服务商全部买入实测：17 元月付试水�
 
 入口不是一键直达，打开官网先遇到一道安全验证：
 
-![图1｜Cocoduck 入口验证门](/images/2026-11/budget/fig01-entrance-captcha.webp)
-
-> 📷 **图1｜Cocoduck 入口验证门**：hCaptcha 人机验证，勾选"我是真实访客"，显示"验证通过，入口已解锁"——进站第一关。
+<figure><img src="/images/2026-11/budget/fig01-entrance-captcha.webp" alt="图1 Cocoduck 入口验证门"><div class="fig-cap">图1｜Cocoduck 入口验证门：hCaptcha 人机验证，勾选"我是真实访客"，显示"验证通过，入口已解锁"——进站第一关。</div></figure>
 
 过门之后注册，邮箱验证码必填，邀请码自动带入：
 
-![图2｜Cocoduck 注册页](/images/2026-11/budget/fig02-register.webp)
+<figure><img src="/images/2026-11/budget/fig02-register.webp" alt="图2 Cocoduck 注册页"><div class="fig-cap">图2｜Cocoduck 注册页：用户名、电子邮箱（点"获取"收验证码）、登录密码、邀请码 b818c7d192 自动预填——返佣链接的实际效果就是这样，手动注册的记得自己填。</div></figure>
 
-> 📷 **图2｜Cocoduck 注册页**：用户名、电子邮箱（点"获取"收验证码）、登录密码、邀请码 b818c7d192 自动预填——**返佣链接的实际效果就是这样**，手动注册的记得自己填。
+套餐页明码标价，各档并列（全档带"AI 体验"标签——官网标着不代表 AI 能稳定用，本文没测 AI 解锁，能不能用你自行测试；订 AI 是另一档的事，见[《独享 IP 不等于住宅 IP：要订 AI、做账号，一张对照表别买错档》](/p/ip-type/)）：
 
-套餐页明码标价，各档并列：
-
-![图3｜Cocoduck 常规套餐](/images/2026-11/budget/fig03-plans.webp)
-
-> 📷 **图3｜Cocoduck 常规套餐**：个人 ¥17/月 100GB、精英 ¥31/月 200GB、家庭 ¥75/月 500GB、团队 ¥115/月 1000GB、迷你鸭 ¥77/年 40GB/月——全档带"4K / 流媒体 / 全球节点 / AI 体验"标签。本文最低档就是第一行。另外说明一句：**官网标着"AI 体验"，不代表 AI 能稳定用——本文没测 AI 解锁，不发表建议，能不能用你自行测试**；订 AI 是另一档的事，见[《独享 IP 不等于住宅 IP：要订 AI、做账号，一张对照表别买错档》](/p/ip-type/)。
+<figure><img src="/images/2026-11/budget/fig03-plans.webp" alt="图3 Cocoduck 常规套餐"><div class="fig-cap">图3｜Cocoduck 常规套餐：个人 ¥17/月 100GB、精英 ¥31/月 200GB、家庭 ¥75/月 500GB、团队 ¥115/月 1000GB、迷你鸭 ¥77/年 40GB/月，本文最低档就是第一行</div></figure>
 
 流量不够还有加油包按需补，三家里我只在它这里看到：
 
-![图4｜Cocoduck 流量加油包](/images/2026-11/budget/fig04-traffic-pack.webp)
-
-> 📷 **图4｜Cocoduck 流量加油包**：50GB ¥10 / 100GB ¥20 / 500GB ¥100 / 1000GB ¥200，仅可配合常规套餐使用。不确定用量的，先订个人档、月底看消耗再加包，也是一种买法。
+<figure><img src="/images/2026-11/budget/fig04-traffic-pack.webp" alt="图4 Cocoduck 流量加油包"><div class="fig-cap">图4｜Cocoduck 流量加油包：50GB ¥10 / 100GB ¥20 / 500GB ¥100 / 1000GB ¥200，仅可配合常规套餐使用。不确定用量的，先订个人档、月底看消耗再加包，也是一种买法。</div></figure>
 
 我的订单，11 月 2 日下的月付：
 
-![图5｜Cocoduck 订单列表](/images/2026-11/budget/fig05-orders.webp)
-
-> 📷 **图5｜Cocoduck 订单列表**：个人套餐-月付 ¥17，已激活，创建时间 2026-11-02 18:25（订单号已打码）。
+<figure><img src="/images/2026-11/budget/fig05-orders.webp" alt="图5 Cocoduck 订单列表"><div class="fig-cap">图5｜Cocoduck 订单列表：个人套餐-月付 ¥17，已激活，创建时间 2026-11-02 18:25（订单号已打码）。</div></figure>
 
 用了一个月，后台长这样：
 
-![图6｜Cocoduck 后台面板](/images/2026-11/budget/fig06-dashboard.webp)
-
-> 📷 **图6｜Cocoduck 后台面板**：已用 8.68GB / 100GB，到期 2026-12-05。这 8.68GB 是测试期消耗，不是"日常主力"的使用量——**三段订阅都是为这篇对比订的，不是用了多年的日常号**。
+<figure><img src="/images/2026-11/budget/fig06-dashboard.webp" alt="图6 Cocoduck 后台面板"><div class="fig-cap">图6｜Cocoduck 后台面板：已用 8.68GB / 100GB，到期 2026-12-05。这 8.68GB 是测试期消耗，不是"日常主力"的使用量——三段订阅都是为这篇对比订的，不是用了多年的日常号。</div></figure>
 
 ### 3.2 流量档 红杏云：¥28.80 订 200G <a id="sec-hx"></a>
 
@@ -165,39 +153,27 @@ description: 三档预算三家服务商全部买入实测：17 元月付试水�
 
 注册页同样邮箱+验证码，注意邀请码一栏——预填的 gsLi8Y1t 和本文链接完全一致：
 
-![图7｜红杏云注册页](/images/2026-11/budget/fig07-hx-register.webp)
-
-> 📷 **图7｜红杏云注册页**：创建账户，电子邮箱获取验证码、登录密码、邀请码 gsLi8Y1t 预填、服务条款勾选后提交。
+<figure><img src="/images/2026-11/budget/fig07-hx-register.webp" alt="图7 红杏云注册页"><div class="fig-cap">图7｜红杏云注册页：创建账户，电子邮箱获取验证码、登录密码、邀请码 gsLi8Y1t 预填、服务条款勾选后提交。</div></figure>
 
 套餐页比 Cocoduck 热闹，周期从月付到 3 年付随选：
 
-![图8｜红杏云套餐页全览](/images/2026-11/budget/fig08-hx-plans.webp)
-
-> 📷 **图8｜红杏云套餐页全览**：轻量-包月 200G ¥28.80 / 冲浪-包月 500G ¥65.80 / 豪华-包月 800G ¥98.80 / 大师-包月 1200G ¥138.80 / 企业商务 ¥378 / 企业旗舰 ¥718，附 EMBY 影视库权益。本文流量档就是第一行。
+<figure><img src="/images/2026-11/budget/fig08-hx-plans.webp" alt="图8 红杏云套餐页全览"><div class="fig-cap">图8｜红杏云套餐页全览：轻量-包月 200G ¥28.80 / 冲浪-包月 500G ¥65.80 / 豪华-包月 800G ¥98.80 / 大师-包月 1200G ¥138.80 / 企业商务 ¥378 / 企业旗舰 ¥718，附 EMBY 影视库权益。本文流量档就是第一行。</div></figure>
 
 轻量档细看，200GB/月、300Mbps、5 台设备，周期月/季/半年/年/2年/3年：
 
-![图9｜红杏云周期性套餐](/images/2026-11/budget/fig09-hx-cycles.webp)
-
-> 📷 **图9｜红杏云周期性套餐**：¥28.80/月起，从 200G 到企业旗舰 7000GB 全覆盖。**新手只看月付**，季付往上的折扣先别贪——线路质量没验证之前，长周期就是风险敞口。
+<figure><img src="/images/2026-11/budget/fig09-hx-cycles.webp" alt="图9 红杏云周期性套餐"><div class="fig-cap">图9｜红杏云周期性套餐：¥28.80/月起，从 200G 到企业旗舰 7000GB 全覆盖。新手只看月付，季付往上的折扣先别贪——线路质量没验证之前，长周期就是风险敞口。</div></figure>
 
 它还有"一次性"档，不限时流量包用完为止：
 
-![图10｜红杏云一次性档](/images/2026-11/budget/fig10-hx-onetime.webp)
-
-> 📷 **图10｜红杏云一次性档**：高级·不限时 3000G ¥498 / 豪华·不限时 6000G ¥938，1000Mbps——囤货型用户专属，**新手别碰**，跑路风险全在自己身上。
+<figure><img src="/images/2026-11/budget/fig10-hx-onetime.webp" alt="图10 红杏云一次性档"><div class="fig-cap">图10｜红杏云一次性档：高级·不限时 3000G ¥498 / 豪华·不限时 6000G ¥938，1000Mbps——囤货型用户专属，新手别碰，跑路风险全在自己身上。</div></figure>
 
 我的订单：
 
-![图11｜红杏云订单列表](/images/2026-11/budget/fig11-hx-orders.webp)
-
-> 📷 **图11｜红杏云订单列表**：一个月 ¥28.80，已完成，2026/11/26 20:25（订单号部分打码）。
+<figure><img src="/images/2026-11/budget/fig11-hx-orders.webp" alt="图11 红杏云订单列表"><div class="fig-cap">图11｜红杏云订单列表：一个月 ¥28.80，已完成，2026/11/26 20:25（订单号部分打码）。</div></figure>
 
 订完后台直接给数字：
 
-![图12｜红杏云后台面板](/images/2026-11/budget/fig12-hx-dashboard.webp)
-
-> 📷 **图12｜红杏云后台面板**：轻量-包月 200G 使用中，剩余流量 200GB，剩余 30 天，账户余额 ¥0.00，已用 0B——这张是订完当天拍的，播放实测（11-27 中午）还没开始，消耗还没进来。
+<figure><img src="/images/2026-11/budget/fig12-hx-dashboard.webp" alt="图12 红杏云后台面板"><div class="fig-cap">图12｜红杏云后台面板：轻量-包月 200G 使用中，剩余流量 200GB，剩余 30 天，账户余额 ¥0.00，已用 0B——这张是订完当天拍的，播放实测（11-27 中午）还没开始，消耗还没进来。</div></figure>
 
 ### 3.3 进阶档 白月光：¥99 季付，发票是它的名片 <a id="sec-byg"></a>
 
@@ -206,51 +182,35 @@ description: 三档预算三家服务商全部买入实测：17 元月付试水�
 
 第三家白月光，品牌和注册域名不同名——**别拿品牌名去搜索引擎搜**，这类服务商的仿站常排在官网前面，入口认准本文。注册页和前两家一样，邮箱 + 6 位验证码，邀请码预填：
 
-![图13｜白月光注册页](/images/2026-11/budget/fig13-byg-register.webp)
-
-> 📷 **图13｜白月光注册页**：页面标题“创建账户”，邮箱地址（邮箱前缀 + gmail.com 下拉）、6 位验证码、两遍密码、邀请码 zKeNqUeY 预填，底部“注册”——和前两家的返佣链接效果一致。
+<figure><img src="/images/2026-11/budget/fig13-byg-register.webp" alt="图13 白月光注册页"><div class="fig-cap">图13｜白月光注册页：页面标题“创建账户”，邮箱地址（邮箱前缀 + gmail.com 下拉）、6 位验证码、两遍密码、邀请码 zKeNqUeY 预填，底部“注册”——和前两家的返佣链接效果一致。</div></figure>
 
 套餐页按周期分几个页面，先看季付，我订的就是这一屏：
 
-![图14｜白月光季付套餐](/images/2026-11/budget/fig14-byg-quarterly.webp)
-
-> 📷 **图14｜白月光季付套餐页**：小包 ¥99/季 每月 100GB、中包 ¥189/季 250GB、大包 ¥235/季 400GB……官方标注**"全球 75+ 国家/地区、102+ 节点覆盖"**。月均 ¥33，比流量档贵一杯奶茶。套餐页红字条款原文照录：**不支持退款**、**新疆地区不建议购买**、**不保证非三大运营商可正常使用**——分别见第六节检查清单第 3 项、第七节。
+<figure><img src="/images/2026-11/budget/fig14-byg-quarterly.webp" alt="图14 白月光季付套餐"><div class="fig-cap">图14｜白月光季付套餐：小包 ¥99/季 每月 100GB、中包 ¥189/季 250GB、大包 ¥235/季 400GB……官方标注"全球 75+ 国家/地区、102+ 节点覆盖"。月均 ¥33，比流量档贵一杯奶茶。套餐页红字条款原文照录：不支持退款、新疆地区不建议购买、不保证非三大运营商可正常使用——分别见第六节检查清单第 3 项、第七节。</div></figure>
 
 半年付和年付、两年付档位：
 
-![图15｜白月光半年付](/images/2026-11/budget/fig15-byg-halfyear.webp)
-
-> 📷 **图15｜白月光半年付**：小包 ¥198/半年 起，年中包 ¥378 标注"推荐"。
+<figure><img src="/images/2026-11/budget/fig15-byg-halfyear.webp" alt="图15 白月光半年付"><div class="fig-cap">图15｜白月光半年付：小包 ¥198/半年 起，年中包 ¥378 标注"推荐"。</div></figure>
 
 周期拉到一年，单价继续往下走：
 
-![图16｜白月光年付](/images/2026-11/budget/fig16-byg-yearly.webp)
-
-> 📷 **图16｜白月光年付**：小包 ¥396/年 起，中包 ¥756/年 标注"推荐"。
+<figure><img src="/images/2026-11/budget/fig16-byg-yearly.webp" alt="图16 白月光年付"><div class="fig-cap">图16｜白月光年付：小包 ¥396/年 起，中包 ¥756/年 标注"推荐"。</div></figure>
 
 周期越长越便宜，门槛也越高：
 
-![图17｜白月光两年付](/images/2026-11/budget/fig17-byg-twoyear.webp)
-
-> 📷 **图17｜白月光两年付**：小包 ¥792/两年 起，中包 ¥1512/两年 标注"推荐"。**这些页面里没有任何月付选项**——这是它和前两家的根本区别：适合"已经确认自己要长期用"的人，第一次订的人先在月付档把需求确认清楚。
+<figure><img src="/images/2026-11/budget/fig17-byg-twoyear.webp" alt="图17 白月光两年付"><div class="fig-cap">图17｜白月光两年付：小包 ¥792/两年 起，中包 ¥1512/两年 标注"推荐"。这些页面里没有任何月付选项——这是它和前两家的根本区别：适合"已经确认自己要长期用"的人，第一次订的人先在月付档把需求确认清楚。</div></figure>
 
 我的订单。列表里一笔已完成、一笔已取消——第一次手滑重复下单，在订单页点了取消，状态当场变成“已取消”：
 
-![图18｜白月光订单列表](/images/2026-11/budget/fig18-byg-orders.webp)
-
-> 📷 **图18｜白月光订单列表**：¥99 已完成 + ¥99 已取消，创建时间 2026-11-26 20:29。**取消可以在订单页直接操作**；退到哪、多久到账，本文没有留截图，以后台和账单为准。
+<figure><img src="/images/2026-11/budget/fig18-byg-orders.webp" alt="图18 白月光订单列表"><div class="fig-cap">图18｜白月光订单列表：¥99 已完成 + ¥99 已取消，创建时间 2026-11-26 20:29。取消可以在订单页直接操作；退到哪、多久到账，本文没有留截图，以后台和账单为准。</div></figure>
 
 后台面板：小包运行中，到期 2027-02-26，流量每月 26 日重置，最多 5 台设备：
 
-![图19｜白月光后台面板](/images/2026-11/budget/fig19-byg-dashboard.webp)
-
-> 📷 **图19｜白月光后台面板**：小包 ¥99/季 运行中，到期 2027-02-26，重置日每月 26 日，在线设备 0/5 台，已用 0.00GB/100GB——和红杏云那张一样，是订完当天拍的，4K 实测在 11-27 下午，消耗还没进来。
+<figure><img src="/images/2026-11/budget/fig19-byg-dashboard.webp" alt="图19 白月光后台面板"><div class="fig-cap">图19｜白月光后台面板：小包 ¥99/季 运行中，到期 2027-02-26，重置日每月 26 日，在线设备 0/5 台，已用 0.00GB/100GB——和红杏云那张一样，是订完当天拍的，4K 实测在 11-27 下午，消耗还没进来。</div></figure>
 
 订单和后台之外，这家还给了一张正式发票——付款走微信 ¥99，收款方是公司 DBS 银行账户，Singapore GST 0%（国际服务），系统自动开票。
 
-![图20｜白月光正式发票](/images/2026-11/budget/fig20-invoice.webp)
-
-> 📷 **图20｜白月光正式发票**：公司抬头 BygCloud Technology Pte. Ltd.、UEN 注册号 **202645012Z**、DBS 收款账户（SWIFT `DBSSSGSGXXX`）、发票号 2026112620292492532271717、订单号 202611262029、PAID 红章、¥99（大写“人民币玖拾玖元整”）、Singapore GST 0%（国际服务），付款邮箱与交易流水已打码。
+<figure><img src="/images/2026-11/budget/fig20-invoice.webp" alt="图20 白月光正式发票"><div class="fig-cap">图20｜白月光正式发票：公司抬头 BygCloud Technology Pte. Ltd.、UEN 注册号 202645012Z、DBS 收款账户（SWIFT `DBSSSGSGXXX`）、发票号 2026112620292492532271717、订单号 202611262029、PAID 红章、¥99（大写“人民币玖拾玖元整”）、Singapore GST 0%（国际服务），付款邮箱与交易流水已打码。</div></figure>
 
 **这张发票能证明什么，不能证明什么**
 
@@ -284,27 +244,19 @@ description: 三档预算三家服务商全部买入实测：17 元月付试水�
 
 打开代理页，分组全在这一屏：
 
-![图21｜Cocoduck 分组总览](/images/2026-11/budget/fig21-ck-groups.webp)
-
-> 📷 **图21｜Cocoduck 分组总览**：套餐信息（到期 2026-12-05）、节点选择 50、自动选择 6、OpenAI 7、Netflix 26、TVB 4、广告拦截 3，当前选中 香港 ISP 5（延迟 125ms）。
+<figure><img src="/images/2026-11/budget/fig21-ck-groups.webp" alt="图21 Cocoduck 分组总览"><div class="fig-cap">图21｜Cocoduck 分组总览：套餐信息（到期 2026-12-05）、节点选择 50、自动选择 6、OpenAI 7、Netflix 26、TVB 4、广告拦截 3，当前选中 香港 ISP 5（延迟 125ms）。</div></figure>
 
 Netflix 分组挂 26 个节点，是真的下本。港台日先密集铺开：
 
-![图22｜Cocoduck 节点列表前段](/images/2026-11/budget/fig22-ck-nodes-1.webp)
-
-> 📷 **图22｜Cocoduck 节点列表前段**：香港 1-8（延迟 105-157ms）、台湾 1-4、日本 1-3，当前选中 香港 ISP 5，全部 Vless/UDP/XUDP。
+<figure><img src="/images/2026-11/budget/fig22-ck-nodes-1.webp" alt="图22 Cocoduck 节点列表前段"><div class="fig-cap">图22｜Cocoduck 节点列表前段：香港 1-8（延迟 105-157ms）、台湾 1-4、日本 1-3，当前选中 香港 ISP 5，全部 Vless/UDP/XUDP。</div></figure>
 
 往下翻，欧洲来了：
 
-![图23｜Cocoduck 节点列表中段](/images/2026-11/budget/fig23-ck-nodes-2.webp)
-
-> 📷 **图23｜Cocoduck 节点列表中段**：日本 4、新加坡 1-4、美国 1-4、德国、英国、法国、希腊、瑞典、芬兰、瑞士、泰国、印度——欧洲主要国家都在。
+<figure><img src="/images/2026-11/budget/fig23-ck-nodes-2.webp" alt="图23 Cocoduck 节点列表中段"><div class="fig-cap">图23｜Cocoduck 节点列表中段：日本 4、新加坡 1-4、美国 1-4、德国、英国、法国、希腊、瑞典、芬兰、瑞士、泰国、印度——欧洲主要国家都在。</div></figure>
 
 再往后是冷门地区：
 
-![图24｜Cocoduck 节点列表末段](/images/2026-11/budget/fig24-ck-nodes-3.webp)
-
-> 📷 **图24｜Cocoduck 节点列表末段**：印度 1-2、韩国 ISP 1-2、爱尔兰、土耳其、奥地利、澳大利亚 ISP、加拿大 ISP、菲律宾、柬埔寨、印尼、俄罗斯、葡萄牙、西班牙、马来西亚 ISP、阿联酋。
+<figure><img src="/images/2026-11/budget/fig24-ck-nodes-3.webp" alt="图24 Cocoduck 节点列表末段"><div class="fig-cap">图24｜Cocoduck 节点列表末段：印度 1-2、韩国 ISP 1-2、爱尔兰、土耳其、奥地利、澳大利亚 ISP、加拿大 ISP、菲律宾、柬埔寨、印尼、俄罗斯、葡萄牙、西班牙、马来西亚 ISP、阿联酋。</div></figure>
 
 数下来 28 个地区。对"看剧查资料"的人来说，港日美台欧主流地区全覆盖，**这一档的参数就够用**。
 
@@ -312,57 +264,39 @@ Netflix 分组挂 26 个节点，是真的下本。港台日先密集铺开：
 
 先看分组，比 Cocoduck 细得多：
 
-![图25｜红杏云分组总览一](/images/2026-11/budget/fig25-hx-groups-1.webp)
-
-> 📷 **图25｜红杏云分组总览（一）**：代理 96、自动选择 89、奈飞 91、HBO 91、迪士尼 91、油管 91、哔哩哔哩 91、MyTV 91、AI 91。
+<figure><img src="/images/2026-11/budget/fig25-hx-groups-1.webp" alt="图25 红杏云分组总览一"><div class="fig-cap">图25｜红杏云分组总览一：代理 96、自动选择 89、奈飞 91、HBO 91、迪士尼 91、油管 91、哔哩哔哩 91、MyTV 91、AI 91。</div></figure>
 
 流媒体之外，工具类服务也各有分组：
 
-![图26｜红杏云分组总览二](/images/2026-11/budget/fig26-hx-groups-2.webp)
-
-> 📷 **图26｜红杏云分组总览（二）**：电报、加密货币、Steam 等分流组，每组挂 91 个节点。
+<figure><img src="/images/2026-11/budget/fig26-hx-groups-2.webp" alt="图26 红杏云分组总览二"><div class="fig-cap">图26｜红杏云分组总览二：电报、加密货币、Steam 等分流组，每组挂 91 个节点。</div></figure>
 
 直连和兜底这些保底分组也在：
 
-![图27｜红杏云分组总览三](/images/2026-11/budget/fig27-hx-groups-3.webp)
-
-> 📷 **图27｜红杏云分组总览（三）**：Xbox、微软、学术、苹果、谷歌、TikTok、直连、兜底——¥28.80 的档位给到 16+ 个分组，**这是 ¥28.80 这一档最超预期的地方**。
+<figure><img src="/images/2026-11/budget/fig27-hx-groups-3.webp" alt="图27 红杏云分组总览三"><div class="fig-cap">图27｜红杏云分组总览三：Xbox、微软、学术、苹果、谷歌、TikTok、直连、兜底——¥28.80 的档位给到 16+ 个分组，这是 ¥28.80 这一档最超预期的地方。</div></figure>
 
 节点列表从香港开始，命名很有信息量——家宽、BT 下载专用、负载均衡都标出来了：
 
-![图28｜红杏云节点列表一](/images/2026-11/budget/fig28-hx-nodes-1.webp)
-
-> 📷 **图28｜红杏云节点列表（一）**：香港 01-05 + 香港家宽 + BT下载专用；节点信息卡显示剩余流量 200GB、套餐到期 2026-12-26。
+<figure><img src="/images/2026-11/budget/fig28-hx-nodes-1.webp" alt="图28 红杏云节点列表一"><div class="fig-cap">图28｜红杏云节点列表一：香港 01-05 + 香港家宽 + BT下载专用；节点信息卡显示剩余流量 200GB、套餐到期 2026-12-26。</div></figure>
 
 往南，新加坡、日本、台湾一字排开，原生和家宽直接标在节点名里：
 
-![图29｜红杏云节点列表二](/images/2026-11/budget/fig29-hx-nodes-2.webp)
-
-> 📷 **图29｜红杏云节点列表（二）**：新加坡 01-04 + 原生 + BT专用 + 负载均衡、日本 01-04 + 原生、台湾 01-04 + 家宽 + 负载均衡。
+<figure><img src="/images/2026-11/budget/fig29-hx-nodes-2.webp" alt="图29 红杏云节点列表二"><div class="fig-cap">图29｜红杏云节点列表二：新加坡 01-04 + 原生 + BT专用 + 负载均衡、日本 01-04 + 原生、台湾 01-04 + 家宽 + 负载均衡。</div></figure>
 
 美国和东北亚——韩国原生01-2X 已经标了红色 Timeout：
 
-![图30｜红杏云节点列表三](/images/2026-11/budget/fig30-hx-nodes-3.webp)
-
-> 📷 **图30｜红杏云节点列表（三）**：美国 01-04 + 原生 01-02 + 负载均衡、韩国（首尔 / 原生）、德国 01-02、法国 01-02、英国 01-02 + 家宽、印度西部。
+<figure><img src="/images/2026-11/budget/fig30-hx-nodes-3.webp" alt="图30 红杏云节点列表三"><div class="fig-cap">图30｜红杏云节点列表三：美国 01-04 + 原生 01-02 + 负载均衡、韩国（首尔 / 原生）、德国 01-02、法国 01-02、英国 01-02 + 家宽、印度西部。</div></figure>
 
 冷门大洲开始出现：
 
-![图31｜红杏云节点列表四](/images/2026-11/budget/fig31-hx-nodes-4.webp)
-
-> 📷 **图31｜红杏云节点列表（四）**：智利、巴西 01-02、西班牙、瑞士、瑞典、墨西哥 01-02、加拿大 + 家宽、澳大利亚 01-02、迪拜 01-02、南非、沙特 01-02——**¥28.80 的档位连南美和非洲都有**。
+<figure><img src="/images/2026-11/budget/fig31-hx-nodes-4.webp" alt="图31 红杏云节点列表四"><div class="fig-cap">图31｜红杏云节点列表四：智利、巴西 01-02、西班牙、瑞士、瑞典、墨西哥 01-02、加拿大 + 家宽、澳大利亚 01-02、迪拜 01-02、南非、沙特 01-02——¥28.80 的档位连南美和非洲都有。</div></figure>
 
 中东和非洲也进来了，Timeout 开始零星冒头：
 
-![图32｜红杏云节点列表五](/images/2026-11/budget/fig32-hx-nodes-5.webp)
-
-> 📷 **图32｜红杏云节点列表（五）**：哥伦比亚、以色列、越南、泰国、马来西亚、莫斯科、菲律宾、尼日利亚 01-02、印尼、土耳其、希腊（Timeout）、缅甸、巴基斯坦（Timeout）。
+<figure><img src="/images/2026-11/budget/fig32-hx-nodes-5.webp" alt="图32 红杏云节点列表五"><div class="fig-cap">图32｜红杏云节点列表五：哥伦比亚、以色列、越南、泰国、马来西亚、莫斯科、菲律宾、尼日利亚 01-02、印尼、土耳其、希腊（Timeout）、缅甸、巴基斯坦（Timeout）。</div></figure>
 
 北欧、非洲收尾：
 
-![图33｜红杏云节点列表六](/images/2026-11/budget/fig33-hx-nodes-6.webp)
-
-> 📷 **图33｜红杏云节点列表（六）**：挪威、柬埔寨、埃及、伊拉克、孟加拉、哈萨克斯坦、阿根廷（Timeout）、意大利、荷兰、摩洛哥、芬兰。**Timeout 就是失活节点**，当天撞上 4 个（韩国原生、希腊、巴基斯坦、阿根廷）——哪个价位的线路都有失活节点，学会测延迟换节点比挑服务商更重要。
+<figure><img src="/images/2026-11/budget/fig33-hx-nodes-6.webp" alt="图33 红杏云节点列表六"><div class="fig-cap">图33｜红杏云节点列表六：挪威、柬埔寨、埃及、伊拉克、孟加拉、哈萨克斯坦、阿根廷（Timeout）、意大利、荷兰、摩洛哥、芬兰。Timeout 就是失活节点，当天撞上 4 个（韩国原生、希腊、巴基斯坦、阿根廷）——哪个价位的线路都有失活节点，学会测延迟换节点比挑服务商更重要。</div></figure>
 
 44 个地区，南美、非洲、中亚全沾边。**对月用量 150G 往上的人，这一档是主战场。**
 
@@ -370,63 +304,43 @@ Netflix 分组挂 26 个节点，是真的下本。港台日先密集铺开：
 
 分组数也最多，这次数下来：
 
-![图34｜白月光分组总览一](/images/2026-11/budget/fig34-byg-groups-1.webp)
-
-> 📷 **图34｜白月光分组总览（一）**：默认节点 109（策略组条目数，含 7 个分组引用，真实节点见图37）、Netflix 9、Spotify 9、HBO 9、Disney+ 9、AI 9、Apple 9、YouTube 9。
+<figure><img src="/images/2026-11/budget/fig34-byg-groups-1.webp" alt="图34 白月光分组总览一"><div class="fig-cap">图34｜白月光分组总览一：默认节点 109（策略组条目数，含 7 个分组引用，真实节点见图37）、Netflix 9、Spotify 9、HBO 9、Disney+ 9、AI 9、Apple 9、YouTube 9。</div></figure>
 
 流媒体组拆得更细，每组固定挂 9 个节点：
 
-![图35｜白月光分组总览二](/images/2026-11/budget/fig35-byg-groups-2.webp)
-
-> 📷 **图35｜白月光分组总览（二）**：Google 9、Microsoft 9、DAZN 9、TikTok 9、Instagram 9、X 9、Telegram 9、台湾流媒体 6。
+<figure><img src="/images/2026-11/budget/fig35-byg-groups-2.webp" alt="图35 白月光分组总览二"><div class="fig-cap">图35｜白月光分组总览二：Google 9、Microsoft 9、DAZN 9、TikTok 9、Instagram 9、X 9、Telegram 9、台湾流媒体 6。</div></figure>
 
 PayPal、Steam 这类工具服务也各有分组，外加五个地区直达组：
 
-![图36｜白月光分组总览三](/images/2026-11/budget/fig36-byg-groups-3.webp)
-
-> 📷 **图36｜白月光分组总览（三）**：Crypto、Google Play、OneDrive、PayPal、Steam、Speedtest、漏网之鱼，外加港/台/日/新/美五个地区直达组。
+<figure><img src="/images/2026-11/budget/fig36-byg-groups-3.webp" alt="图36 白月光分组总览三"><div class="fig-cap">图36｜白月光分组总览三：Crypto、Google Play、OneDrive、PayPal、Steam、Speedtest、漏网之鱼，外加港/台/日/新/美五个地区直达组。</div></figure>
 
 全部节点和自动选择两个组，各自挂 102：
 
-![图37｜白月光分组总览四](/images/2026-11/budget/fig37-byg-groups-4.webp)
-
-> 📷 **图37｜白月光分组总览（四）**：全部节点 102、自动选择 102——**30 个分组，这次数下来三家最多**。
+<figure><img src="/images/2026-11/budget/fig37-byg-groups-4.webp" alt="图37 白月光分组总览四"><div class="fig-cap">图37｜白月光分组总览四：全部节点 102、自动选择 102——30 个分组，这次数下来三家最多。</div></figure>
 
 节点列表才是重头戏：
 
-![图38｜白月光节点列表一](/images/2026-11/budget/fig38-byg-nodes-1.webp)
-
-> 📷 **图38｜白月光节点列表（一）**：V香港 01-10、V台湾 01-05、V日本 01-05（04 标红失活）、V新加坡 01-05。
+<figure><img src="/images/2026-11/budget/fig38-byg-nodes-1.webp" alt="图38 白月光节点列表一"><div class="fig-cap">图38｜白月光节点列表一：V香港 01-10、V台湾 01-05、V日本 01-05（04 标红失活）、V新加坡 01-05。</div></figure>
 
 美国之外，东南亚和南亚小国全在：
 
-![图39｜白月光节点列表二](/images/2026-11/budget/fig39-byg-nodes-2.webp)
-
-> 📷 **图39｜白月光节点列表（二）**：V美国 01-07、V加拿大、V韩国、V越南、V柬埔寨、V马来西亚、V泰国、V印度、V孟加拉、V尼泊尔——东南亚小国它也全。
+<figure><img src="/images/2026-11/budget/fig39-byg-nodes-2.webp" alt="图39 白月光节点列表二"><div class="fig-cap">图39｜白月光节点列表二：V美国 01-07、V加拿大、V韩国、V越南、V柬埔寨、V马来西亚、V泰国、V印度、V孟加拉、V尼泊尔——东南亚小国它也全。</div></figure>
 
 北欧出现了：
 
-![图40｜白月光节点列表三](/images/2026-11/budget/fig40-byg-nodes-3.webp)
-
-> 📷 **图40｜白月光节点列表（三）**：V菲律宾、V印尼、V澳大利亚、V新西兰、V德国、V法国、V瑞士、V英国、V爱尔兰、**V冰岛**——北欧小国出现了，Cocoduck 的列表里没有它。
+<figure><img src="/images/2026-11/budget/fig40-byg-nodes-3.webp" alt="图40 白月光节点列表三"><div class="fig-cap">图40｜白月光节点列表三：V菲律宾、V印尼、V澳大利亚、V新西兰、V德国、V法国、V瑞士、V英国、V爱尔兰、V冰岛——北欧小国出现了，Cocoduck 的列表里没有它。</div></figure>
 
 中东欧与南欧混编，波罗的海三国在场：
 
-![图41｜白月光节点列表四](/images/2026-11/budget/fig41-byg-nodes-4.webp)
-
-> 📷 **图41｜白月光节点列表（四）**：V波兰、V意大利、V西班牙、V荷兰、V芬兰、V奥地利、V立陶宛、V瑞典、V希腊、V拉脱维亚——**波罗的海国家全员在场**。
+<figure><img src="/images/2026-11/budget/fig41-byg-nodes-4.webp" alt="图41 白月光节点列表四"><div class="fig-cap">图41｜白月光节点列表四：V波兰、V意大利、V西班牙、V荷兰、V芬兰、V奥地利、V立陶宛、V瑞典、V希腊、V拉脱维亚——波罗的海国家全员在场。</div></figure>
 
 东欧小国一条龙排到底：
 
-![图42｜白月光节点列表五](/images/2026-11/budget/fig42-byg-nodes-5.webp)
-
-> 📷 **图42｜白月光节点列表（五）**：V马其顿、V阿尔巴尼亚、V格鲁吉亚、V葡萄牙、V乌克兰、V摩尔多瓦、V爱沙尼亚、V克罗地亚、V斯洛文尼亚、V罗马尼亚、V俄罗斯、V保加利亚、V土耳其、V塞尔维亚——**东欧全覆盖**。
+<figure><img src="/images/2026-11/budget/fig42-byg-nodes-5.webp" alt="图42 白月光节点列表五"><div class="fig-cap">图42｜白月光节点列表五：V马其顿、V阿尔巴尼亚、V格鲁吉亚、V葡萄牙、V乌克兰、V摩尔多瓦、V爱沙尼亚、V克罗地亚、V斯洛文尼亚、V罗马尼亚、V俄罗斯、V保加利亚、V土耳其、V塞尔维亚——东欧全覆盖。</div></figure>
 
 中东、非洲、南美收尾，名单长度和它的价位放在一起看：
 
-![图43｜白月光节点列表六](/images/2026-11/budget/fig43-byg-nodes-6.webp)
-
-> 📷 **图43｜白月光节点列表（六）**：V埃及、V尼日利亚、V摩洛哥、V南非、V沙特、V伊拉克、V以色列、V塞浦路斯、V阿曼、V阿联酋、V卡塔尔、V巴基斯坦、V乌兹别克斯坦、V哈萨克斯坦、V阿根廷、V秘鲁、V哥伦比亚、V厄瓜多尔、V哥斯达黎加、V墨西哥、V智利、V乌拉圭。
+<figure><img src="/images/2026-11/budget/fig43-byg-nodes-6.webp" alt="图43 白月光节点列表六"><div class="fig-cap">图43｜白月光节点列表六：V埃及、V尼日利亚、V摩洛哥、V南非、V沙特、V伊拉克、V以色列、V塞浦路斯、V阿曼、V阿联酋、V卡塔尔、V巴基斯坦、V乌兹别克斯坦、V哈萨克斯坦、V阿根廷、V秘鲁、V哥伦比亚、V厄瓜多尔、V哥斯达黎加、V墨西哥、V智利、V乌拉圭。</div></figure>
 
 数下来约 70 个地区。对照 Cocoduck 的 28 个，**差集 30 多个**：冰岛、挪威、乌克兰、波罗的海三国、以色列、卡塔尔、阿曼、塞浦路斯、乌兹别克斯坦、秘鲁、厄瓜多尔、乌拉圭、尼泊尔……**想看这些地区的限定内容，这次三家列表里只有它给得了。**
 
@@ -454,57 +368,39 @@ PayPal、Steam 这类工具服务也各有分组，外加五个地区直达组�
 
 Cocoduck，1080p 起步：
 
-![图44｜Cocoduck 1080p 播放画面](/images/2026-11/budget/fig44-ck-play-1080.webp)
-
-> 📷 **图44｜Cocoduck 1080p 播放画面**：BBC 4K 源纪录片正常播放，画面右上角时间为 2026-11-27 12:46 前后——实测时段入镜。
+<figure><img src="/images/2026-11/budget/fig44-ck-play-1080.webp" alt="图44 Cocoduck 1080p 播放画面"><div class="fig-cap">图44｜Cocoduck 1080p 播放画面：BBC 4K 源纪录片正常播放，画面右上角时间为 2026-11-27 12:46 前后——实测时段入镜。</div></figure>
 
 stats 面板里的 1080p 数据：
 
-![图45｜Cocoduck 1080p stats](/images/2026-11/budget/fig45-ck-stats-1080.webp)
-
-> 📷 **图45｜Cocoduck 1080p stats**：当前 1920x1080@25、丢帧 0/1593、连接速度 37,790 Kbps（≈38 Mbps）、缓冲 10.85s、画质 1080p HD。
+<figure><img src="/images/2026-11/budget/fig45-ck-stats-1080.webp" alt="图45 Cocoduck 1080p stats"><div class="fig-cap">图45｜Cocoduck 1080p stats：当前 1920x1080@25、丢帧 0/1593、连接速度 37,790 Kbps（≈38 Mbps）、缓冲 10.85s、画质 1080p HD。</div></figure>
 
 4K 直接锁住：
 
-![图46｜Cocoduck 4K stats](/images/2026-11/budget/fig46-ck-stats-4k.webp)
-
-> 📷 **图46｜Cocoduck 4K stats**：Current Res 3840x2160@25、丢帧 0/2739、连接速度 59,913 Kbps（≈60 Mbps）、缓冲 12.26s、画质 2160p 4K。**¥17 的档位 4K 零丢帧，试水档这个成绩单很硬。**
+<figure><img src="/images/2026-11/budget/fig46-ck-stats-4k.webp" alt="图46 Cocoduck 4K stats"><div class="fig-cap">图46｜Cocoduck 4K stats：Current Res 3840x2160@25、丢帧 0/2739、连接速度 59,913 Kbps（≈60 Mbps）、缓冲 12.26s、画质 2160p 4K。¥17 的档位 4K 零丢帧，试水档这个成绩单很硬。</div></figure>
 
 红杏云反过来，先给 4K：
 
-![图47｜红杏云 4K 播放画面](/images/2026-11/budget/fig47-hx-play-4k.webp)
-
-> 📷 **图47｜红杏云 4K 播放画面**：BBC 素材正常播放中（鸵鸟段），播放不卡顿。
+<figure><img src="/images/2026-11/budget/fig47-hx-play-4k.webp" alt="图47 红杏云 4K 播放画面"><div class="fig-cap">图47｜红杏云 4K 播放画面：BBC 素材正常播放中（鸵鸟段），播放不卡顿。</div></figure>
 
 同一个节点，先看 1080p：
 
-![图48｜红杏云 1080p stats](/images/2026-11/budget/fig48-hx-stats-1080.webp)
-
-> 📷 **图48｜红杏云 1080p stats**：当前 1920x1080@25、丢帧 0/2343、连接速度 7,987 Kbps、**缓冲 47.47s**、画质“自动 (1080p)”。注意这是 **1080p** 的余量，和下一张 4K 的 3.58s 放一起才看得出带宽贴没贴上限。
+<figure><img src="/images/2026-11/budget/fig48-hx-stats-1080.webp" alt="图48 红杏云 1080p stats"><div class="fig-cap">图48｜红杏云 1080p stats：当前 1920x1080@25、丢帧 0/2343、连接速度 7,987 Kbps、缓冲 47.47s、画质“自动 (1080p)”。注意这是 1080p 的余量，和下一张 4K 的 3.58s 放一起才看得出带宽贴没贴上限。</div></figure>
 
 切到 4K，同一个节点：
 
-![图49｜红杏云 4K stats](/images/2026-11/budget/fig49-hx-stats-4k.webp)
-
-> 📷 **图49｜红杏云 4K stats**：Current Res 3840x2160@25、丢帧 0/1772、连接速度 9,917 Kbps（≈10 Mbps）、**缓冲 3.58s**。同一家从 1080p 切到 4K，缓冲从 47.47s 掉到 3.58s——分辨率扛住了，但它是“贴着带宽上限跑”，网络一抖最先卡的就是它。
+<figure><img src="/images/2026-11/budget/fig49-hx-stats-4k.webp" alt="图49 红杏云 4K stats"><div class="fig-cap">图49｜红杏云 4K stats：Current Res 3840x2160@25、丢帧 0/1772、连接速度 9,917 Kbps（≈10 Mbps）、缓冲 3.58s。同一家从 1080p 切到 4K，缓冲从 47.47s 掉到 3.58s——分辨率扛住了，但它是“贴着带宽上限跑”，网络一抖最先卡的就是它。</div></figure>
 
 白月光，还是 1080p 起步：
 
-![图50｜白月光 1080p 播放画面](/images/2026-11/budget/fig50-byg-play-1080.webp)
-
-> 📷 **图50｜白月光 1080p 播放画面**：BBC 4K 源素材（30:58 那条）正常播放，时段 2026-11-27 13:21。
+<figure><img src="/images/2026-11/budget/fig50-byg-play-1080.webp" alt="图50 白月光 1080p 播放画面"><div class="fig-cap">图50｜白月光 1080p 播放画面：BBC 4K 源素材（30:58 那条）正常播放，时段 2026-11-27 13:21。</div></figure>
 
 stats 显示带宽很富余：
 
-![图51｜白月光 1080p stats](/images/2026-11/budget/fig51-byg-stats-1080.webp)
-
-> 📷 **图51｜白月光 1080p stats**：当前 1920x1080@25、Optimal Res 已判定可上 3840x2160、丢帧 0/2420、连接速度 72,839 Kbps（≈73 Mbps）、缓冲 16.86s。**这张图还送一个小贴士**：画质设"自动"时 YouTube 明明判定网络能扛 4K，却只给 1080p——**自动档永远舍不得给 4K，手动锁才作数**，很多人以为自己带宽不够，其实只是没手动点一下。
+<figure><img src="/images/2026-11/budget/fig51-byg-stats-1080.webp" alt="图51 白月光 1080p stats"><div class="fig-cap">图51｜白月光 1080p stats：当前 1920x1080@25、Optimal Res 已判定可上 3840x2160、丢帧 0/2420、连接速度 72,839 Kbps（≈73 Mbps）、缓冲 16.86s。这张图还送一个小贴士：画质设"自动"时 YouTube 明明判定网络能扛 4K，却只给 1080p——自动档永远舍不得给 4K，手动锁才作数，很多人以为自己带宽不够，其实只是没手动点一下。</div></figure>
 
 4K 锁住，缓冲这次最厚：
 
-![图52｜白月光 4K stats](/images/2026-11/budget/fig52-byg-stats-4k.webp)
-
-> 📷 **图52｜白月光 4K stats**：Current Res 3840x2160@25、丢帧 0/3572、连接速度 27,948 Kbps、**缓冲 17.73s**、画质 2160p 4K。
+<figure><img src="/images/2026-11/budget/fig52-byg-stats-4k.webp" alt="图52 白月光 4K stats"><div class="fig-cap">图52｜白月光 4K stats：Current Res 3840x2160@25、丢帧 0/3572、连接速度 27,948 Kbps、缓冲 17.73s、画质 2160p 4K。</div></figure>
 
 **结论**：白天档三家都能看 4K，平时看不出差别，差距全在 4K 余量——17.73s / 12.26s / 3.58s。**余量薄不是"不行"，是“晚高峰最可能先紧的就是它”（⚠️未测晚高峰，见开头第 2 条）**。另外别忘了第四节的 5 个失活节点（红杏云 4、白月光 1）：**节点失活是常态，测延迟、换节点是基本功，哪家都一样。**
 
